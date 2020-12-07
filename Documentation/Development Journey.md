@@ -238,3 +238,5 @@ The following configuration and log lines in migration currently produce the fol
 This is a much better alternative than printing with wild abandon. It's informative, accurate, and persistent.
 
 ### Okay, back to migration.
+
+It waw fairly simple to get the remainder of my migration code up and running. You can see the version I am happy with [here](https://github.com/mtmars-aexp/quiz-manager/commit/6c8c7799c2924a3d484033bafab183712e21bb92#diff-2d995d9d23c0dabc2a69694c4f9d08b8a3c8d1476e756f7aa7b6a561e73e40cb) on my GitHub page.
