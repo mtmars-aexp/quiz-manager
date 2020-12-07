@@ -20,9 +20,9 @@ I've got 5 days, and a total of 40 hours, to create a quiz manager for the hypot
 
 - A quiz has a title and a numbered sequence of questions. Each question is a text string. Each question has **between 3 and 5 answers** (this answers my above assumption about there only being 4 answers).
 
-## Day 1
+# Day 1
 
-### Design and Planning
+## Design and Planning
 
 Alright, having reviewed the document, I'm ready to begin. I'm going to create some additional documentation to help puzzle out my thoughts. The last thing I want to do is get half way into making a database or UI only to realize it doesn't actually work. I plan on developing this application using React (a JavaScript framework) for my front end user interface, and Flask (a python framework) for my backend database work. I intend for my database to be ran with SQLite.
 
@@ -81,3 +81,160 @@ text: string
 question_id: int, foreign key
 is_correct: bool
 ```
+
+## Development
+
+With a plan now firm in my mind, I'm ready to begin development. My first task will be setting up a React frontend and a Flask + SQLite backend.
+
+### Installing React
+
+I already had npm (Node Package Manager) set up on my computer from previous projects, so installing React was one simple line in my command line.
+
+![A screenshot of me installing React to my project](img/installing-react.png)
+
+### Setting up React
+
+Installing it was easy, but actually getting it to start has sent me spiralling into an existential crisis. There's a lot of fiddliness with getting a React project to work, let alone if you want to do something such as route multiple pages. Plain HTML and JavaScript requires you need only point to the location of the HTML page you'd like to load, but React requires a Router object and fiddling with props. Thus I am forced to confront if React would really be the best decision for this project.
+
+### Pros and Cons
+
+React:
+- Points for style.
+- Reusable components (a definite plus. It's tough to spawn components dynamically with vanilla JS.)
+
+HTML + JS:
+- Faster. Less overhead.
+- Almost no setup time.
+- Easier to route.
+
+For this project, I will need to make API calls to a backend, then render visual HTML elements based on the JSON I receive from it. However, the HTML elements will need to be linked to the data they represent so that it can be compared later (the page needs to know the correct answers to the questions).
+
+Since front ends are merely a means of interacting with the backend, I can be flexible with my implementation. I will work more on my backend before returning to this problem.
+
+### Installing Flask
+
+Installing Flask is easy, as is most things handled with Pip, Python's package manager. I already have Flask installed on my computer from previous projects, but ran the install command anyway for demonstrative purposes.
+
+![A screenshot of Flask being installed by Pip](img/installing-flask-with-pip.png)
+
+I also included a `requirements.txt` file in the root of my `quiz-backend` directory. This is a good practice which allows any new contributor or user of the project to know what versions of what dependencies need to be installed. My `requirements.txt` file is simple, as we only require one dependency for now.
+
+![A screenshot of my requirements.txt file](img/flask-requirements.png)
+
+### Running Flask
+
+Unlike React, running Flask is as easy as installing it. I wrote some very basic code and had it running in minutes. It returns "Hello, world!" when accessed at 127.0.0.1:5000.
+
+![A screenshot of Flask running in my terminal with some example code](img/running-flask.png)
+
+### Setting up the database
+
+For starters, I like to keep the database in its own module for tidiness, and keep the connection and cursor as class (static) variables so that no matter what instance of the database object I have, I still have consistent access to the database.
+
+```py
+import sqlite3
+
+def dict_factory(self, cursor, row):
+    d = {}
+    for idx, col in enumerate(cursor.description):
+        d[col[0]] = row[idx]
+    return d
+
+class Database():
+
+    connection = None
+    cursor = None
+    default_db_name = "quiz_manager.sqlite3"
+
+    def __init__(self, db_name = None):
+        if Database.connection is None:
+            # Create new connection.
+            Database.connection = sqlite3.connect(Database.default_db_name if db_name is None else db_name)
+            Database.connection.row_factory = dict_factory # I don't like tuples so this makes it give me dictionaries instead. Much nicer.
+            self.connection = Database.connection
+        if Database.cursor is None:
+            # Create new cursor if none found.
+            Database.cursor = Database.connection.cursor()
+            self.cursor = Database.cursor
+```
+
+I started with the usual boilerplate I use in every SQLite project.
+
+- An `__init__` function that spawns new connections and cursors if none are present.
+- A function that gives me dictionaries instead of tuples, which are the SQLite default. I find tuples to be troublesome and inflexible.
+
+### Setting up Migration
+
+The sooner I get database migration securely setup, the less chance of error I will have further down the line. Migration is essentially the practice of creating your database from start to finish in a way that is repeatable, similar to how Docker files work. I will implement a system that reads SQL files, hashes them, and runs them, storing the hash in a database for comparison the next time migration is done.
+
+Here is the current skeleton I've built so far:
+
+```py
+self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='migrations'") # Check if migrations table already exists.
+if self.cursor.fetchone() is None: # If it doesn't...
+    with open("res/CREATE_MIGRATION_TABLE.sql") as create_migration_table: # Create it.
+        self.cursor.executescript(create_migration_table.read())
+        self.connection.commit()
+
+for migration_file in sorted(glob.glob("res/M_*.sql")): # Find all migration files.
+    with open(migration_file) as migration_script:
+        migration_hash_current = sha256(migration_script.read().encode()).hexdigest()
+        migration_hash_saved = self.cursor.execute("SELECT hash FROM migrations WHERE filename=:filename", {"filename": migration_file}).fetchone()
+
+        print(f"Current hash: {migration_hash_current}")
+        print(f"Saved hash: {migration_hash_saved}")
+
+        if migration_hash_saved is None:
+            print("Hash not found in migration table. Executing and saving to DB.")
+
+        if migration_hash_current != migration_hash_saved:
+            print("Hashes do not match.")
+```
+
+The migration table creation functionality works as intended, now I need to add the migration scripts necessary to create my database and all necessary tables (users, quizzes, questions, and answers).
+
+### Logging
+
+Flask doesn't enjoy `print`ing stuff, and I like to follow best practices, so rather than use print statements, I will be using a logger instead. Loggers allow a much greater degree of control over my informational output, including timestamps and recording log lines to file for later analysis.
+
+```py
+LOGGER.info("Beginning migration...")
+
+[...]
+
+LOGGER.info(f"Read file: {migration_script}")
+LOGGER.info(f"Current hash: {migration_hash_current}")
+LOGGER.info(f"Hash in database: {migration_hash_saved}")
+
+if migration_hash_saved is None:
+    LOGGER.info("Hash not found in database. Executing script and saving it to database.")
+
+if migration_hash_current != migration_hash_saved:
+    LOGGER.error(f"Hash of file {migration_script} does not match hash found in database.")
+
+[...]
+
+LOGGER.info(f"Migration complete! Ran {number_of_files} files.")
+```
+
+My logger configuration is setup in `main.py`, since that's the main entry point into the program.
+
+```py
+logger = logging.getLogger('quiz_manager')
+formatter = logging.Formatter(fmt='%(asctime)s.%(msecs)03d :: %(levelname)s :: %(message)s', datefmt='%Y-%m-%d :: %H:%M:%S')
+ch = logging.StreamHandler()
+ch.setFormatter(formatter)
+fh = logging.FileHandler('quiz_manager_logs.txt')
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+logger.addHandler(ch)
+logger.setLevel(logging.INFO)
+```
+
+The following configuration and log lines in migration currently produce the following output when ran:
+
+![A screenshot of my logger output](img/quiz-manager-logs.png)
+
+This is a much better alternative than printing with wild abandon. It's informative, accurate, and persistent.
+
+### Okay, back to migration.
