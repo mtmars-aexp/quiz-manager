@@ -369,3 +369,15 @@ def home():
 And wouldn't you know it, Python, being the most useful language ever, has a json library that can take in a list of dictionaries and splurg out some nice tasty JSON. All it took was changing the return statement to `return json.dumps(quizzes)` and it works! 
 
 ![A screenshot of a successful Postman response](img/postman.png)
+
+### Time to Man Up
+
+Alright, I've had some lunch from a delicious vegan Athenian place, I've had a drinky, and I've made a decision: I will man up and use React. I'm a big strong boy and I looked up the react Router and it honestly doesn't seem that terrifying. I intend to use the `create-react-app` tool rather than installing React and attempting to fumble blindly.
+
+![A screenshot of react being installed with create-react-app](img/installing-with-create-react-app.png)
+
+I'm glad the npm and `create-react-app` installer looks so pretty because I'd be bored to tears otherwise given how long it takes to install. Anyways, easy install! This is much more befitting a small baby child developer such as I, hands uncalloused, sheltered from all the wearies of the world. And now, the moment of truth:
+
+![A screenshot of the default React page.](img/react-works.png)
+
+It works! Huzzah. With this solid foundation I can now begin to build my grand, and wonderful quiz manager.
