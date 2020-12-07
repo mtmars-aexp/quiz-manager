@@ -35,3 +35,25 @@ I made a time planner to keep myself focused and on target. 5 days is a lean amo
 ### UI Plans
 
 I've decided to sketch out my ideas for the UI on paper, because I don't know of any reliable UI tools and didn't want to waste valuable time finding and learning one.
+
+Firstly: The login page.
+
+![A drawing of the login page](img/login_sketch.jpg)
+
+As you can see, I am intentionally trying to maintain a minimalist aesthetic for my quiz manager, with a colour scheme of primarily white (in the background) and grey (in the foreground). I value the functionality of the product over its appearance and will therefore be focusing more on the former than the latter. In addition, as noted, minimalism will make it easier to rebrand in the future, as there is less to change. I'm not married to the idea of putting the logo and title on the login page, but it makes sense as it will likely be the first thing a new or returning user sees when they use the website.
+
+![A drawing of the home page](img/home_sketch.jpg)
+
+Once again, minimalism is key here. The main focus here is the list of clickable quiz buttons. The list will be as long as however many quizzes are in the database. I am imagining the homepage making a call to the backend, something like `localhost:8081/quizzes`, which will read from the database, then parse that data into usable JSON before returning it. React has the ability to iterate over an array and render an item for every element in the list. I learned and used it during my apprenticeship at American Express, so it should be a cinch to replicate it here. The backend will need to return:
+
+- Name of the quiz
+- Description (optional)
+- ID of the quiz (to be used in the link).
+
+As mentioned in the sketch, I'd like for the links to the quizzes to contain an "id" query string. This will easily allow the front end to ask the back end for the right questions associated with a quiz.
+
+Finally, the quiz page itself:
+
+![A drawing of the quiz page](img/quiz_sketch.jpg)
+
+Similarly to the home page's quiz list, each question of the quiz will be rendered in its own box. Answers will be in the form of radio buttons (meaning only one answer is selectable), and the user is able to submit their answers at the bottom of the page, where their score will then be revealed. If they chose correctly, then the button will be highlighted green. Otherwise their incorrect answer will be highlighted in red, with the correct answer shown in green.
