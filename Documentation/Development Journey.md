@@ -240,3 +240,112 @@ This is a much better alternative than printing with wild abandon. It's informat
 ### Okay, back to migration.
 
 It waw fairly simple to get the remainder of my migration code up and running. You can see the version I am happy with [here](https://github.com/mtmars-aexp/quiz-manager/commit/6c8c7799c2924a3d484033bafab183712e21bb92#diff-2d995d9d23c0dabc2a69694c4f9d08b8a3c8d1476e756f7aa7b6a561e73e40cb) on my GitHub page.
+
+Now the code executes the SQL file if its hash is not found in the Migrations table, and inserts it there afterwards, otherwise it will compare the hashes to check for a mismatch and raise an exception if one is noticed. File hashes are the de facto way of checking file validity because they are a fixed-length series of bytes calculated using very fancy mathematics based on the binary data of any file, meaning if even a single bit is changed the hash will calculate different and you will know something has changed.
+
+### Adding Test Data.
+
+Alright, my first migration file, `M_0001_CREATE_SCHEMA.sql`, creates the backend's three main data tables:
+
+```
+CREATE TABLE Quizzes (
+	quiz_id integer PRIMARY KEY,
+	name text NOT NULL,
+	description text
+);
+
+CREATE TABLE Questions (
+	question_id integer PRIMARY KEY,
+	quiz_id integer,
+	text text NOT NULL
+);
+
+CREATE TABLE Answers (
+	answer_id integer PRIMARY KEY,
+	question_id integer,
+	text text NOT NULL
+);
+```
+
+As you can see, it's very similar to the plan mentioned earlier in the design section. Let's hope the rest of the project is as one-to-one. Now, for the test data, which I will tidily add in `M_0003_ADD_TEST_DATA.sql`. Before that, however, I need to add a `M_0002_ADD_AUTO_INCREMENT.sql` file, because I forgot to add auto incrementation to my original column definitions. The easiest and simplest way to do this is to drop all three tables and redefine them.
+
+```
+DROP TABLE Quizzes;
+DROP TABLE Questions;
+DROP TABLE Answers;
+
+CREATE TABLE Quizzes (
+	quiz_id integer PRIMARY KEY AUTOINCREMENT,
+	name text NOT NULL,
+	description text
+);
+
+CREATE TABLE Questions (
+	question_id integer PRIMARY KEY AUTOINCREMENT,
+	quiz_id integer,
+	text text NOT NULL
+);
+
+CREATE TABLE Answers (
+	answer_id integer PRIMARY KEY AUTOINCREMENT,
+	question_id integer,
+	text text NOT NULL
+);
+```
+
+Now we can add our test data.
+
+```
+INSERT INTO Quizzes(quiz_id, name, description) VALUES(1, "Alpha quiz!","Beep boop!"), (2, "Beta quiz!","Boop beep?? :O");
+INSERT INTO Questions(question_id, quiz_id, text) VALUES(1,1,"Who's a good boy??"), (2,2,"Are you a robot?");
+INSERT INTO Answers(answer_id, question_id, text) VALUES(1,1,"Wruff!"),(2,1,"Me me me!!"),(3,2,"Yes!"),(4,2,"Absolutely!");
+```
+
+Truly a historic moment, I wrote that first time without any syntax errors.
+
+![A screenshot of an SQLite database browser](img/sqlite-editor.png)
+
+Taking a look at my hand SQLite database browser, I can see the test data has been successfully added. Now let's see if I can access that data through a Flask endpoint.
+
+### Accessing Data Via a Flask Endpoint
+
+At the moment I'm still too paralyzed with indecision to make a choice regarding React vs Pure HTML, so I will be making these requests through Postman, a tool for testing and making API requests.
+
+While writing some simple code to query my database after an endpoint is hit, I ran into an unexpected error.
+
+```py
+[main.py]
+@app.route("/")
+def home():
+    return db.get_all_quizzes()
+
+[database.py]
+def get_all_quizzes(self):
+    self.cursor.execute("SELECT * FROM Quizzes;")
+    return self.cursor.fetchall()
+```
+
+```py
+self.cursor.execute("SELECT * FROM Quizzes;")
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1452 and this is thread id 10264.
+```
+
+I've never seen this error before, as I've used Flask and SQL lite before but rarely combined the two in a sophisticated manner. Databases are governed by the "ACID" principles, which stand for "Atomicity, Consistency, Isolation, and Durability." In brief, they are designed to reduce data conflicts by guaranteeing certain things such as "That data either _was_ or _was not_ inserted. There is no inbetween." Asyncronous threads throw a big wrench into this plan, which is what is happening here. I'm trying to access an SQLite connection created by another thread, which could lead to data inconsistencies down the line. I usually like to keep a persistent connection to the SQLite database, but if SQLite deems it unwise in conjunction with Flask's asyncrynocity, then I will refactor my code accordingly.
+
+### A Brief Refactoring
+
+This is a minor setback and an easy fix. I will simply refactor my database module to no longer be an object. I will call the methods directly and I will open the connections as and when I need them. I'm concerned about the overhead of having to constantly open and close connections but I'm similarly happy about the _lack_ of overhead from no longer needing to instantiate an object.
+
+```py
+def migrate():
+
+    LOGGER.info("Beginning migration...")
+
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+```
+
+Aand done. Database has been refactored.
+
+### Back to Flask Endpoints

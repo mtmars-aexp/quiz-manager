@@ -4,6 +4,7 @@ from hashlib import sha256
 from logging import getLogger
 
 LOGGER = getLogger("quiz_manager")
+db_name = "quiz_manager.sqlite3"
 
 def dict_factory(cursor, row):
     d = {}
@@ -14,57 +15,52 @@ def dict_factory(cursor, row):
 def extract_filename_from_list(dict_list):
     return dict_list["filename"]
 
-class Database():
+def migrate():
 
-    connection = None
-    cursor = None
-    default_db_name = "quiz_manager.sqlite3"
+    LOGGER.info("Beginning migration...")
 
-    def __init__(self, db_name = None):
-        if Database.connection is None:
-            # Create new connection.
-            Database.connection = sqlite3.connect(Database.default_db_name if db_name is None else db_name)
-            Database.connection.row_factory = dict_factory # I don't like tuples so this makes it give me dictionaries instead. Much nicer.
-            self.connection = Database.connection
-        if Database.cursor is None:
-            # Create new cursor if none found.
-            Database.cursor = Database.connection.cursor()
-            self.cursor = Database.cursor
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
 
-    def migrate(self):
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Migrations'") # Check if migrations table already exists.
+    if cursor.fetchone() is None: # If it doesn't...
+        with open("res/CREATE_MIGRATION_TABLE.sql") as create_migration_table: # Create it.
+            LOGGER.info("Migration table created.")
+            cursor.executescript(create_migration_table.read())
+            connection.commit()
 
-        LOGGER.info("Beginning migration...")
+    for migration_file in sorted(glob.glob("res/M_*.sql")): # Find all migration files.
+        with open(migration_file) as migration_script:
+            migration_hash_current = sha256(migration_script.read().encode()).hexdigest()
+            migration_hash_saved = cursor.execute("SELECT hash FROM Migrations WHERE filename=:filename", {"filename": migration_file}).fetchone()
 
-        self.cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='Migrations'") # Check if migrations table already exists.
-        if self.cursor.fetchone() is None: # If it doesn't...
-            with open("res/CREATE_MIGRATION_TABLE.sql") as create_migration_table: # Create it.
-                LOGGER.info("Migration table created.")
-                self.cursor.executescript(create_migration_table.read())
-                self.connection.commit()
+            LOGGER.info("---------------------------")
+            LOGGER.info(f"Read file: {migration_file}")
+            LOGGER.info(f"Current hash: {migration_hash_current}")
+            LOGGER.info(f"Hash in database: {migration_hash_saved}")
 
-        for migration_file in sorted(glob.glob("res/M_*.sql")): # Find all migration files.
-            with open(migration_file) as migration_script:
-                migration_hash_current = sha256(migration_script.read().encode()).hexdigest()
-                migration_hash_saved = self.cursor.execute("SELECT hash FROM Migrations WHERE filename=:filename", {"filename": migration_file}).fetchone()
+            if migration_hash_saved is None:
+                LOGGER.info("Hash not found in database. Executing script and saving it to migration table.")
+                migration_script.seek(0) # Reset IO to start of the file.
+                cursor.executescript(migration_script.read())
+                cursor.execute("INSERT INTO Migrations VALUES(:filename, :hash);", {'filename': migration_file, 'hash': migration_hash_current})
+                connection.commit()
+                continue
 
-                LOGGER.info("---------------------------")
-                LOGGER.info(f"Read file: {migration_file}")
-                LOGGER.info(f"Current hash: {migration_hash_current}")
-                LOGGER.info(f"Hash in database: {migration_hash_saved}")
+            # If we've reached this far, then there's definitely a hash in the db.
+            migration_hash_saved = migration_hash_saved["hash"]
 
-                if migration_hash_saved is None:
-                    LOGGER.info("Hash not found in database. Executing script and saving it to migration table.")
-                    migration_script.seek(0) # Reset IO to start of the file.
-                    self.cursor.executescript(migration_script.read())
-                    self.cursor.execute("INSERT INTO Migrations VALUES(:filename, :hash);", {'filename': migration_file, 'hash': migration_hash_current})
-                    self.connection.commit()
-                    continue
+            if migration_hash_current != migration_hash_saved:
+                raise Exception(f"Hash of migration file is not same as known hash. Expected: {migration_hash_saved}, Has: {migration_hash_current}")
 
-                # If we've reached this far, then there's a in the db.
-                migration_hash_saved = migration_hash_saved["hash"]
+    migration_files = list(map(extract_filename_from_list, cursor.execute("SELECT filename FROM Migrations;").fetchall())) # The map file reduces dictionaries to a list of values (rather than a list of key-value pairs.)
+    LOGGER.info(f"Migration complete. Migration files: {migration_files}")
+    connection.close()
 
-                if migration_hash_current != migration_hash_saved:
-                    raise Exception(f"Hash of migration file is not same as known hash. Expected: {migration_hash_saved}, Has: {migration_hash_current}")
-
-        migration_files = list(map(extract_filename_from_list, self.cursor.execute("SELECT filename FROM Migrations;").fetchall())) # The map file reduces dictionaries to a list of values (rather than a list of key-value pairs.)
-        LOGGER.info(f"Migration complete. Migration files: {migration_files}")
+def get_all_quizzes():
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM Quizzes;")
+    return cursor.fetchall()
