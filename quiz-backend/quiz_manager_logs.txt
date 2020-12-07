@@ -264,3 +264,33 @@
 2020-12-07 :: 14:22:17.804 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
 2020-12-07 :: 14:22:17.804 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
 2020-12-07 :: 14:22:21.684 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 14:28:36.365 :: INFO :: Beginning migration...
+2020-12-07 :: 14:28:36.366 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:36.367 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-07 :: 14:28:36.367 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-07 :: 14:28:36.367 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-07 :: 14:28:36.367 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:36.368 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-07 :: 14:28:36.368 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-07 :: 14:28:36.368 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-07 :: 14:28:36.369 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:36.369 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-07 :: 14:28:36.369 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-07 :: 14:28:36.369 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-07 :: 14:28:36.370 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-07 :: 14:28:39.356 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 14:28:53.801 :: INFO :: Beginning migration...
+2020-12-07 :: 14:28:53.803 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:53.803 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-07 :: 14:28:53.803 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-07 :: 14:28:53.803 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-07 :: 14:28:53.804 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:53.804 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-07 :: 14:28:53.804 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-07 :: 14:28:53.804 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-07 :: 14:28:53.805 :: INFO :: ---------------------------
+2020-12-07 :: 14:28:53.805 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-07 :: 14:28:53.805 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-07 :: 14:28:53.805 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-07 :: 14:28:53.806 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-07 :: 14:28:55.199 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]

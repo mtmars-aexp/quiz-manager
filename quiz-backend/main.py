@@ -2,6 +2,7 @@ import sqlite3
 import database as db
 from flask import Flask
 import logging
+import json
 
 app = Flask(__name__)
 
@@ -21,4 +22,4 @@ db.migrate()
 def home():
     quizzes = db.get_all_quizzes()
     LOGGER.info(quizzes)
-    return "Here you go!"
+    return json.dumps(quizzes)

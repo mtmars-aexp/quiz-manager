@@ -346,6 +346,26 @@ def migrate():
     cursor = connection.cursor()
 ```
 
-Aand done. Database has been refactored.
+Aand done. Database has been refactored. You can see the changes [here](https://github.com/mtmars-aexp/quiz-manager/commit/46d60f2566c23529d108815bd307a00f611755df#diff-2d995d9d23c0dabc2a69694c4f9d08b8a3c8d1476e756f7aa7b6a561e73e40cb). All I really had to do was remove the `__init__`, trim the `self.` off the start of function calls, and make sure they were similarly removed from function parameters. Something to note, however, is that each connection must have its row factory reassigned if I want to recieve dictionaries. This could be troublesome if I end up writing a lot more database access functions in the future. I'm considering adding a `get_cursor()` function that creates a new connection and returns the cursor for it, row factory attached.
+
+Anyway, back to the task at hand...
 
 ### Back to Flask Endpoints
+
+I am now able to return data from the database (almost!) Flask doesn't support returning a dictionary object right to the view, but I was able to log the returned object instead. Now all I need to do is convert the dictionary to JSON and I should be able to return it as a string.
+
+```py
+@app.route("/")
+def home():
+    quizzes = db.get_all_quizzes()
+    LOGGER.info(quizzes)
+    return "Here you go!"
+```
+
+```
+2020-12-07 :: 14:22:21.684 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+```
+
+And wouldn't you know it, Python, being the most useful language ever, has a json library that can take in a list of dictionaries and splurg out some nice tasty JSON. All it took was changing the return statement to `return json.dumps(quizzes)` and it works! 
+
+![A screenshot of a successful Postman response](img/postman.png)
