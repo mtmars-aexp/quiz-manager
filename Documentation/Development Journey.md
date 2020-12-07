@@ -388,3 +388,83 @@ It works! Huzzah. Pop the champagne. With this solid foundation I can now begin 
 
 Using JavaScript's "fetch" is what is known amongst my very professional collegues as "a goddamn hassle." However, I do not intend to let it get the best of me. I have spent many moons mastering fetch and, although I've fallen out of practice as of late, I feel confident that I will achieve a quick and decisive victory.
 
+### CORS, My Long Standing Nemesis
+
+![A screenshot of my worst enemy](img/CORS.png)
+
+CORS you absolute fiend. If you, dear reader, have also happened to have read my apprenticeship portfolio, then you know CORS and I are long-standing enemies. I imagine it is also the enemy of every other inexperienced dev out there. Basically, it's being super secure and saying "Hey! You _have_ to explicitly allow access to this resource from _this_ address otherwise I'm not having any part in it!" Which in any other situation I'd be happy with, speaking as a cybersecurity analyst, but right now it's like "Could you just chill? Please? Thank you."
+
+Anyways, googled it; internet is saying to download a plugin for Flask called- surprise surprise- `Flask-CORS`. Hopefully it'll also get rid of the demonic possession my terminal is undergoing whenever my front end sends a request.
+
+![A screenshot of my terminal communing with the outer gods](img/lovecraft-terminal.png)
+
+Installation: Check
+```
+H:\Code\Synoptic\quiz-manager\quiz-backend>python -m pip install -U flask-cors
+Collecting flask-cors
+  Downloading Flask_Cors-3.0.9-py2.py3-none-any.whl (14 kB)
+Requirement already satisfied: Flask>=0.9 in c:\python39\lib\site-packages (from flask-cors) (1.1.2)
+Requirement already satisfied: click>=5.1 in c:\python39\lib\site-packages (from Flask>=0.9->flask-cors) (7.1.2)
+Requirement already satisfied: itsdangerous>=0.24 in c:\python39\lib\site-packages (from Flask>=0.9->flask-cors) (1.1.0)
+Requirement already satisfied: Jinja2>=2.10.1 in c:\python39\lib\site-packages (from Flask>=0.9->flask-cors) (2.11.2)
+Requirement already satisfied: Werkzeug>=0.15 in c:\python39\lib\site-packages (from Flask>=0.9->flask-cors) (1.0.1)
+Requirement already satisfied: MarkupSafe>=0.23 in c:\python39\lib\site-packages (from Jinja2>=2.10.1->Flask>=0.9->flask-cors) (1.1.1)
+Collecting Six
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Installing collected packages: Six, flask-cors
+Successfully installed Six-1.15.0 flask-cors-3.0.9
+```
+
+Code change: Check
+```py
+from flask import Flask
+from flask_cors import CORS
+import logging
+import json
+
+app = Flask(__name__)
+CORS(app)
+```
+(Yes, that's really all it takes!)
+
+Requests: Making progress! We are now getting data. Still having errors rendering it, but that's just because I can't render objects directly. I'll need to plug it into a component first.
+
+![A screenshot showing a browser receiving data correctly but displaying errors](img/getting-data-with-errors.png)
+
+So! Let's make my first component.
+
+### A Brief Side Note
+
+This isn't the first time I fell into this trap, but did you know GitHub desktop, my client of choice, has, like, two places for you to sign into?
+
+In preparation for this project I'd signed into my account in the "Accounts" tab, which gives me full access to create repos in my own name...
+
+![A screenshot of the GitHub Desktop "Account" tab](img/ghdesktop-accounts.png)
+
+However, the name under which you commit things is determined by the information in the _Git_ tab! Which was, up until just now, had credentials for `avn-0216-m`.
+
+![A screenshot of the GitHub Desktop "git" tab](img/ghdesktop-git.png)
+
+Anyways, all the commits up until now have been made by my personal side account, `avn-0216-m`, hopefully this issue should now be resolved unless there's some third place that GitHub stores your login creds. (Rolling my eyes, sarcastically).
+
+### Back on Track: Rendering Object Data as Components.
+
+Let's make a component!
+
+```js
+function QuizButton(){
+    return(
+        <div>
+            <h1>This is a quiz button!</h1>
+        </div>
+    );
+}
+
+export default QuizButton;
+```
+
+Wow! I made a component. There was no pause between my last two sentences so it's difficult to convey the passage of time but that took a few minutes!
+
+Anyways, it works! Here's how it looks:
+
+![A screenshot of the default react app with "This is a quiz button" at the bottom of the page](img/this-is-a-quiz-button.png)

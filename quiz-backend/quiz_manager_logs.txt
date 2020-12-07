@@ -294,3 +294,54 @@
 2020-12-07 :: 14:28:53.805 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
 2020-12-07 :: 14:28:53.806 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
 2020-12-07 :: 14:28:55.199 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:33:26.089 :: INFO :: Beginning migration...
+2020-12-07 :: 15:33:26.105 :: INFO :: ---------------------------
+2020-12-07 :: 15:33:26.109 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-07 :: 15:33:26.109 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-07 :: 15:33:26.110 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-07 :: 15:33:26.118 :: INFO :: ---------------------------
+2020-12-07 :: 15:33:26.127 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-07 :: 15:33:26.127 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-07 :: 15:33:26.127 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-07 :: 15:33:26.133 :: INFO :: ---------------------------
+2020-12-07 :: 15:33:26.133 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-07 :: 15:33:26.133 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-07 :: 15:33:26.134 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-07 :: 15:33:26.143 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-07 :: 15:33:39.308 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:10.978 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:14.055 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:29.208 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:29.220 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:29.239 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:33.175 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:33.175 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:33.221 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:37.802 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:37.819 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:37:37.862 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:43:17.087 :: INFO :: Beginning migration...
+2020-12-07 :: 15:43:17.091 :: INFO :: ---------------------------
+2020-12-07 :: 15:43:17.092 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-07 :: 15:43:17.092 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-07 :: 15:43:17.092 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-07 :: 15:43:17.093 :: INFO :: ---------------------------
+2020-12-07 :: 15:43:17.093 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-07 :: 15:43:17.093 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-07 :: 15:43:17.093 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-07 :: 15:43:17.094 :: INFO :: ---------------------------
+2020-12-07 :: 15:43:17.094 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-07 :: 15:43:17.094 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-07 :: 15:43:17.094 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-07 :: 15:43:17.095 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-07 :: 15:43:20.668 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:43:20.674 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 15:43:20.726 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:51.566 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:51.587 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:51.591 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:54.202 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:54.204 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:03:54.249 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:04:15.398 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]
+2020-12-07 :: 16:04:15.398 :: INFO :: [{'quiz_id': 1, 'name': 'Alpha quiz!', 'description': 'Beep boop!'}, {'quiz_id': 2, 'name': 'Beta quiz!', 'description': 'Boop beep?? :O'}]

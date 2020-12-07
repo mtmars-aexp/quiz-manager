@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import QuizButton from './components/QuizButton'
 
 async function getTestData(){
-  var data = await fetch("localhost:5000").then(data => {return data.json()}).catch(err => {return "oh no"});
+  var data = await fetch("http://localhost:5000").then(data => {return data.json()}).catch(err => {return "oh no"});
   console.log(data)
   return data
 }
@@ -27,7 +28,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <h1>Also beep boop! {test_data}</h1>
+      <QuizButton/>
     </div>
   );
 }
