@@ -468,3 +468,9 @@ Wow! I made a component. There was no pause between my last two sentences so it'
 Anyways, it works! Here's how it looks:
 
 ![A screenshot of the default react app with "This is a quiz button" at the bottom of the page](img/this-is-a-quiz-button.png)
+
+Let's see if I can give it some data. Right now I'm just rendering a single `<QuizButton/>` as a test. But let's stick it in a for loop and see if I can pass it some data as props.
+
+# Remember That Time I Thought I Was Good Enough With Fetch For This To Be A Swift And Decisive Victory?
+
+Turns out that is not the case! I'm pretty sure the reason React is being fussy right now is because I'm trying to make it iterate over an unresolved promise, which is what is known in the business as "silly of me." I'm gonna do some digging and see if I can remember how to resolve promises. And CORS has once again reared its ugly for head for seemingly no reason. Gosh darn it.
