@@ -380,4 +380,6 @@ I'm glad the npm and `create-react-app` installer looks so pretty because I'd be
 
 ![A screenshot of the default React page.](img/react-works.png)
 
-It works! Huzzah. With this solid foundation I can now begin to build my grand, and wonderful quiz manager.
+It works! Huzzah. Pop the champagne. With this solid foundation I can now begin to build my grand, and wonderful quiz manager.
+
+...Alright, celebration over. First order of business: Let's get some data from the backend to my frontend. We already have an endpoint giving us JSON, so let's get that displayed as a string on the page for now.
