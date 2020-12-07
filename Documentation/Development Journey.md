@@ -56,4 +56,28 @@ Finally, the quiz page itself:
 
 ![A drawing of the quiz page](img/quiz_sketch.jpg)
 
-Similarly to the home page's quiz list, each question of the quiz will be rendered in its own box. Answers will be in the form of radio buttons (meaning only one answer is selectable), and the user is able to submit their answers at the bottom of the page, where their score will then be revealed. If they chose correctly, then the button will be highlighted green. Otherwise their incorrect answer will be highlighted in red, with the correct answer shown in green.
+Similarly to the home page's quiz list, each question of the quiz will be rendered in its own box and will be numbered based on the order they are rendered. Answers will be in the form of radio buttons (meaning only one answer is selectable), and the user is able to submit their answers at the bottom of the page, where their score will then be revealed. If they chose correctly, then the button will be highlighted green. Otherwise their incorrect answer will be highlighted in red, with the correct answer shown in green.
+
+The edit button, visible to "Edit" users, will bring the user to a similar page but with editable text **boxes** instead of text. The text boxes will be prefilled with quiz information and the user can change text or empty the boxes to delete the question or answer(s). The submit button is replaced with a "save" button. When the button is clicked, the data in the text boxes will be read and committed to the database.
+
+### Database Plans
+
+The fact that all quizzes will be viewable by any logged in user, and that a privileged user can edit any quiz, removes a lot of complexity from my database design. Overall my database will be heirarchal in design, with answers that belong to questions, and questions that belong to quizzes. I've written my plan out in text rather than drawing it in pencil for readabilities sake.
+
+```
+Quizzes
+id: int
+name: string
+description: string
+
+Questions
+id: int
+text: string
+quiz_id: int, foreign key
+
+Answers
+id: int
+text: string
+question_id: int, foreign key
+is_correct: bool
+```
