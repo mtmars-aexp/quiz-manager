@@ -20,8 +20,21 @@ LOGGER.setLevel(logging.INFO)
 
 db.migrate()
 
-@app.route("/")
+@app.route("/api/quizzes")
 @cross_origin()
 def home():
     response = flask.jsonify(db.get_all_quizzes())
+    return response
+
+@app.route("/api/questions/<quiz_id>")
+@cross_origin()
+def quiz(quiz_id):
+    quiz_info = db.get_quiz_info(quiz_id)
+    response = flask.jsonify({'questions': db.get_all_quiz_questions(quiz_id), 'name': quiz_info['name'], 'description': quiz_info['description']})
+    return response
+
+@app.route("/api/answers/<question_id>")
+@cross_origin()
+def answers(question_id):
+    response = flask.jsonify(db.get_all_question_answers(question_id))
     return response

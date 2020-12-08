@@ -1,0 +1,1 @@
+ALTER TABLE Answers ADD COLUMN is_correct int;

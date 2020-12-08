@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
-class QuizButton extends Component{
+class QuizSelector extends Component{
 
     render(){
         return(
             <div className="quiz-box">
-                <a href ="beep" className="quiz-title">{this.props.name}</a>
+                <a href ={"/quiz/" + this.props.quiz_id} className="quiz-title">{this.props.name}</a>
                 <br></br>
                 <span className="quiz-description">{this.props.description}</span>
             </div>
@@ -15,4 +15,4 @@ class QuizButton extends Component{
 
 
 
-export default QuizButton;
+export default QuizSelector;

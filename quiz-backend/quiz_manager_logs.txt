@@ -778,3 +778,197 @@
 2020-12-08 :: 09:46:33.169 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
 2020-12-08 :: 09:46:33.170 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
 2020-12-08 :: 09:46:33.170 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-08 :: 12:03:37.757 :: INFO :: Beginning migration...
+2020-12-08 :: 12:03:37.759 :: INFO :: ---------------------------
+2020-12-08 :: 12:03:37.760 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:03:37.760 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:03:37.760 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:03:37.761 :: INFO :: ---------------------------
+2020-12-08 :: 12:03:37.761 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:03:37.761 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:03:37.762 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:03:37.762 :: INFO :: ---------------------------
+2020-12-08 :: 12:03:37.762 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:03:37.763 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:03:37.763 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:03:37.763 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-08 :: 12:05:21.922 :: INFO :: Beginning migration...
+2020-12-08 :: 12:05:21.924 :: INFO :: ---------------------------
+2020-12-08 :: 12:05:21.924 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:05:21.924 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:05:21.924 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:05:21.925 :: INFO :: ---------------------------
+2020-12-08 :: 12:05:21.925 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:05:21.927 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:05:21.936 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:05:21.936 :: INFO :: ---------------------------
+2020-12-08 :: 12:05:21.937 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:05:21.937 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:05:21.937 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:05:21.938 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-08 :: 12:25:47.468 :: INFO :: Beginning migration...
+2020-12-08 :: 12:25:47.469 :: INFO :: ---------------------------
+2020-12-08 :: 12:25:47.470 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:25:47.470 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:25:47.470 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:25:47.470 :: INFO :: ---------------------------
+2020-12-08 :: 12:25:47.471 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:25:47.471 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:25:47.471 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:25:47.471 :: INFO :: ---------------------------
+2020-12-08 :: 12:25:47.472 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:25:47.472 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:25:47.472 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:25:47.473 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql']
+2020-12-08 :: 12:44:01.262 :: INFO :: Beginning migration...
+2020-12-08 :: 12:44:01.279 :: INFO :: ---------------------------
+2020-12-08 :: 12:44:01.279 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:44:01.279 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:44:01.279 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:44:01.285 :: INFO :: ---------------------------
+2020-12-08 :: 12:44:01.291 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:44:01.291 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:44:01.292 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:44:01.293 :: INFO :: ---------------------------
+2020-12-08 :: 12:44:01.294 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:44:01.294 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:44:01.294 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:44:01.294 :: INFO :: ---------------------------
+2020-12-08 :: 12:44:01.295 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:44:01.295 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:44:01.295 :: INFO :: Hash in database: None
+2020-12-08 :: 12:44:01.295 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-08 :: 12:44:01.438 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql']
+2020-12-08 :: 12:46:39.556 :: INFO :: Beginning migration...
+2020-12-08 :: 12:46:39.564 :: INFO :: ---------------------------
+2020-12-08 :: 12:46:39.564 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:46:39.565 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:46:39.565 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:46:39.565 :: INFO :: ---------------------------
+2020-12-08 :: 12:46:39.565 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:46:39.566 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:46:39.566 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:46:39.566 :: INFO :: ---------------------------
+2020-12-08 :: 12:46:39.566 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:46:39.566 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:46:39.567 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:46:39.567 :: INFO :: ---------------------------
+2020-12-08 :: 12:46:39.567 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:46:39.567 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:46:39.568 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:46:39.568 :: INFO :: ---------------------------
+2020-12-08 :: 12:46:39.568 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:46:39.568 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:46:39.569 :: INFO :: Hash in database: None
+2020-12-08 :: 12:46:39.569 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-08 :: 12:46:39.757 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']
+2020-12-08 :: 12:54:40.180 :: INFO :: Beginning migration...
+2020-12-08 :: 12:54:40.181 :: INFO :: ---------------------------
+2020-12-08 :: 12:54:40.182 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:54:40.182 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:54:40.190 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:54:40.191 :: INFO :: ---------------------------
+2020-12-08 :: 12:54:40.192 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:54:40.192 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:54:40.192 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:54:40.192 :: INFO :: ---------------------------
+2020-12-08 :: 12:54:40.192 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:54:40.193 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:54:40.193 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:54:40.193 :: INFO :: ---------------------------
+2020-12-08 :: 12:54:40.194 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:54:40.194 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:54:40.194 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:54:40.195 :: INFO :: ---------------------------
+2020-12-08 :: 12:54:40.195 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:54:40.195 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:54:40.195 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-08 :: 12:54:40.196 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']
+2020-12-08 :: 12:55:31.726 :: INFO :: Beginning migration...
+2020-12-08 :: 12:55:31.727 :: INFO :: ---------------------------
+2020-12-08 :: 12:55:31.728 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:55:31.728 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:55:31.728 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:55:31.729 :: INFO :: ---------------------------
+2020-12-08 :: 12:55:31.729 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:55:31.729 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:55:31.729 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:55:31.730 :: INFO :: ---------------------------
+2020-12-08 :: 12:55:31.730 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:55:31.730 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:55:31.731 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:55:31.731 :: INFO :: ---------------------------
+2020-12-08 :: 12:55:31.731 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:55:31.731 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:55:31.732 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:55:31.732 :: INFO :: ---------------------------
+2020-12-08 :: 12:55:31.732 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:55:31.732 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:55:31.733 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-08 :: 12:55:31.733 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']
+2020-12-08 :: 12:56:03.637 :: INFO :: Beginning migration...
+2020-12-08 :: 12:56:03.645 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:03.645 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:56:03.645 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:56:03.645 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:56:03.646 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:03.646 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:56:03.646 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:56:03.646 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:56:03.647 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:03.647 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:56:03.647 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:56:03.647 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:56:03.648 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:03.650 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:56:03.674 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:56:03.684 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:56:03.708 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:03.712 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:56:03.736 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:56:03.738 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-08 :: 12:56:03.738 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']
+2020-12-08 :: 12:56:19.035 :: INFO :: Beginning migration...
+2020-12-08 :: 12:56:19.044 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:19.044 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:56:19.045 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:56:19.045 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:56:19.045 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:19.046 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:56:19.046 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:56:19.046 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:56:19.047 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:19.047 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:56:19.047 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:56:19.047 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:56:19.048 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:19.048 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:56:19.048 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:56:19.048 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:56:19.049 :: INFO :: ---------------------------
+2020-12-08 :: 12:56:19.049 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:56:19.049 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:56:19.049 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-08 :: 12:56:19.050 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']
+2020-12-08 :: 12:57:38.565 :: INFO :: Beginning migration...
+2020-12-08 :: 12:57:38.567 :: INFO :: ---------------------------
+2020-12-08 :: 12:57:38.567 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-08 :: 12:57:38.567 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-08 :: 12:57:38.567 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-08 :: 12:57:38.568 :: INFO :: ---------------------------
+2020-12-08 :: 12:57:38.568 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-08 :: 12:57:38.568 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-08 :: 12:57:38.568 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-08 :: 12:57:38.569 :: INFO :: ---------------------------
+2020-12-08 :: 12:57:38.569 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-08 :: 12:57:38.569 :: INFO :: Current hash: a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b
+2020-12-08 :: 12:57:38.570 :: INFO :: Hash in database: {'hash': 'a2b38fcf1912f0a5a2010cab5ecb5a939638c6005bb4a83bb668c66af56d547b'}
+2020-12-08 :: 12:57:38.580 :: INFO :: ---------------------------
+2020-12-08 :: 12:57:38.580 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-08 :: 12:57:38.581 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-08 :: 12:57:38.581 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-08 :: 12:57:38.581 :: INFO :: ---------------------------
+2020-12-08 :: 12:57:38.581 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-08 :: 12:57:38.582 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-08 :: 12:57:38.582 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-08 :: 12:57:38.582 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql']

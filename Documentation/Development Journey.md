@@ -630,4 +630,149 @@ function App() {
 }
 ```
 
-It really was as easy as "Render _this_ component if you're at _this_ path."
+It really was as easy as "Render _this_ component if you're at _this_ path." I'm feeling so amazing that I even went and implemented a "page not found" page too!
+
+```js
+<Router>
+    <Switch>
+    <div className="App">
+        <Route path="/" exact component={Home}/>
+        <Route path="/secret" component={Secret}/>
+        <Route component={Error}/>
+    </div>
+    </Switch>
+</Router>
+```
+
+It's so simple! If it gets to the end of the switch and still hasn't rendered anything, then it'll render the "error, page not found" page instead!! Incredible!
+
+### A Quick Coffee Break and a Pat on the Back
+
+I like my coffee with 2 sweetners and a hearty splash of coconut milk, and I think I'm doing a really good job!
+
+### Setting Up The Quiz Links
+
+Right now the quiz titles are hard-coded to go to "/beep" when you click them, which is silly. They should take you to "/quiz/:id" instead, so let's do that!
+
+Also, just noticed that my app was rendering my 404 page at the bottom of my home page. That was silly! It was because I put my `<Switch>` component outside the `<div>`, when it should have been inside. That's all fixed now.
+
+All it took was some simple string concatenation with the component props and it worked! We now have links to quizzes via their IDs.
+
+```js
+<a href ={"/quiz/" + this.props.quiz_id} className="quiz-title">{this.props.name}</a>
+```
+
+![A picture of working quiz links](img/quiz-links.png)
+
+Now, let's utilize this in our router by creating a component that gets rendered for the "Quiz" page.
+
+```js
+<Route path="/quiz/:id" component={QuizPage}/>
+```
+
+Aaaand a QuizPage component so something can be rendered...
+
+```js
+class QuizPage extends React.Component{
+    render(){
+        return (
+            <h1> Welcome to the quiz page! Your quiz ID is: {this.props.match.params.id}</h1>
+        )
+    }
+}
+
+export default QuizPage
+```
+
+And! It works! Absolutely amazing. For some reason I can't do `this.props.params.id` and have to put a `match` in there, according to the internet that's just React Router Silliness.
+
+![A screenshot of a primitive quiz page displaying the current ID.](img/quiz-page-id.png)
+
+Now we have a frontend that knows its ID, I'm going to go back to the backend and write a function to get every question for a given quiz ID.
+
+### Back to the Backend
+
+```py
+@app.route("/api/quizzes")
+@cross_origin()
+def home():
+    response = flask.jsonify(db.get_all_quizzes())
+    return response
+
+@app.route("/api/quiz/<quiz_id>")
+@cross_origin()
+def quiz(quiz_id):
+    response = flask.jsonify(db.get_all_quiz_questions(quiz_id))
+    return response
+```
+
+I've added another route to my main Flask app. I've also decided to tidy up the API urls a bit so it's clear what's being requested (data via a REST API). Let's see if I can get the quiz page to call this new API route and get some questions!
+
+It worked very well! This is basically just repeating what I did on the home page; making a fetch request, throwing the data into the state, then rendering it out as components, so it's some nice, smooth sailing. Also, I took the liberty of renaming some components for clarity. The quiz cards on the home page are now "QuizSelector.js"es.
+
+![A screenshot of the quiz page. A question has been rendered but the quiz name isn't present.](img/questions-without-quiz-name.png)
+
+One problem is quizzes do not have their quiz names when rendered. This is because the quiz name is only stored by the "QuizSelector" component and when the page is rerouted via the router, that information is not preserved or passed through. In the interest of keeping things simple, I'm just going to rework the API call so it returns the name and description along with the list of questions.
+
+```py
+@app.route("/api/questions/<quiz_id>")
+@cross_origin()
+def quiz(quiz_id):
+    quiz_info = db.get_quiz_info(quiz_id)
+    response = flask.jsonify({'questions': db.get_all_quiz_questions(quiz_id), 'name': quiz_info['name'], 'description': quiz_info['description']})
+    return response
+```
+
+Easy peasy, everything's bundled neatly together. The default state in my QuizPage component has also been updated to reflect this change.
+
+```js
+this.state = ({
+    quiz_information: {
+        name: "",
+        description: "",
+        questions: []
+    }
+})
+```
+
+### Quiz Database Update
+
+Just remembered I have no way to check what answers are actually correct. That's a bit of an oopsie for a quiz app. Luckily, this is a very easy fix, doubly so thanks to the handy dandy migration system I set up yesterday.
+
+```sql
+ALTER TABLE Answers ADD COLUMN is_correct int;
+```
+
+### Getting Answers From The Database
+
+Just like getting questions, which is itself just like getting the quizzes, once the quiz answer component has mounted, I'll need it to make an API request for the answers to the question it represents. I can't imagine any serious problems I might encounter. Let's see how it goes.
+
+Wouldn't you know it? It wasn't that hard. Here's my python code:
+
+```py
+@app.route("/api/answers/<question_id>")
+@cross_origin()
+def answers(question_id):
+    response = flask.jsonify(db.get_all_question_answers(question_id))
+    return response
+```
+
+And here's the React code:
+
+```js
+componentDidMount(){
+    fetch("http://127.0.0.1:5000/api/answers/" + this.props.question_id)
+    .then(result => result.json())
+    .then(result => this.setState({answers: result}))
+    .catch(err => console.log(err))
+}
+
+render(){
+
+    console.log("Answers are: ")
+    console.log(this.state.answers)
+```
+
+Look familiar? I bet it does. We are now successfully getting answers from the backend.
+
+![Picture showing information being retrieved via a successful request to my Flask backend](img/geting-answers-from-backend.png)

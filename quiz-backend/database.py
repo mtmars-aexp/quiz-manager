@@ -64,3 +64,24 @@ def get_all_quizzes():
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM Quizzes;")
     return cursor.fetchall()
+
+def get_all_quiz_questions(quiz_id: int):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM Questions WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id})
+    return cursor.fetchall()
+
+def get_quiz_info(quiz_id: int):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT name, description FROM Quizzes WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id})
+    return cursor.fetchone()
+
+def get_all_question_answers(question_id: int):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT text, is_correct FROM Answers WHERE question_id = :question_id", {'question_id': question_id})
+    return cursor.fetchall()
