@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 class Secret extends Component{
     render(){
         return(
-            <h1>Secret page!</h1>
+            <div className = "page">
+                <h1>Secret page!</h1>
+            </div>
+            
         )
     }
 }

@@ -24,7 +24,7 @@ class QuizPage extends React.Component{
 
     countScore(){
         var final_score = 0
-        for (let [question_id, is_correct] of Object.entries(this.state.selected_answers)){
+        for (let is_correct of Object.values(this.state.selected_answers)){
             if(is_correct === "1"){
                 final_score ++;
             }
@@ -49,7 +49,7 @@ class QuizPage extends React.Component{
 
     render(){
         return (
-            <div>
+            <div className = "page">
                 <h1>Welcome to the quiz page! Your quiz ID is: {this.props.match.params.id}</h1>
                 <h1>Quiz name: {this.state.quiz_information.name}</h1>
                 {this.state.quiz_information.questions.map((element, index) => 

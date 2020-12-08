@@ -4,6 +4,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
   text-align: center;
   width: 50%;
   margin: auto;
@@ -37,4 +40,18 @@ body {
 
 .incorrect{
   background-color: lightpink !important;
+}
+
+.navbar{
+  background-color: grey;
+  overflow:hidden;
+  top: 0;
+  border-radius: 10px;
+}
+
+.navbar li {
+  float: left;
+  display: block;
+  padding: 15px;
+  text-align: center;
 }

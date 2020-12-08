@@ -9,7 +9,6 @@ class Home extends Component{
     }
 
     componentDidMount() {
-        console.log("Home page component mounted. Getting available quizzes.")
         fetch("http://127.0.0.1:5000/api/quizzes")
         .then(result => result.json())
         .then(result_json => this.setState({quiz_data: result_json}))
@@ -18,7 +17,7 @@ class Home extends Component{
 
     render(){
         return (
-            <div>
+            <div className = "page">
                 <h1>This is the home page!</h1>
                 <h1>You have {this.state.quiz_data.length} quizzes available.</h1>
                 {this.state.quiz_data.map((element, index) => <QuizSelector key={index} name={element.name} description={element.description} quiz_id={element.quiz_id}/>)}

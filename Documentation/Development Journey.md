@@ -955,3 +955,117 @@ I'm gonna add a navbar to prepare to the user login stuff I'm gonna have to do s
 ### Wow Okay!!!
 
 Yeah!!!!!!!!!
+
+### Navbar completed!
+
+It looks kinda weird and doesn't stick to the top of the page like I'd like it to. I've never been able to do good navbars.
+
+Here's the HTML I wrote:
+
+```js
+<div className = "navbar">
+    <ul>
+        <li><a href = "/">Home</a></li>
+        <li><a href = "/secret">Secret page</a></li>
+    </ul>
+</div>
+```
+
+And here's the CSS:
+
+```css
+.navbar{
+  background-color: grey;
+  overflow:hidden;
+  top: 0;
+  border-radius: 10px;
+}
+
+.navbar li {
+  float: left;
+  display: block;
+  padding: 15px;
+  text-align: center;
+}
+```
+
+If I remove the `overflow:hidden;`, it makes the whole navbar invisible and I don't know why.
+
+### Let's Trying Adding Authentication
+
+Sure! I have a plan for that:
+- Setup an endpoint to authenticate with the backend by POSTing the username and password.
+- Tell Flask to return a session cookie if password matches the relevant hash in database.
+- Useee that session cookie? Somehow? To either render the normal page, or a "please login" page.
+- Would I have to make a request to the backend every time I want to render a page? That doesn't sound right.
+- ???
+- Profit!
+
+Okay, so, I've learned the authentication should be done in the router. I've also learned that the router doesn't appear to have any easy prebuilt components for writing protected routes. What you have to do is write a wrapper for the Route component that either: redirects to the login page if not authenticated, or renders the page if they are. But my entire website is gonna be behind a password wall, so think I can just put a single check in the router, rather than having to check every route.
+
+```js
+{false ?
+<Switch>
+    <Route path="/" exact component={Home} onEnter={this.requireAuth}/>
+    <Route path="/secret" component={Secret} onEnter={this.requireAuth}/>
+    <Route path="/quiz/:id" component={QuizPage}/>
+    <Route component={Error}/>
+</Switch>
+: <h1>Not authenticated.</h1>}
+```
+
+Theory proven! When the ternary is set to false, the "Not authenticated" text is rendered. It's such an amazing feeling to take a step back, think through your problems, and hit a home run with the answer. Let's see if I can store the authentication status in the App state and toggle between them. But first...
+
+![A screenshot of my React app. There are login and logout buttons in the navbar, output relating to logging in and logging out has been logged in the console below.](img/navbar-login.png)
+
+I still remember how to pass functions to child components as props. I've passed them to the navbar as a temporary test but I'm now going to create a login page so users can submit their own username and password.
+
+### It's Now 5pm and I Return From A Deep Flow State
+
+Wow! I did so much! Oh my gosh! I didn't think I'd be able to do this today but I'll be danged if I didn't smash it!
+Here's what I've done!
+
+- Logout button on the navbar so you can always skedaddle.
+- Login capabilities and a login page implemented! (Although it currently logs you in no matter what you type).
+- Authentication status stored in localStorage! (It was a big weird when I tried storing it in the state).
+
+The new code that determines whether or not to render a login page is:
+
+```js
+{localStorage.getItem("authenticated") === "true" ?
+```
+
+Notice the localStorage, just as I said. Did you know even if you put a `true` in the localStorage it'll come out as a string? Weird stuff, JavaScript.
+
+The code for the authentication handling is written in main. The logout function is given to the `Navbar` to hold and the login handler is given to the `Login` component page.
+
+```js
+  handleLogin(username, password){
+    console.log("Logging in!");
+    fetch("http://127.0.0.1:5000/api/auth/", {method: 'POST', body: JSON.stringify({username: username, password: password})})
+    .then(response => {
+      if(!response.ok){
+        console.log("Authentication failed.")
+      } else {
+        localStorage.setItem("authenticated", true)
+        localStorage.setItem("username", username)
+        this.forceUpdate();
+      }
+    })
+    .catch(err => console.log(err))
+  }
+
+  handleLogout(){
+    console.log("Logging out! Byebye!");
+    localStorage.setItem("authenticated", false)
+    this.forceUpdate();
+  }
+```
+
+It's just the skeleton for now. The API always returns 200 right now. Tomorrow I need to add a user table to my database with three users (of the three privilege levels mentioned in the design document) so I can add a password check to the API, log in as them, and start writing the appropriate features for each privilege level. Honestly I am _not_ looking forward to making the quiz editing feature, hahahahaaaa.
+
+Roight. That's me done for the day. See you all tomorrow for day 3, where I should hopefully get this all done, and get started on the tests! Wow.
+
+Oh, and have a picture of the login page:
+
+![A picture of a login page. It has a username field, password field, and a form submit button.](img/login-page.png)

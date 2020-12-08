@@ -38,3 +38,8 @@ def quiz(quiz_id):
 def answers(question_id):
     response = flask.jsonify(db.get_all_question_answers(question_id))
     return response
+
+@app.route("/api/auth/", methods = ['POST'])
+@cross_origin()
+def auth():
+    return "Good!", 200

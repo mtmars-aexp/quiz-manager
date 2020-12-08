@@ -28,7 +28,7 @@ class QuizAnswerBox extends React.Component{
     render(){
 
         return(
-        <div className = {`quiz-box ${this.props.finished ? this.state.selected_answer_correct == "1" ? "correct" : "incorrect" : ""}`}>
+        <div className = {`quiz-box ${this.props.finished ? this.state.selected_answer_correct === "1" ? "correct" : "incorrect" : ""}`}>
 
             <h1>{this.props.text}</h1>
 
