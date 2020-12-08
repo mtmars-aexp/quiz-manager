@@ -776,3 +776,182 @@ render(){
 Look familiar? I bet it does. We are now successfully getting answers from the backend.
 
 ![Picture showing information being retrieved via a successful request to my Flask backend](img/geting-answers-from-backend.png)
+
+You may have already guessed what happens next: Let's get some data rendered.
+
+### Rendering Answers
+
+I'm slightly unsure how to approach this due to the fact that I'm not super confident on passing data between child and parent components. However, having just looked at a very informative Stack Overflow post, I'm willing to give it a try.
+
+Each question will be selected by a series of radio buttons. These radio buttons will be grouped together by the question ID. A component will serve as a wrapper for this button, with a function that, when a radio button is selected, calls back to the parent "QuestionAnswerBox" component. My only worry is that radio buttons may not stay linked if they are rendered in seperate components. Only one way to find out!
+
+### Radio Buttons
+
+Hoh boy. Radio buttons. I've decided I'm pretty sure I don't need radio buttons to be seperate react components, as all they're doing is passing their value when clicked. However! I'm still having trouble currently. I just remembered from my prior days of React that things like radio buttons and drop downs are actually supposed to be controlled via the state. That is to say, whether or not they are rendered as "ticked" is based on the data held in the state, and when they _are_ clicked, that's supposed to update the state, which will then rerender the page and change how the button looks. I'm slowly getting there, but currently cannot figure out how to get the `onChange` event to fire. I can't even get it to `console.log()` something.
+
+Okay, this was a doozey, I think I got it. Just made a breakthrough. Riddle time:
+
+```js
+onButtonClick = e => {
+    console.log("Button clicked!!")
+}
+```
+```js
+<p>{this.props.text}</p>
+
+{this.state.answers.map((element, index) => 
+    <input type="radio"
+    onChange={this.onButtonClick}
+    key={index}
+    name={this.props.question_id}
+    value={this.props.text}
+    checked={this.props.selected_answer === element.answer_id}
+    
+    />
+    )}
+
+<input type = "radio" onChange={this.onButtonClick}></input>
+```
+
+Why does the bottom, manually created radio button trigger the onButtonClick event, but not the buttons created by the map function?
+It's because of the `checked` attribute I gave it. It's supposed to define whether or not a button is checked (it doesn't, and still lets me toggle the buttons to my hearts content), but it seems to also stop the button from sending `onChange` events. No idea why! But still: progress.
+
+### I Am Officially The Prop God
+
+I have achieved godhood, I understand it all (read: most of it; still a bit weird about the "checked" thing). I succesfully passed a function from the `QuizPage` to the `QuizAnswerBox` and listened to an event from it to update the `QuizPage`'s state when a button is clicked! I feel so happy and smart.
+
+![A screenshot showing events being logged in a browser's console log](img/button-click-events.png)
+
+Look at my code! I'm very proud of it.
+
+[QuizAnswerBox.js]
+```js
+onButtonClick = e => {
+        console.log("Button clicked!!")
+        console.log(e.target.value + ", " + e.target.name + ", ")
+        let question_id = e.target.name
+        let is_correct = e.target.value
+        this.props.updateQuizAnswer(question_id, is_correct)
+    }
+
+render(){
+
+    console.log("Answers are: ")
+    console.log(this.state.answers)
+
+    return(
+    <div>
+
+        {this.state.answers.map((element, index) =>
+            <div key={index}><input type="radio"
+            onChange={this.onButtonClick}
+            key={index}
+            name={this.props.question_id}
+            value={element.is_correct}
+            />{element.text}</div>
+            )}
+
+    </div>
+    );
+}
+```
+
+[QuizPage.js]
+```js
+updateQuizAnswer(question_id, is_correct){
+        console.log("Updating quiz answer!")
+        console.log("Question ID: " + question_id);
+        console.log("Is correct?: " + is_correct);
+    }
+
+render(){
+    return (
+        <div>
+            <h1>Welcome to the quiz page! Your quiz ID is: {this.props.match.params.id}</h1>
+            <h1>Quiz name: {this.state.quiz_information.name}</h1>
+            {this.state.quiz_information.questions.map((element, index) => <QuizAnswerBox key={index} text={element.text} question_id={element.question_id} updateQuizAnswer={this.updateQuizAnswer}/>)}
+        </div>
+    )
+}
+```
+
+I think I've done a really good job conveying how data flows up from child to parent component. Pat on the back.
+
+### Adding The Actual Logic For Recording Answers
+
+Right now the `QuizPage` just console logs the answers. It needs to actually store them, which will be done in the state as a dictionary where the `question_id` is the key, and `is_correct` is the value.
+
+```js
+updateQuizAnswer(question_id, is_correct){
+    var selected_answers = this.state.selected_answers
+    selected_answers[question_id] = is_correct
+    this.setState({selected_answers: selected_answers})
+    console.log("Current answers:")
+    console.log(this.state.selected_answers)
+}
+```
+Logic implemented! Not much to say here, I just took the thing I was given and put it in the state.
+
+### Add Some More Test Data And Render It In Pretty Boxes
+
+What an excellent idea! Thank you section header.
+
+![A series of questions about whether or not the reader is a good doggy](img/more-test-data.png)
+
+If you are curious, I am, in fact, a very good doggy.
+
+Behold: I added CSS.
+
+![The same image as above, but now the questions are in individual grey boxes](img/pretty-test-data.png)
+
+I reused the same CSS as what is used on the home screen. Pretty neat, huh? Efficient and effective!
+
+### Okay, Now Make It So You Can Actually Mark The Quizzes
+
+Another wonderful idea! Thank you again, section header.
+
+I'm going to:
+- Add a button at the bottom of `QuizPage.js`. When clicked, it'll trigger a function count how many `selected_answers` have their value in the key-value pairs set to `1` (true) and display that store on screen.
+- Celebrate.
+
+Here's what I added:
+
+```js
+countScore(){
+    var final_score = 0
+    for (let [question_id, is_correct] of Object.entries(this.state.selected_answers)){
+        if(is_correct === "1"){
+            final_score ++;
+        }
+    }
+    this.setState({score: final_score});
+}
+```
+
+And here's what it looks like:
+
+![A score counter underneath the final question box. The score reads 2/4.](img/score-count.png)
+
+Pretty swanky, right? Now I need to tell the question boxes to look different depending on whether or not the answer was correct or not.
+
+```js
+<div className = {`quiz-box ${this.props.finished ? this.state.selected_answer_correct == "1" ? "correct" : "incorrect" : ""}`}>
+```
+
+I added a very funky ternery statement to check first if the quiz was over (the mark button was clicked), then to see if the question's selected answer was the correct one or not, and it works deliciously.
+
+![The quiz boxes are now green or red if the answers are correct or incorrect](img/score-count.png)
+
+Also, the button is no longer clickable after your quiz has been marked, so no cheating allowed!
+
+```js
+<button disabled = {this.state.finished} onClick={this.countScore}>Count score!</button>
+```
+
+### Okay Wow It's Almost 4pm and We Did The Main Quiz Thing!! What Now???
+
+I'm gonna add a navbar to prepare to the user login stuff I'm gonna have to do soon!!
+
+### Wow Okay!!!
+
+Yeah!!!!!!!!!

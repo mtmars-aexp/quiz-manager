@@ -14,8 +14,9 @@ body {
   border: 3px #000000 solid;
   border-radius: 10px;
   background-color: lightgray;
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .quiz-box .quiz-title{
@@ -28,4 +29,12 @@ body {
   position: absolute;
   right: 15px;
   bottom: 15px;
+}
+
+.correct{
+  background-color: lightgreen !important;
+}
+
+.incorrect{
+  background-color: lightpink !important;
 }
