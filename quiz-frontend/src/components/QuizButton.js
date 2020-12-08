@@ -5,7 +5,7 @@ class QuizButton extends Component{
     render(){
         return(
             <div className="quiz-box">
-                <span className="quiz-title">{this.props.name}</span>
+                <a href ="beep" className="quiz-title">{this.props.name}</a>
                 <br></br>
                 <span className="quiz-description">{this.props.description}</span>
             </div>

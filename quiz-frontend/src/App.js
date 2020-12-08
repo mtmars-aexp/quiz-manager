@@ -1,14 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import QuizButton from './components/QuizButton'
 import Home from './components/Home'
+import Secret from './components/Secret'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
 
   return (
-    <div className="App">
-      <Home/>
-    </div>
+    <Router>
+      <div className="App">
+        <Route path="/" exact component={Home}/>
+        <Route path="/secret" component={Secret}/>
+      </div>
+    </Router>
   );
 }
 

@@ -600,6 +600,34 @@ body {
 }
 ```
 
-It looks so much better! And I have a firmer grasp on positioning and how child elements utilize the positioning type of their parents. I still don't understand the different between block elements and spans... But? This looks nice. Take a look.
+It looks so much better! And I have a firmer grasp on positioning and how child elements utilize the positioning type of their parents. I still don't quite understand the different between block elements and spans... But? This looks nice. Take a look.
 
 ![A screenshot of my page with some simple CSS applied](img/very-nice-css.png)
+
+If I have the time, I'd like to use SASS in the future to make the `15px` used in my absolute positioning a variable that can be easily modified, without needing to change it in 4 different places, for the sake of an easier rebrand/future revision.
+
+Alright, that's enough aesthetics for now. Next I'd like to implement a router.
+
+### Implementing a Router
+
+Wow! That was so easy, and only took me 5 minutes tops. No idea why I was so scared of routers yesterday.
+
+![A screenshot of a secret page in my React app](img/secret-page.png)
+
+Here's the code required to make it all happen:
+
+```js
+function App() {
+
+  return (
+    <Router>
+      <div className="App">
+        <Route path="/" exact component={Home}/>
+        <Route path="/secret" component={Secret}/>
+      </div>
+    </Router>
+  );
+}
+```
+
+It really was as easy as "Render _this_ component if you're at _this_ path."
