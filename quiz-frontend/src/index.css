@@ -1,13 +1,31 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  width: 50%;
+  margin: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.quiz-box{
+  position: relative;
+  border: 3px #000000 solid;
+  border-radius: 10px;
+  background-color: lightgray;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.quiz-box .quiz-title{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.quiz-box .quiz-description{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
 }

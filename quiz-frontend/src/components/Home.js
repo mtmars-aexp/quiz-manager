@@ -22,7 +22,7 @@ class Home extends Component{
             <div>
                 <h1>This is the home page!</h1>
                 <h1>You have {this.state.quiz_data.length} quizzes available.</h1>
-                {this.state.quiz_data.map((element, index) => <QuizButton name={element.name}/>)}
+                {this.state.quiz_data.map((element, index) => <QuizButton name={element.name} description={element.description}/>)}
             </div>
         )
     }

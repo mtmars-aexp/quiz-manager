@@ -539,4 +539,67 @@ I'm aware it looks like I've just put some text on the page, but bare with me, i
 
 ### Some Front End Design
 
-Curved boxes are very easy to do with basic CSS and make your website look fab. I did it [on my website](https://mtmars-aexp.github.io/) to great effect.
+Curved boxes are very easy to do with basic CSS and make your website look fab. I did it [on my website](https://mtmars-aexp.github.io/) to great effect, and I'm gonna do it here, too!
+
+Right, after suffering with CSS for a hot minute, I think I've got it.
+
+```css
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.quiz-box{
+  margin: 10px;
+  border: 3px #000000 solid;
+  border-radius: 30px;
+  width: 50%;
+  display: inline-block;
+}
+```
+
+The secret was in `display: inline-block`, the deeper mysteries of which I am still not privvy to.
+
+Actually! Scratch that. Hello! This is me speaking about half an hour later! I've just written some even better CSS!
+
+```css
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.quiz-box{
+  position: relative;
+  border: 3px #000000 solid;
+  border-radius: 10px;
+  background-color: lightgray;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.quiz-box .quiz-title{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.quiz-box .quiz-description{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+```
+
+It looks so much better! And I have a firmer grasp on positioning and how child elements utilize the positioning type of their parents. I still don't understand the different between block elements and spans... But? This looks nice. Take a look.
+
+![A screenshot of my page with some simple CSS applied](img/very-nice-css.png)
