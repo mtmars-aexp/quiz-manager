@@ -1,12 +1,12 @@
 import sqlite3
 import database as db
 import flask
-from flask_cors import CORS
+from flask_cors import cross_origin, CORS
 import logging
 import json
 
 app = flask.Flask(__name__)
-#CORS(app)
+CORS(app)
 
 LOGGER = logging.getLogger('quiz_manager')
 formatter = logging.Formatter(fmt='%(asctime)s.%(msecs)03d :: %(levelname)s :: %(message)s', datefmt='%Y-%m-%d :: %H:%M:%S')
@@ -21,7 +21,7 @@ LOGGER.setLevel(logging.INFO)
 db.migrate()
 
 @app.route("/")
+@cross_origin()
 def home():
     response = flask.jsonify(db.get_all_quizzes())
-    response.headers.add('Access-Control-Allow-Origin', '*')
     return response

@@ -471,6 +471,72 @@ Anyways, it works! Here's how it looks:
 
 Let's see if I can give it some data. Right now I'm just rendering a single `<QuizButton/>` as a test. But let's stick it in a for loop and see if I can pass it some data as props.
 
-# Remember That Time I Thought I Was Good Enough With Fetch For This To Be A Swift And Decisive Victory?
+### Remember That Time I Thought I Was Good Enough With Fetch For This To Be A Swift And Decisive Victory?
 
 Turns out that is not the case! I'm pretty sure the reason React is being fussy right now is because I'm trying to make it iterate over an unresolved promise, which is what is known in the business as "silly of me." I'm gonna do some digging and see if I can remember how to resolve promises. And CORS has once again reared its ugly for head for seemingly no reason. Gosh darn it.
+
+## Day 2: Electric Boogaloo
+
+Hello again. I had a nice, looong shower yesterday, which gave me plenty of time to think things through, do some research online, and debug not only the mental mind map of my code, but also the my soft and gently composting brain (yesterday was rough on my wee baby mind). But I'll be damned if I didn't find a way to fix whatever the heck was going on yesterday (Spoiler alert: I'm not damned). I'm full of jam toast, coffee, and hope. Let's get this done.
+
+## Development
+
+Okay, so, real talk? This was all on me. I was absolutely not doing things "the React way" or whatever, or even just like, "the way that makes any sort of sense." For starters I was trying to do the data fetching in the App component at first, which for those familiar with React is the root of the app and shouldn't really have logic done in it as its more of a host for other components (and also isn't a component itself as it doesn't extend React.Component). Then, when I realized my first error and moved it into its own container component, I completely forgot about the `componentDidMount()` function. Like?? Duh! I should probably grab the data once I _know_ it's succesfully loaded itself. Anyways, I got all that logic figured out, and now I just need to successfully extract the data from the promise.
+
+### Figuring Out How To Keep Promises, Or: How I Became A Licensed Relationship Counselor.
+
+So! Usually, when I'm having trouble with code functions, I like to look up the javadoc (or similar) for it. The API reference, y'know? "Here's what you put in, here's what you get out." However, I didn't do that this time, and I was very silly for it. For some reason in my head I had the idea that calling something like `.then(data => data.json())` would resolve the promise into proper data and give it to me when I returned the result of the `.then()`. BUT, APPARENTLY, TODAY I LEARNED: The output of a `.then()` is _always_ **another** promise!! So no matter how many times you `.then().then().then()` something, you aren't ever gonna get a resolved promise out of it! I'm not mad, I promise I'm not mad. I'm actually quite fond of the solution I came up with.
+
+```js
+componentDidMount() {
+    console.log("Home page component mounted. Getting available quizzes.")
+    fetch("http://127.0.0.1:5000")
+    .then(result => result.json())
+    .then(result_json => this.setState({quizzes: result_json}))
+    .catch(err => console.log(err))
+}
+```
+
+I call it the "jump ship" approach. I got the data, so let's toss it into the state and bother ourselves no more with this `.then().then()` madness. I tried combining the two `.then()`s into one by doing `.then(result => this.setState({quizzes: result.json()}))` but that just made it say it was "undefined" and I don't know why that is.
+
+### Side Note: Like An Ethical Genetic Hazard, Do Not Mutate The State Directly
+
+If you call `this.state.[your thing] = [your value]` like I did, then that's silly. Updating the state should always make the component rerender, but it won't do that if you mutate it directly, as opposed to calling `setState()`. Small note, but worth mentioning. Honestly I think this is going to be a great resource for future-me when I inevitably have to relearn react once again.
+
+### Oh By The Way How Is CORS Doing Today?
+
+CORS is very agreeable, thank you for asking! When I mentioned it "reared its ugly head" yesterday, what I really meant by that was, "I am a scared caveman and something happened which I am unfamiliar with therefore I am terrified of it."
+
+![A screenshot of a standard CORS type response](img/CORS-response.png)
+
+This was very unfamiliar to me! And I was all like "ughhh don't wanna have to deal with more CORS stuff! Why can't you just give me the data??" But! As it turns out, calling `.then(result => result.json())` will, in fact, just give you the data.
+
+### Let's Procedurally Render Some Components
+
+After much trial and error, I got it! Using JavaScript in the `render()` function is a whole heapin' spaghetti pile of curly braces. It's awful confusing. Anyway, here's a quick run down of what I did:
+
+- Made my quiz button into a component, because it turns out I'd forgotten to do that.
+- Tried using `Array.forEach()` to spawn a quiz button component for every element in the array of data from the backend.
+- Got really confused as to why it wasn't rendering anything. Looked it up on Stack Overflow- turns out `.forEach()` inherently does not return anything and I should use `.map()` instead. Whoops!
+- Now everything works! My code is nice, I understand it, and components are being rendered!
+
+```js
+render(){
+    console.log("There are " + this.state.quiz_data.length + " quizzes available.")
+    return (
+        <div>
+            <h1>This is the home page!</h1>
+            <h1>You have {this.state.quiz_data.length} quizzes available.</h1>
+            {this.state.quiz_data.map((element, index) => <QuizButton name={element.name}/>)}
+        </div>
+    )
+}
+```
+
+![A screenshot of my React app home page](img/rendering-components.png)
+
+I'm aware it looks like I've just put some text on the page, but bare with me, it'll look better (and much more belivable) very soon.
+
+### Some Front End Design
+
+Curved boxes are very easy to do with basic CSS and make your website look fab. I did it [on my website](https://mtmars-aexp.github.io/) to great effect.
