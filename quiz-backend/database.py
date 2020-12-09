@@ -62,14 +62,14 @@ def get_all_quizzes():
     connection = sqlite3.connect(db_name)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM Quizzes;")
+    cursor.execute("SELECT * FROM Quizzes ORDER BY quiz_id ASC;")
     return cursor.fetchall()
 
 def get_all_quiz_questions(quiz_id: int):
     connection = sqlite3.connect(db_name)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
-    cursor.execute("SELECT * FROM Questions WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id})
+    cursor.execute("SELECT * FROM Questions WHERE quiz_id = :quiz_id ORDER BY quiz_id ASC", {'quiz_id': quiz_id})
     return cursor.fetchall()
 
 def get_quiz_info(quiz_id: int):
@@ -83,7 +83,7 @@ def get_all_question_answers(question_id: int):
     connection = sqlite3.connect(db_name)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
-    cursor.execute("SELECT text, is_correct, answer_id, question_id FROM Answers WHERE question_id = :question_id", {'question_id': question_id})
+    cursor.execute("SELECT text, is_correct, answer_id, question_id FROM Answers WHERE question_id = :question_id ORDER BY answer_id ASC", {'question_id': question_id})
     return cursor.fetchall()
 
 def authenticate_user(username, password_hash):
@@ -93,18 +93,26 @@ def authenticate_user(username, password_hash):
     cursor.execute("SELECT privilege_level FROM Users WHERE username = :username AND password = :password_hash", {'username': username, 'password_hash': password_hash})
     return cursor.fetchone()
 
-def update_quiz_information(quiz_id, name, description, questions, answers):
+def update_quiz_information(quiz_id, name, description, questions, answers, deleted_questions):
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute("UPDATE Quizzes SET name = :name, description = :description WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id, 'name': name, 'description': description})
 
-    for question in questions:
-        if question.get('text') != "":
-            cursor.execute("UPDATE Questions SET text = :text WHERE question_id = :question_id", {'text': question.get('text'), 'question_id': question.get('question_id')})
-        else:
+    if len(questions) == 0:
+        LOGGER.info("NO QUESTIONS ATTACHED TO QUIZ. DELETING QUIZ AND RETURNING EARLY.")
+        cursor.execute("DELETE FROM Quizzes WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id}) # Delete the quiz.
+        for question in get_all_quiz_questions(quiz_id): # Then delete all questions associated with the quiz.
+            for answer in get_all_question_answers(question.get('question_id')): # Then delete all answers associated with those questions.
+                cursor.execute("DELETE FROM Answers WHERE answer_id = :answer_id", {'answer_id': answer.get('answer_id')})
             cursor.execute("DELETE FROM Questions WHERE question_id = :question_id", {'question_id': question.get('question_id')})
-            cursor.execute("DELETE FROM Answers WHERE question_id = :question_id", {'question_id': question.get('question_id')})
 
+        connection.commit()
+        connection.close()
+        return
+
+    for deleted_question_id in deleted_questions:
+        LOGGER.info(f"Deleting question {deleted_question_id} from database.")
+        cursor.execute("DELETE FROM Questions WHERE question_id = :question_id", {'question_id': deleted_question_id})
 
     for question_id, answerset in answers.items():
         LOGGER.info(f"New answers for question ID: {question_id}")
@@ -113,9 +121,65 @@ def update_quiz_information(quiz_id, name, description, questions, answers):
                 LOGGER.info("Ignoring padding object.")
             elif answer.get("answer_id") == 0 and answer.get("text") != "":
                 LOGGER.info(f"New answer found. Adding to database. Text: {answer.get('text')}")
+                cursor.execute("INSERT INTO Answers(question_id, text) VALUES(:question_id, :text);", {'question_id': question_id, 'text': answer.get('text')})
             elif answer.get("answer_id") != 0 and answer.get("text") == "":
                 LOGGER.info(f"Answer deleted in frontend. Deleting in backend. ID: {answer.get('answer_id')}")
+                cursor.execute("DELETE FROM Answers WHERE answer_id = :answer_id", {'answer_id': answer.get('answer_id')})
             elif answer.get("answer_id") != 0 and answer.get("text") != "":
                 LOGGER.info(f"Valid answer provided. Updating in backend. Text: {answer.get('text')}")
+                cursor.execute("UPDATE Answers SET text = :text WHERE answer_id = :answer_id", {'text': answer.get("text"), 'answer_id': answer.get('answer_id')})
+
+    for question in questions:
+        if not question_already_exists(question.get('question_id')) and question.get("text") != "":
+            LOGGER.info(f"New question created in frontend. Inserting into database.")
+            cursor.execute("INSERT INTO Questions(quiz_id, text) VALUES(:quiz_id, :text);", {'quiz_id': quiz_id, 'text': question.get('text')})
+            LOGGER.info("Answers found for question:")
+            answerset = (answers[str(question.get('question_id'))])
+            LOGGER.info(answerset)
+        elif question.get('question_id') != 0 and question.get('text') != "":
+            LOGGER.info(f"Updating question ID {question.get('question_id')} with text {question.get('text')}")
+            cursor.execute("UPDATE Questions SET text = :text WHERE question_id = :question_id", {'text': question.get('text'), 'question_id': question.get('question_id')})
+        elif question.get('question_id') != 0 and question.get('text') == "":
+            LOGGER.info(f"No text found for question ID {question.get('question_id')} Deleting it and associated answers.")
+            cursor.execute("DELETE FROM Questions WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+            cursor.execute("DELETE FROM Answers WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+        else:
+            LOGGER.info("Unexpected behaviour I forgot to account for.")
+
+    connection.commit()
+
+def question_already_exists(question_id):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT question_id FROM Questions WHERE question_id = :question_id;", {'question_id': question_id})
+    return cursor.fetchone() is not None
+
+def get_highest_question_id():
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT question_id FROM Questions ORDER BY question_id DESC LIMIT 1;")
+    return cursor.fetchone()
+
+def add_quiz(name, description, questions, answers):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+
+    cursor.execute("INSERT INTO Quizzes(name, description) VALUES(:name, :description)", {'name': name, 'description': description})
+
+    new_quiz_id = cursor.execute("SELECT quiz_id from Quizzes ORDER BY quiz_id DESC LIMIT 1;").fetchone()["quiz_id"]
+
+    LOGGER.info(f"New quiz ID: {new_quiz_id}")
+
+    for question in questions:
+        cursor.execute("INSERT INTO Questions(quiz_id, text) VALUES(:quiz_id, :text)", {'quiz_id': new_quiz_id, 'text': question.get('text')})
+        for question_id, answerset in answers.items():
+            for answer in answerset:
+                if answer.get('text') == "": continue
+                cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, 0)", {'question_id': question_id, 'text': answer.get('text')})
+
+    LOGGER.info("New quiz created.")
 
     connection.commit()

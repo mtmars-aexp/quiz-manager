@@ -27,7 +27,6 @@ class QuizAnswerBox extends React.Component{
     }
 
     toggleAnswerVisibility(event){
-        console.log("toggling answer visibility for: " + event.target.id)
         var answer = document.getElementById("answer-" + event.target.id)
         if (answer.style.display === "none"){
             answer.style.display = "block";

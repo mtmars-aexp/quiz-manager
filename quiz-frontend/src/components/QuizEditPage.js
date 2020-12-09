@@ -10,41 +10,51 @@ class QuizEditPage extends React.Component{
             name: "",
             description: "",
             questions: [],
-            answers: {}
+            answers: {},
+            deleted_questions: [],
+            highest_known_question_id: 0
             }
 
         this.handleQuizDetailsChange = this.handleQuizDetailsChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAnswerChange = this.handleAnswerChange.bind(this);
         this.handleQuestionChange = this.handleQuestionChange.bind(this);
+        this.handleQuestionDelete = this.handleQuestionDelete.bind(this);
+        this.handleNewQuestion = this.handleNewQuestion.bind(this);
     }
 
     componentDidMount(){
-        fetch("http://127.0.0.1:5000/api/questions/" + this.props.match.params.id)
-        .then(result => result.json())
-        .then(result => {
-            this.setState({...result})
-            }
-            )
-        .catch(err => console.log(err))
+        if(this.props.mode === "edit"){
+            fetch("http://127.0.0.1:5000/api/questions/" + this.props.match.params.id)
+            .then(result => result.json())
+            .then(result => {
+                this.setState({...result})
+                }
+                )
+            .catch(err => console.log(err))
+        }
     }
 
     handleAnswerChange(question_id, answers){
-        console.log("QuizPage has received a change in answers for question " + question_id)
         var updated_answers = this.state.answers
         updated_answers[question_id] = answers
         this.setState({answers: updated_answers})
     }
 
     handleQuizDetailsChange(event){
-        console.log(event.target.name + ": " + event.target.value)
         var quiz_info = this.state
         quiz_info[event.target.name] = event.target.value;
         this.setState({...quiz_info})
     }
 
+    handleQuestionDelete(question_id){
+        this.setState({questions: this.state.questions.filter(question => question.question_id !== question_id)})
+        var deleted_questions = this.state.deleted_questions;
+        deleted_questions.push(question_id)
+        this.setState({deleted_questions: deleted_questions})
+    }
+
     handleQuestionChange(event, question_id){
-        console.log(event.target.name + " new question: " + event.target.value)
         this.state.questions.forEach(question => {
             if(question.question_id === question_id){
                 question.text = event.target.value
@@ -54,18 +64,49 @@ class QuizEditPage extends React.Component{
     }
 
     handleSubmit(event){
-        console.log("Handling change submit!");
-        console.log(JSON.stringify(this.state));
+        console.log("Submitting state to database.")
+        console.log(this.state)
+        if(this.props.mode === "edit"){
         fetch("http://127.0.0.1:5000/api/quizzes/" + this.props.match.params.id, {method: 'PUT', body: JSON.stringify(this.state), header:{'content-type': 'application/json'}})
-        .then(result => console.log(result))
         .catch(err => console.log(err))
+        } else {
+            fetch("http://127.0.0.1:5000/api/quizzes", {method: 'POST', body: JSON.stringify(this.state), header:{'content-type': 'application/json'}})
+        }
+    }
+
+    handleNewQuestion(){
+        var new_question = {
+            question_id: 0,
+            text: ""
+        }
+
+        if(this.state.highest_known_question_id === 0){
+            console.log("Getting highest known ID.")
+            fetch("http://127.0.0.1:5000/api/questions/highest")
+            .then(result => result.text())
+            .then(result => {
+                this.setState({highest_known_question_id: parseInt(result) + 1})
+                new_question.question_id = this.state.highest_known_question_id
+                var questions = this.state.questions
+                questions.push(new_question)
+                this.setState({questions: questions})
+                console.log("New question added from within async fetch, printing questions:")
+                console.log(this.state.questions)
+            })
+            .catch(err => console.log(err))
+        } else {
+            this.setState({highest_known_question_id: this.state.highest_known_question_id + 1})
+            new_question.question_id = this.state.highest_known_question_id;
+            var questions = this.state.questions
+            questions.push(new_question)
+            this.setState({questions: questions})
+            console.log("New question added. Printing questions:")
+            console.log(this.state.questions)
+        }
+
     }
 
     render(){
-
-        console.log("QuizEditPage state:")
-        console.log(this.state)
-
         return(
             <div className="page">
                 <h1>Quiz edit page!</h1>
@@ -73,7 +114,10 @@ class QuizEditPage extends React.Component{
                 Description:<input name = "description" value={this.state.description} onChange={this.handleQuizDetailsChange}></input><br></br>
                 <button onClick={this.handleSubmit}>Save changes.</button>
 
-                {this.state.questions.map((element, index) => <QuizEditBox handleQuestionChange={this.handleQuestionChange} handleAnswerChange={this.handleAnswerChange} key={index} question_id={element.question_id} text={element.text}/>)}
+                {this.state.questions.map((element, index) => <QuizEditBox handleQuestionDelete = {this.handleQuestionDelete} handleQuestionChange={this.handleQuestionChange} handleAnswerChange={this.handleAnswerChange} key={index} question_id={element.question_id} text={element.text}/>)}
+
+                <button onClick={this.handleNewQuestion}>New question.</button>
+
             </div>
         );
     }

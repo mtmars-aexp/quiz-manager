@@ -1220,3 +1220,1271 @@
 2020-12-09 :: 14:52:00.310 :: INFO :: Valid answer provided. Updating in backend. Text: WOOFYESWOOFWOOF
 2020-12-09 :: 14:52:00.310 :: INFO :: Valid answer provided. Updating in backend. Text: woofwoofwoof
 2020-12-09 :: 14:52:00.311 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:11:43.125 :: INFO :: Beginning migration...
+2020-12-09 :: 15:11:43.129 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.130 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:11:43.130 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:11:43.130 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:11:43.131 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.131 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:11:43.131 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:11:43.131 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:11:43.131 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.132 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:11:43.132 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:11:43.132 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:11:43.132 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.132 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:11:43.133 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:11:43.133 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:11:43.133 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.133 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:11:43.134 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:11:43.134 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:11:43.134 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.134 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:11:43.134 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:11:43.135 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:11:43.135 :: INFO :: ---------------------------
+2020-12-09 :: 15:11:43.135 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:11:43.135 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:11:43.135 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:11:43.136 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:11:56.122 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:11:56.134 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': 'Me me me!!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '3': [{'answer_id': 5, 'is_correct': 1, 'question_id': 3, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 6, 'is_correct': 0, 'question_id': 3, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 7, 'is_correct': 0, 'question_id': 3, 'text': 'WOOFYESWOOFWOOF'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '4': [{'answer_id': 8, 'is_correct': 1, 'question_id': 4, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 9, 'is_correct': 0, 'question_id': 4, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 10, 'is_correct': 0, 'question_id': 4, 'text': 'WOOFYESWOOFWOOF'}, {'answer_id': 11, 'is_correct': 0, 'question_id': 4, 'text': 'woofwoofwoof'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}]}}
+2020-12-09 :: 15:11:56.137 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:11:56.152 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:11:56.152 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:11:56.153 :: INFO :: Answers are: {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': 'Me me me!!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '3': [{'answer_id': 5, 'is_correct': 1, 'question_id': 3, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 6, 'is_correct': 0, 'question_id': 3, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 7, 'is_correct': 0, 'question_id': 3, 'text': 'WOOFYESWOOFWOOF'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '4': [{'answer_id': 8, 'is_correct': 1, 'question_id': 4, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 9, 'is_correct': 0, 'question_id': 4, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 10, 'is_correct': 0, 'question_id': 4, 'text': 'WOOFYESWOOFWOOF'}, {'answer_id': 11, 'is_correct': 0, 'question_id': 4, 'text': 'woofwoofwoof'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 15:11:56.174 :: INFO :: New answers for question ID: 1
+2020-12-09 :: 15:11:56.176 :: INFO :: Valid answer provided. Updating in backend. Text: Wruff!
+2020-12-09 :: 15:11:56.177 :: INFO :: Valid answer provided. Updating in backend. Text: Me me me!!
+2020-12-09 :: 15:11:56.177 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:11:56.177 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:11:56.177 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:11:56.177 :: INFO :: New answers for question ID: 3
+2020-12-09 :: 15:11:56.178 :: INFO :: Valid answer provided. Updating in backend. Text: W!! WOOFWOOF!!
+2020-12-09 :: 15:11:56.178 :: INFO :: Valid answer provided. Updating in backend. Text: AAAWOOFWOOFBARK
+2020-12-09 :: 15:11:56.178 :: INFO :: Valid answer provided. Updating in backend. Text: WOOFYESWOOFWOOF
+2020-12-09 :: 15:11:56.178 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:11:56.178 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:11:56.178 :: INFO :: New answers for question ID: 4
+2020-12-09 :: 15:11:56.179 :: INFO :: Valid answer provided. Updating in backend. Text: W!! WOOFWOOF!!
+2020-12-09 :: 15:11:56.179 :: INFO :: Valid answer provided. Updating in backend. Text: AAAWOOFWOOFBARK
+2020-12-09 :: 15:11:56.179 :: INFO :: Valid answer provided. Updating in backend. Text: WOOFYESWOOFWOOF
+2020-12-09 :: 15:11:56.179 :: INFO :: Valid answer provided. Updating in backend. Text: woofwoofwoof
+2020-12-09 :: 15:11:56.179 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:12:03.986 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:12:03.998 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': 'Me me me!!sdasdasd'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '3': [{'answer_id': 5, 'is_correct': 1, 'question_id': 3, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 6, 'is_correct': 0, 'question_id': 3, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 7, 'is_correct': 0, 'question_id': 3, 'text': 'WOOFYESWOOFWOOF'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '4': [{'answer_id': 8, 'is_correct': 1, 'question_id': 4, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 9, 'is_correct': 0, 'question_id': 4, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 10, 'is_correct': 0, 'question_id': 4, 'text': 'WOOFYESWOOFWOOF'}, {'answer_id': 11, 'is_correct': 0, 'question_id': 4, 'text': 'woofwoofwoof'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}]}}
+2020-12-09 :: 15:12:04.000 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:12:04.001 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:12:04.001 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:12:04.001 :: INFO :: Answers are: {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': 'Me me me!!sdasdasd'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '3': [{'answer_id': 5, 'is_correct': 1, 'question_id': 3, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 6, 'is_correct': 0, 'question_id': 3, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 7, 'is_correct': 0, 'question_id': 3, 'text': 'WOOFYESWOOFWOOF'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '4': [{'answer_id': 8, 'is_correct': 1, 'question_id': 4, 'text': 'W!! WOOFWOOF!!'}, {'answer_id': 9, 'is_correct': 0, 'question_id': 4, 'text': 'AAAWOOFWOOFBARK'}, {'answer_id': 10, 'is_correct': 0, 'question_id': 4, 'text': 'WOOFYESWOOFWOOF'}, {'answer_id': 11, 'is_correct': 0, 'question_id': 4, 'text': 'woofwoofwoof'}, {'is_correct': 0, 'text': 'f', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 15:12:04.004 :: INFO :: New answers for question ID: 1
+2020-12-09 :: 15:12:04.004 :: INFO :: Valid answer provided. Updating in backend. Text: Wruff!
+2020-12-09 :: 15:12:04.025 :: INFO :: Valid answer provided. Updating in backend. Text: Me me me!!sdasdasd
+2020-12-09 :: 15:12:04.026 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:12:04.027 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:12:04.027 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:12:04.027 :: INFO :: New answers for question ID: 3
+2020-12-09 :: 15:12:04.027 :: INFO :: Valid answer provided. Updating in backend. Text: W!! WOOFWOOF!!
+2020-12-09 :: 15:12:04.027 :: INFO :: Valid answer provided. Updating in backend. Text: AAAWOOFWOOFBARK
+2020-12-09 :: 15:12:04.028 :: INFO :: Valid answer provided. Updating in backend. Text: WOOFYESWOOFWOOF
+2020-12-09 :: 15:12:04.028 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:12:04.028 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:12:04.028 :: INFO :: New answers for question ID: 4
+2020-12-09 :: 15:12:04.028 :: INFO :: Valid answer provided. Updating in backend. Text: W!! WOOFWOOF!!
+2020-12-09 :: 15:12:04.029 :: INFO :: Valid answer provided. Updating in backend. Text: AAAWOOFWOOFBARK
+2020-12-09 :: 15:12:04.029 :: INFO :: Valid answer provided. Updating in backend. Text: WOOFYESWOOFWOOF
+2020-12-09 :: 15:12:04.029 :: INFO :: Valid answer provided. Updating in backend. Text: woofwoofwoof
+2020-12-09 :: 15:12:04.029 :: INFO :: New answer found. Adding to database. Text: f
+2020-12-09 :: 15:13:28.413 :: INFO :: Beginning migration...
+2020-12-09 :: 15:13:28.415 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.416 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:13:28.416 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:13:28.416 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:13:28.417 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.417 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:13:28.417 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:13:28.417 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:13:28.418 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.418 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:13:28.418 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:13:28.418 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:13:28.419 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.419 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:13:28.419 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:13:28.419 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:13:28.419 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.420 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:13:28.420 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:13:28.420 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:13:28.420 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.421 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:13:28.421 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:13:28.421 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:13:28.421 :: INFO :: ---------------------------
+2020-12-09 :: 15:13:28.421 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:13:28.422 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:13:28.422 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:13:28.422 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:13:35.677 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:13:35.688 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': ''}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}}
+2020-12-09 :: 15:13:35.689 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:13:35.691 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:13:35.705 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:13:35.706 :: INFO :: Answers are: {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 2, 'is_correct': 0, 'question_id': 1, 'text': ''}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 15:13:35.720 :: INFO :: New answers for question ID: 1
+2020-12-09 :: 15:13:35.721 :: INFO :: Valid answer provided. Updating in backend. Text: Wruff!
+2020-12-09 :: 15:13:35.721 :: INFO :: Answer deleted in frontend. Deleting in backend. ID: 2
+2020-12-09 :: 15:13:35.738 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:13:35.739 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:13:35.739 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:14:53.476 :: INFO :: Beginning migration...
+2020-12-09 :: 15:14:53.486 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.486 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:14:53.486 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:14:53.486 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:14:53.487 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.487 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:14:53.487 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:14:53.487 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:14:53.487 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.488 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:14:53.488 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:14:53.490 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:14:53.490 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.490 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:14:53.490 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:14:53.491 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:14:53.491 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.491 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:14:53.492 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:14:53.504 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:14:53.505 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.505 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:14:53.505 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:14:53.506 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:14:53.506 :: INFO :: ---------------------------
+2020-12-09 :: 15:14:53.506 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:14:53.506 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:14:53.507 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:14:53.507 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:17:27.486 :: INFO :: Beginning migration...
+2020-12-09 :: 15:17:27.487 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.487 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:17:27.487 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:17:27.488 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:17:27.488 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.488 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:17:27.489 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:17:27.489 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:17:27.489 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.489 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:17:27.489 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:17:27.490 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:17:27.490 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.490 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:17:27.491 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:17:27.491 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:17:27.491 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.491 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:17:27.492 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:17:27.492 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:17:27.492 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.492 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:17:27.493 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:17:27.493 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:17:27.493 :: INFO :: ---------------------------
+2020-12-09 :: 15:17:27.493 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:17:27.494 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:17:27.494 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:17:27.494 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:17:32.468 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:17:32.469 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'is_correct': 0, 'text': 'barkbork!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}}
+2020-12-09 :: 15:17:32.469 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:17:32.469 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:17:32.471 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:17:32.472 :: INFO :: Answers are: {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'is_correct': 0, 'text': 'barkbork!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 15:17:32.472 :: INFO :: New answers for question ID: 1
+2020-12-09 :: 15:17:32.474 :: INFO :: Valid answer provided. Updating in backend. Text: Wruff!
+2020-12-09 :: 15:17:32.474 :: INFO :: New answer found. Adding to database. Text: barkbork!
+2020-12-09 :: 15:17:32.475 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:17:32.476 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:17:32.476 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:31:16.073 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:31:16.079 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 17, 'is_correct': None, 'question_id': 1, 'text': 'barkbork!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'BARKBARK!!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}, 'deleted_questions': []}
+2020-12-09 :: 15:31:16.079 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:31:16.079 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:31:16.082 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:31:16.082 :: INFO :: Answers are: {'1': [{'answer_id': 1, 'is_correct': 1, 'question_id': 1, 'text': 'Wruff!'}, {'answer_id': 17, 'is_correct': None, 'question_id': 1, 'text': 'barkbork!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': 'BARKBARK!!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 15:31:16.083 :: INFO :: New answers for question ID: 1
+2020-12-09 :: 15:31:16.086 :: INFO :: Valid answer provided. Updating in backend. Text: Wruff!
+2020-12-09 :: 15:31:16.086 :: INFO :: Valid answer provided. Updating in backend. Text: barkbork!
+2020-12-09 :: 15:31:16.086 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:31:16.087 :: INFO :: New answer found. Adding to database. Text: BARKBARK!!
+2020-12-09 :: 15:31:16.087 :: INFO :: Ignoring padding object.
+2020-12-09 :: 15:33:54.432 :: INFO :: Beginning migration...
+2020-12-09 :: 15:33:54.434 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.439 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:33:54.440 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:33:54.440 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:33:54.441 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.441 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:33:54.441 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:33:54.441 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:33:54.442 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.442 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:33:54.442 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:33:54.442 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:33:54.443 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.443 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:33:54.443 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:33:54.443 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:33:54.444 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.444 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:33:54.444 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:33:54.444 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:33:54.444 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.445 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:33:54.445 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:33:54.445 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:33:54.445 :: INFO :: ---------------------------
+2020-12-09 :: 15:33:54.446 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:33:54.446 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:33:54.446 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:33:54.446 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:34:59.107 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:34:59.107 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {}, 'deleted_questions': 1}
+2020-12-09 :: 15:34:59.108 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:34:59.108 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:34:59.108 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 15:34:59.108 :: INFO :: Answers are: {}
+2020-12-09 :: 15:34:59.110 :: INFO :: Deleted questions are: 1
+2020-12-09 :: 15:40:16.186 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:40:16.192 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}], 'answers': {}, 'deleted_questions': [3, 4]}
+2020-12-09 :: 15:40:16.193 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:40:16.193 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:40:16.196 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}]
+2020-12-09 :: 15:40:16.204 :: INFO :: Answers are: {}
+2020-12-09 :: 15:40:16.205 :: INFO :: Deleted questions are: [3, 4]
+2020-12-09 :: 15:40:43.106 :: INFO :: Beginning migration...
+2020-12-09 :: 15:40:43.107 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.107 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:40:43.108 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:40:43.108 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:40:43.108 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.108 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:40:43.109 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:40:43.109 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:40:43.109 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.110 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:40:43.110 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:40:43.110 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:40:43.110 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.110 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:40:43.111 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:40:43.111 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:40:43.111 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.112 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:40:43.112 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:40:43.112 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:40:43.112 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.121 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:40:43.121 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:40:43.122 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:40:43.122 :: INFO :: ---------------------------
+2020-12-09 :: 15:40:43.123 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:40:43.123 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:40:43.123 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:40:43.123 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:40:49.220 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:40:49.228 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}], 'answers': {}, 'deleted_questions': [3, 4]}
+2020-12-09 :: 15:40:49.229 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:40:49.229 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:40:49.241 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}]
+2020-12-09 :: 15:40:49.242 :: INFO :: Answers are: {}
+2020-12-09 :: 15:40:49.242 :: INFO :: Deleted questions are: [3, 4]
+2020-12-09 :: 15:40:49.243 :: INFO :: Deleting question 3 from database.
+2020-12-09 :: 15:40:49.243 :: INFO :: Deleting question 4 from database.
+2020-12-09 :: 15:41:29.639 :: INFO :: Updating quiz 1
+2020-12-09 :: 15:41:29.647 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [], 'answers': {}, 'deleted_questions': [3, 4, 1]}
+2020-12-09 :: 15:41:29.648 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 15:41:29.650 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 15:41:29.661 :: INFO :: Questions are: []
+2020-12-09 :: 15:41:29.662 :: INFO :: Answers are: {}
+2020-12-09 :: 15:41:29.662 :: INFO :: Deleted questions are: [3, 4, 1]
+2020-12-09 :: 15:41:29.663 :: INFO :: NO QUESTIONS ATTACHED TO QUIZ. DELETING QUIZ!
+2020-12-09 :: 15:41:29.663 :: INFO :: Deleting question 3 from database.
+2020-12-09 :: 15:41:29.663 :: INFO :: Deleting question 4 from database.
+2020-12-09 :: 15:41:29.663 :: INFO :: Deleting question 1 from database.
+2020-12-09 :: 15:52:05.556 :: INFO :: Beginning migration...
+2020-12-09 :: 15:52:05.557 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.558 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 15:52:05.558 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 15:52:05.558 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 15:52:05.559 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.559 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 15:52:05.559 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 15:52:05.559 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 15:52:05.560 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.560 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 15:52:05.560 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 15:52:05.560 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 15:52:05.561 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.561 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 15:52:05.561 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 15:52:05.561 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 15:52:05.561 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.562 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 15:52:05.562 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 15:52:05.562 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 15:52:05.562 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.562 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 15:52:05.563 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 15:52:05.571 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 15:52:05.572 :: INFO :: ---------------------------
+2020-12-09 :: 15:52:05.572 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 15:52:05.573 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 15:52:05.573 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 15:52:05.573 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 15:52:24.649 :: INFO :: Updating quiz 2
+2020-12-09 :: 15:52:24.652 :: INFO :: {'name': 'Beta quiz!', 'description': 'Boop beep?? :O', 'questions': [], 'answers': {}, 'deleted_questions': [2]}
+2020-12-09 :: 15:52:24.653 :: INFO :: Quiz name is: Beta quiz!
+2020-12-09 :: 15:52:24.653 :: INFO :: Description is: Boop beep?? :O
+2020-12-09 :: 15:52:24.653 :: INFO :: Questions are: []
+2020-12-09 :: 15:52:24.653 :: INFO :: Answers are: {}
+2020-12-09 :: 15:52:24.654 :: INFO :: Deleted questions are: [2]
+2020-12-09 :: 15:52:24.654 :: INFO :: NO QUESTIONS ATTACHED TO QUIZ. DELETING QUIZ AND RETURNING EARLY.
+2020-12-09 :: 16:07:14.194 :: INFO :: Beginning migration...
+2020-12-09 :: 16:07:14.195 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.195 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:07:14.200 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:07:14.200 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:07:14.201 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.201 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:07:14.201 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:07:14.201 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:07:14.202 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.208 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:07:14.209 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:07:14.209 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:07:14.210 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.210 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:07:14.210 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:07:14.210 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:07:14.211 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.211 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:07:14.211 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:07:14.211 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:07:14.212 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.212 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:07:14.212 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:07:14.213 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:07:14.213 :: INFO :: ---------------------------
+2020-12-09 :: 16:07:14.213 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:07:14.213 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:07:14.213 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:07:14.214 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:07:43.502 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:08:33.632 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:08:34.824 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:09:19.084 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:09:57.659 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:10:11.634 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:15:31.972 :: INFO :: Beginning migration...
+2020-12-09 :: 16:15:31.973 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.973 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:15:31.975 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:15:31.975 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:15:31.975 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.975 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:15:31.976 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:15:31.976 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:15:31.976 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.977 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:15:31.977 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:15:31.977 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:15:31.977 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.978 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:15:31.978 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:15:31.978 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:15:31.978 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.979 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:15:31.979 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:15:31.979 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:15:31.979 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.980 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:15:31.980 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:15:31.980 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:15:31.980 :: INFO :: ---------------------------
+2020-12-09 :: 16:15:31.980 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:15:31.990 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:15:31.990 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:15:31.991 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:15:44.042 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:15:54.387 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:15:54.394 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'text': 'fdsfsdf'}], 'answers': {'0': [{'is_correct': 0, 'text': 'fdsffdsf', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '5': [{'is_correct': 0, 'text': 'fdsffdsf', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}, 'deleted_questions': []}
+2020-12-09 :: 16:15:54.399 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:15:54.424 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:15:54.454 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'text': 'fdsfsdf'}]
+2020-12-09 :: 16:15:54.514 :: INFO :: Answers are: {'0': [{'is_correct': 0, 'text': 'fdsffdsf', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '5': [{'is_correct': 0, 'text': 'fdsffdsf', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 16:15:54.528 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:15:54.531 :: INFO :: New answers for question ID: 0
+2020-12-09 :: 16:15:54.544 :: INFO :: New answer found. Adding to database. Text: fdsffdsf
+2020-12-09 :: 16:15:54.547 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.559 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.562 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.562 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.563 :: INFO :: New answers for question ID: 5
+2020-12-09 :: 16:15:54.563 :: INFO :: New answer found. Adding to database. Text: fdsffdsf
+2020-12-09 :: 16:15:54.563 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.563 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.563 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.572 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:15:54.573 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:15:54.574 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:15:54.575 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:15:54.575 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 16:16:51.873 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:17:10.941 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:17:10.946 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'text': 'Are you... A cat tho?'}], 'answers': {'0': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'is_correct': 0, 'text': 'WOOFWOOF', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '5': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'is_correct': 0, 'text': 'WOOFWOOF', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}, 'deleted_questions': []}
+2020-12-09 :: 16:17:10.947 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:17:10.949 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:17:10.949 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'text': 'Are you... A cat tho?'}]
+2020-12-09 :: 16:17:10.949 :: INFO :: Answers are: {'0': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'is_correct': 0, 'text': 'WOOFWOOF', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '5': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'is_correct': 0, 'text': 'WOOFWOOF', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 16:17:10.962 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:17:10.963 :: INFO :: New answers for question ID: 0
+2020-12-09 :: 16:17:10.966 :: INFO :: Valid answer provided. Updating in backend. Text: NO ABSOLUTELY NOT
+2020-12-09 :: 16:17:10.980 :: INFO :: New answer found. Adding to database. Text: WOOFWOOF
+2020-12-09 :: 16:17:10.981 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.981 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.982 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.982 :: INFO :: New answers for question ID: 5
+2020-12-09 :: 16:17:10.982 :: INFO :: Valid answer provided. Updating in backend. Text: NO ABSOLUTELY NOT
+2020-12-09 :: 16:17:10.982 :: INFO :: New answer found. Adding to database. Text: WOOFWOOF
+2020-12-09 :: 16:17:10.983 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.994 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.994 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:17:10.995 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:17:10.995 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:17:10.996 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:17:10.996 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 16:17:52.702 :: INFO :: Beginning migration...
+2020-12-09 :: 16:17:52.704 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.705 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:17:52.709 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:17:52.710 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:17:52.710 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.711 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:17:52.711 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:17:52.711 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:17:52.711 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.712 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:17:52.712 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:17:52.712 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:17:52.713 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.713 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:17:52.713 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:17:52.713 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:17:52.714 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.714 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:17:52.714 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:17:52.714 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:17:52.714 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.715 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:17:52.715 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:17:52.715 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:17:52.715 :: INFO :: ---------------------------
+2020-12-09 :: 16:17:52.715 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:17:52.716 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:17:52.716 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:17:52.716 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:18:01.594 :: INFO :: Current highest question_id is 7
+2020-12-09 :: 16:18:09.262 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:18:09.269 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 8, 'text': 'Wauf?'}], 'answers': {'0': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'answer_id': 21, 'is_correct': None, 'question_id': 0, 'text': 'WOOF!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '8': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'answer_id': 21, 'is_correct': None, 'question_id': 0, 'text': 'WOOF!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}, 'deleted_questions': []}
+2020-12-09 :: 16:18:09.271 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:18:09.272 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:18:09.272 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 8, 'text': 'Wauf?'}]
+2020-12-09 :: 16:18:09.274 :: INFO :: Answers are: {'0': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'answer_id': 21, 'is_correct': None, 'question_id': 0, 'text': 'WOOF!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '8': [{'answer_id': 19, 'is_correct': None, 'question_id': 0, 'text': 'NO ABSOLUTELY NOT'}, {'answer_id': 21, 'is_correct': None, 'question_id': 0, 'text': 'WOOF!'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 16:18:09.274 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:18:09.275 :: INFO :: New answers for question ID: 0
+2020-12-09 :: 16:18:09.278 :: INFO :: Valid answer provided. Updating in backend. Text: NO ABSOLUTELY NOT
+2020-12-09 :: 16:18:09.279 :: INFO :: Valid answer provided. Updating in backend. Text: WOOF!
+2020-12-09 :: 16:18:09.279 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.280 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.280 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.280 :: INFO :: New answers for question ID: 8
+2020-12-09 :: 16:18:09.280 :: INFO :: Valid answer provided. Updating in backend. Text: NO ABSOLUTELY NOT
+2020-12-09 :: 16:18:09.280 :: INFO :: Valid answer provided. Updating in backend. Text: WOOF!
+2020-12-09 :: 16:18:09.281 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.281 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.281 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:18:09.282 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:18:09.282 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:18:09.283 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:18:09.283 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 16:19:33.495 :: INFO :: Beginning migration...
+2020-12-09 :: 16:19:33.497 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.497 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:19:33.498 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:19:33.498 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:19:33.498 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.498 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:19:33.499 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:19:33.499 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:19:33.499 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.499 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:19:33.500 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:19:33.500 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:19:33.500 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.500 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:19:33.501 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:19:33.501 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:19:33.501 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.501 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:19:33.501 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:19:33.502 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:19:33.502 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.502 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:19:33.502 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:19:33.503 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:19:33.503 :: INFO :: ---------------------------
+2020-12-09 :: 16:19:33.503 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:19:33.511 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:19:33.512 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:19:33.512 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:19:59.732 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:19:59.739 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 8, 'quiz_id': 1, 'text': 'Wauf?'}], 'answers': {'8': [{'is_correct': 0, 'text': 'WAUFWAUF', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': "i'm DOGGIE", 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}]}, 'deleted_questions': []}
+2020-12-09 :: 16:19:59.740 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:19:59.742 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:19:59.742 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 8, 'quiz_id': 1, 'text': 'Wauf?'}]
+2020-12-09 :: 16:19:59.742 :: INFO :: Answers are: {'8': [{'is_correct': 0, 'text': 'WAUFWAUF', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': "i'm DOGGIE", 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}]}
+2020-12-09 :: 16:19:59.742 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:19:59.743 :: INFO :: New answers for question ID: 8
+2020-12-09 :: 16:19:59.745 :: INFO :: New answer found. Adding to database. Text: WAUFWAUF
+2020-12-09 :: 16:19:59.746 :: INFO :: New answer found. Adding to database. Text: i'm DOGGIE
+2020-12-09 :: 16:19:59.746 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:19:59.746 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:19:59.747 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:19:59.747 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:19:59.747 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:19:59.748 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:19:59.748 :: INFO :: Updating question ID 8 with text Wauf?
+2020-12-09 :: 16:20:20.695 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:20:20.700 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {}, 'deleted_questions': [8]}
+2020-12-09 :: 16:20:20.700 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:20:20.701 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:20:20.703 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 16:20:20.703 :: INFO :: Answers are: {}
+2020-12-09 :: 16:20:20.703 :: INFO :: Deleted questions are: [8]
+2020-12-09 :: 16:20:20.704 :: INFO :: Deleting question 8 from database.
+2020-12-09 :: 16:20:20.715 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:20:20.716 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:20:20.717 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:20:39.174 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:20:39.175 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {}, 'deleted_questions': [8]}
+2020-12-09 :: 16:20:39.175 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:20:39.175 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:20:39.178 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 16:20:39.178 :: INFO :: Answers are: {}
+2020-12-09 :: 16:20:39.179 :: INFO :: Deleted questions are: [8]
+2020-12-09 :: 16:20:39.179 :: INFO :: Deleting question 8 from database.
+2020-12-09 :: 16:20:39.181 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:20:39.182 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:20:39.182 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:20:54.479 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:20:54.484 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {}, 'deleted_questions': [8]}
+2020-12-09 :: 16:20:54.485 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:20:54.485 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:20:54.487 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 16:20:54.488 :: INFO :: Answers are: {}
+2020-12-09 :: 16:20:54.497 :: INFO :: Deleted questions are: [8]
+2020-12-09 :: 16:20:54.498 :: INFO :: Deleting question 8 from database.
+2020-12-09 :: 16:20:54.499 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:20:54.500 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:20:54.501 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:21:54.594 :: INFO :: Beginning migration...
+2020-12-09 :: 16:21:54.595 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.600 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:21:54.600 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:21:54.601 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:21:54.601 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.601 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:21:54.602 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:21:54.602 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:21:54.602 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.602 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:21:54.602 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:21:54.603 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:21:54.603 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.603 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:21:54.603 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:21:54.604 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:21:54.604 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.604 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:21:54.604 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:21:54.605 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:21:54.605 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.605 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:21:54.605 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:21:54.605 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:21:54.606 :: INFO :: ---------------------------
+2020-12-09 :: 16:21:54.606 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:21:54.606 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:21:54.606 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:21:54.615 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:22:02.263 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:22:02.270 :: INFO :: {'name': 'The doggy quiz!', 'description': 'This is a good quiz for really good pups, prove your doggedness in this fierce world!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}], 'answers': {}, 'deleted_questions': [8]}
+2020-12-09 :: 16:22:02.270 :: INFO :: Quiz name is: The doggy quiz!
+2020-12-09 :: 16:22:02.270 :: INFO :: Description is: This is a good quiz for really good pups, prove your doggedness in this fierce world!
+2020-12-09 :: 16:22:02.272 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl?? Is it you??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}]
+2020-12-09 :: 16:22:02.273 :: INFO :: Answers are: {}
+2020-12-09 :: 16:22:02.273 :: INFO :: Deleted questions are: [8]
+2020-12-09 :: 16:22:02.274 :: INFO :: Deleting question 8 from database.
+2020-12-09 :: 16:22:02.285 :: INFO :: Updating question ID 1 with text Who's a good girl?? Is it you??
+2020-12-09 :: 16:22:02.286 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:22:02.286 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:23:18.946 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:23:31.136 :: INFO :: Current highest question_id is 4
+2020-12-09 :: 16:28:16.289 :: INFO :: Beginning migration...
+2020-12-09 :: 16:28:16.290 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.296 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:28:16.297 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:28:16.297 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:28:16.298 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.298 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:28:16.298 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:28:16.298 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:28:16.299 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.305 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:28:16.305 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:28:16.306 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:28:16.306 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.306 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:28:16.307 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:28:16.307 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:28:16.307 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.307 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:28:16.308 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:28:16.308 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:28:16.308 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.308 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:28:16.309 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:28:16.309 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:28:16.309 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:16.309 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:28:16.309 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:28:16.310 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:28:16.310 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:28:34.861 :: INFO :: Beginning migration...
+2020-12-09 :: 16:28:34.881 :: INFO :: Migration table created.
+2020-12-09 :: 16:28:35.021 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:35.022 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:28:35.022 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:28:35.022 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:35.022 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:35.230 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:35.230 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:28:35.231 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:28:35.231 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:35.231 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:35.630 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:35.630 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:28:35.630 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:28:35.631 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:35.631 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:35.846 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:35.846 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:28:35.846 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:28:35.847 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:35.847 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:35.962 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:35.963 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:28:35.963 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:28:35.963 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:35.963 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:36.121 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:36.121 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:28:36.122 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:28:36.122 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:36.122 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:36.287 :: INFO :: ---------------------------
+2020-12-09 :: 16:28:36.288 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:28:36.288 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:28:36.288 :: INFO :: Hash in database: None
+2020-12-09 :: 16:28:36.288 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 16:28:36.463 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:28:54.162 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:28:54.168 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 0, 'text': 'hello?'}], 'answers': {'0': [{'is_correct': 0, 'text': 'world!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}, 'deleted_questions': [], 'highest_known_question_id': 1}
+2020-12-09 :: 16:28:54.169 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 16:28:54.171 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 16:28:54.171 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 0, 'text': 'hello?'}]
+2020-12-09 :: 16:28:54.172 :: INFO :: Answers are: {'0': [{'is_correct': 0, 'text': 'world!', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}]}
+2020-12-09 :: 16:28:54.172 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:28:54.174 :: INFO :: New answers for question ID: 0
+2020-12-09 :: 16:28:54.174 :: INFO :: New answer found. Adding to database. Text: world!
+2020-12-09 :: 16:28:54.175 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:28:54.176 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:28:54.177 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:28:54.177 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:28:54.177 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 16:28:54.178 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:28:54.178 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:28:54.179 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 16:28:54.179 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 16:33:52.220 :: INFO :: Beginning migration...
+2020-12-09 :: 16:33:52.222 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.222 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:33:52.222 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:33:52.222 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:33:52.223 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.223 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:33:52.223 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:33:52.223 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:33:52.224 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.230 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:33:52.230 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:33:52.230 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:33:52.231 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.231 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:33:52.231 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:33:52.231 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:33:52.232 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.232 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:33:52.232 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:33:52.232 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:33:52.233 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.233 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:33:52.233 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:33:52.233 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:33:52.234 :: INFO :: ---------------------------
+2020-12-09 :: 16:33:52.234 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:33:52.234 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:33:52.234 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:33:52.234 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:33:57.183 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:33:57.189 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}], 'answers': {'6': [{'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': 'fdsf', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}, 'deleted_questions': [], 'highest_known_question_id': 0}
+2020-12-09 :: 16:33:57.190 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 16:33:57.192 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 16:33:57.204 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}]
+2020-12-09 :: 16:33:57.205 :: INFO :: Answers are: {'6': [{'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': 'fdsf', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}
+2020-12-09 :: 16:33:57.205 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:33:57.208 :: INFO :: New answers for question ID: 6
+2020-12-09 :: 16:33:57.221 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:33:57.222 :: INFO :: New answer found. Adding to database. Text: fdsf
+2020-12-09 :: 16:33:57.223 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:33:57.223 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:33:57.223 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:33:57.224 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 16:33:57.225 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:33:57.235 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:33:57.236 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 16:33:57.236 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 16:34:25.528 :: INFO :: Updating quiz 1
+2020-12-09 :: 16:34:25.529 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 0, 'text': 'NEWQUESTION'}], 'answers': {'0': [{'answer_id': 17, 'is_correct': None, 'question_id': 0, 'text': 'AAAAAA'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '6': [{'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': 'fdsf', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}, 'deleted_questions': [], 'highest_known_question_id': 1}
+2020-12-09 :: 16:34:25.532 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 16:34:25.532 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 16:34:25.532 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 0, 'text': 'NEWQUESTION'}]
+2020-12-09 :: 16:34:25.533 :: INFO :: Answers are: {'0': [{'answer_id': 17, 'is_correct': None, 'question_id': 0, 'text': 'AAAAAA'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 0}], '6': [{'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': 'fdsf', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}
+2020-12-09 :: 16:34:25.535 :: INFO :: Deleted questions are: []
+2020-12-09 :: 16:34:25.535 :: INFO :: New answers for question ID: 0
+2020-12-09 :: 16:34:25.536 :: INFO :: Valid answer provided. Updating in backend. Text: AAAAAA
+2020-12-09 :: 16:34:25.536 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.537 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.537 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.538 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.538 :: INFO :: New answers for question ID: 6
+2020-12-09 :: 16:34:25.538 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.538 :: INFO :: New answer found. Adding to database. Text: fdsf
+2020-12-09 :: 16:34:25.538 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.538 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.539 :: INFO :: Ignoring padding object.
+2020-12-09 :: 16:34:25.539 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 16:34:25.539 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 16:34:25.540 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 16:34:25.540 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 16:34:25.541 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 16:34:25.541 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 16:34:25.549 :: INFO :: Questions found:
+2020-12-09 :: 16:38:18.955 :: INFO :: Beginning migration...
+2020-12-09 :: 16:38:18.956 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.957 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 16:38:18.957 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 16:38:18.957 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 16:38:18.957 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.958 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 16:38:18.958 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 16:38:18.958 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 16:38:18.958 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.959 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 16:38:18.959 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 16:38:18.959 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 16:38:18.960 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.960 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 16:38:18.960 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 16:38:18.960 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 16:38:18.961 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.961 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 16:38:18.961 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 16:38:18.961 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 16:38:18.962 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.962 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 16:38:18.962 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 16:38:18.962 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 16:38:18.963 :: INFO :: ---------------------------
+2020-12-09 :: 16:38:18.963 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 16:38:18.963 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 16:38:18.963 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 16:38:18.973 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 16:38:32.017 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:39:01.178 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:39:30.037 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:39:59.144 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:40:12.562 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:40:52.503 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:41:04.895 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:41:21.778 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:42:25.659 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:43:07.457 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:44:10.242 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:44:40.563 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:45:30.464 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:46:53.796 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:47:03.830 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:47:21.031 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:48:48.266 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:50:11.984 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:50:35.757 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:51:32.763 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:51:57.688 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 16:52:12.031 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:04:59.756 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:05:16.975 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:05:35.573 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:05:35.578 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Are you there?'}], 'answers': {'7': [{'is_correct': 0, 'text': "I'm a were(wolf!)", 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': 'No!!!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': 'Woof. :3', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}, 'deleted_questions': [], 'highest_known_question_id': 7}
+2020-12-09 :: 17:05:35.578 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:05:35.580 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:05:35.580 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Are you there?'}]
+2020-12-09 :: 17:05:35.581 :: INFO :: Answers are: {'7': [{'is_correct': 0, 'text': "I'm a were(wolf!)", 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': 'No!!!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': 'Woof. :3', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}
+2020-12-09 :: 17:05:35.581 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:05:35.584 :: INFO :: New answers for question ID: 7
+2020-12-09 :: 17:05:35.584 :: INFO :: New answer found. Adding to database. Text: I'm a were(wolf!)
+2020-12-09 :: 17:05:35.585 :: INFO :: New answer found. Adding to database. Text: No!!!
+2020-12-09 :: 17:05:35.585 :: INFO :: New answer found. Adding to database. Text: Woof. :3
+2020-12-09 :: 17:05:35.586 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:05:35.586 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:05:35.586 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:05:35.587 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:05:35.599 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:05:35.600 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:05:35.601 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:05:35.601 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 17:05:35.601 :: INFO :: Questions found:
+2020-12-09 :: 17:05:43.557 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:06:19.311 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:06:19.317 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}], 'answers': {}, 'deleted_questions': [], 'highest_known_question_id': 0}
+2020-12-09 :: 17:06:19.318 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:06:19.318 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:06:19.320 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}]
+2020-12-09 :: 17:06:19.320 :: INFO :: Answers are: {}
+2020-12-09 :: 17:06:19.321 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:06:19.321 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:06:19.335 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:06:19.336 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:06:19.337 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:06:19.337 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:06:24.702 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:06:27.613 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:06:27.621 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': ''}], 'answers': {}, 'deleted_questions': [], 'highest_known_question_id': 7}
+2020-12-09 :: 17:06:27.622 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:06:27.622 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:06:27.625 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': ''}]
+2020-12-09 :: 17:06:27.635 :: INFO :: Answers are: {}
+2020-12-09 :: 17:06:27.636 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:06:27.637 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:06:27.639 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:06:27.640 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:06:27.649 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:06:27.650 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:06:27.651 :: INFO :: No text found for question ID 7 Deleting it and associated answers.
+2020-12-09 :: 17:06:41.329 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:06:41.336 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Awwwruff!'}], 'answers': {'7': [{'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}, 'deleted_questions': [], 'highest_known_question_id': 7}
+2020-12-09 :: 17:06:41.337 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:06:41.339 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:06:41.351 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Awwwruff!'}]
+2020-12-09 :: 17:06:41.352 :: INFO :: Answers are: {'7': [{'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}
+2020-12-09 :: 17:06:41.352 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:06:41.355 :: INFO :: New answers for question ID: 7
+2020-12-09 :: 17:06:41.368 :: INFO :: New answer found. Adding to database. Text: Woofwoof!
+2020-12-09 :: 17:06:41.369 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:06:41.370 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:06:41.370 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:06:41.370 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:06:41.371 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:06:41.372 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:06:41.372 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:06:41.384 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:06:41.385 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:06:41.385 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 17:06:41.386 :: INFO :: Questions found:
+2020-12-09 :: 17:09:09.889 :: INFO :: Beginning migration...
+2020-12-09 :: 17:09:09.891 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.891 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:09:09.891 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:09:09.891 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:09:09.892 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.892 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:09:09.892 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:09:09.898 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:09:09.899 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.899 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:09:09.899 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:09:09.899 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:09:09.900 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.900 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:09:09.900 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:09:09.901 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:09:09.901 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.901 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:09:09.901 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:09:09.901 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:09:09.902 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.902 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:09:09.902 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:09:09.903 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:09:09.903 :: INFO :: ---------------------------
+2020-12-09 :: 17:09:09.903 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:09:09.903 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:09:09.904 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:09:09.904 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:09:18.067 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:09:18.067 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Awwwruff!'}], 'answers': {'7': [{'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}, 'deleted_questions': [], 'highest_known_question_id': 7}
+2020-12-09 :: 17:09:18.068 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:09:18.068 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:09:18.070 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'text': 'Awwwruff!'}]
+2020-12-09 :: 17:09:18.071 :: INFO :: Answers are: {'7': [{'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]}
+2020-12-09 :: 17:09:18.071 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:09:18.071 :: INFO :: New answers for question ID: 7
+2020-12-09 :: 17:09:18.075 :: INFO :: New answer found. Adding to database. Text: Woofwoof!
+2020-12-09 :: 17:09:18.077 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:09:18.091 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:09:18.092 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:09:18.092 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:09:18.093 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:09:18.106 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:09:18.107 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:09:18.108 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:09:18.109 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:09:18.110 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 17:09:18.118 :: INFO :: Answers found for question:
+2020-12-09 :: 17:09:18.119 :: INFO :: [{'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]
+2020-12-09 :: 17:10:22.414 :: INFO :: Beginning migration...
+2020-12-09 :: 17:10:22.421 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.423 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:10:22.423 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:10:22.424 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:10:22.424 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.425 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:10:22.425 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:10:22.425 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:10:22.425 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.425 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:10:22.426 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:10:22.426 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:10:22.427 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.427 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:10:22.427 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:10:22.427 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:10:22.436 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.436 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:10:22.436 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:10:22.437 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:10:22.437 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.437 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:10:22.438 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:10:22.438 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:10:22.438 :: INFO :: ---------------------------
+2020-12-09 :: 17:10:22.438 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:10:22.438 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:10:22.439 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:10:22.439 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:10:38.603 :: INFO :: Current highest question_id is 7
+2020-12-09 :: 17:10:52.319 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:10:52.325 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'quiz_id': 1, 'text': 'Awwwruff!'}, {'question_id': 8, 'text': 'Final question!'}], 'answers': {'8': [{'is_correct': 0, 'text': 'Wow!', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Really?', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': "That's incredible!", 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 8}]}, 'deleted_questions': [], 'highest_known_question_id': 8}
+2020-12-09 :: 17:10:52.326 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:10:52.328 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:10:52.338 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'quiz_id': 1, 'text': 'hello?'}, {'question_id': 7, 'quiz_id': 1, 'text': 'Awwwruff!'}, {'question_id': 8, 'text': 'Final question!'}]
+2020-12-09 :: 17:10:52.339 :: INFO :: Answers are: {'8': [{'is_correct': 0, 'text': 'Wow!', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Really?', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': "That's incredible!", 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 8}]}
+2020-12-09 :: 17:10:52.339 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:10:52.342 :: INFO :: New answers for question ID: 8
+2020-12-09 :: 17:10:52.342 :: INFO :: New answer found. Adding to database. Text: Wow!
+2020-12-09 :: 17:10:52.343 :: INFO :: New answer found. Adding to database. Text: Really?
+2020-12-09 :: 17:10:52.344 :: INFO :: New answer found. Adding to database. Text: That's incredible!
+2020-12-09 :: 17:10:52.344 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:10:52.344 :: INFO :: New answer found. Adding to database. Text: Woofwoof!
+2020-12-09 :: 17:10:52.345 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:10:52.346 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:10:52.358 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:10:52.359 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:10:52.359 :: INFO :: Updating question ID 6 with text hello?
+2020-12-09 :: 17:10:52.360 :: INFO :: Updating question ID 7 with text Awwwruff!
+2020-12-09 :: 17:10:52.360 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 17:10:52.361 :: INFO :: Answers found for question:
+2020-12-09 :: 17:10:52.361 :: INFO :: [{'is_correct': 0, 'text': 'Wow!', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Really?', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': "That's incredible!", 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': 'Woofwoof!', 'answer_id': 0, 'question_id': 8}]
+2020-12-09 :: 17:11:33.877 :: INFO :: Beginning migration...
+2020-12-09 :: 17:11:33.878 :: INFO :: Migration table created.
+2020-12-09 :: 17:11:34.029 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:34.030 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:11:34.030 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:11:34.030 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:34.030 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:34.237 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:34.238 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:11:34.238 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:11:34.238 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:34.238 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:34.637 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:34.638 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:11:34.638 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:11:34.638 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:34.638 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:34.879 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:34.879 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:11:34.879 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:11:34.880 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:34.883 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:34.996 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:34.996 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:11:34.996 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:11:34.996 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:35.000 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:35.154 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:35.154 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:11:35.154 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:11:35.155 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:35.155 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:35.328 :: INFO :: ---------------------------
+2020-12-09 :: 17:11:35.328 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:11:35.329 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:11:35.329 :: INFO :: Hash in database: None
+2020-12-09 :: 17:11:35.329 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:11:35.504 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:11:49.433 :: INFO :: Current highest question_id is 5
+2020-12-09 :: 17:12:15.657 :: INFO :: Updating quiz 1
+2020-12-09 :: 17:12:15.661 :: INFO :: {'name': 'Alpha quiz!', 'description': 'Beep boop!', 'questions': [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'text': 'If I add a question will it double post the results?'}], 'answers': {'6': [{'is_correct': 0, 'text': 'Gosh I hope not!', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "You're doing so well Ciel", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "And I'd hate for this to go poorly :(", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}, 'deleted_questions': [], 'highest_known_question_id': 6}
+2020-12-09 :: 17:12:15.662 :: INFO :: Quiz name is: Alpha quiz!
+2020-12-09 :: 17:12:15.664 :: INFO :: Description is: Beep boop!
+2020-12-09 :: 17:12:15.664 :: INFO :: Questions are: [{'question_id': 1, 'quiz_id': 1, 'text': "Who's a good girl??"}, {'question_id': 3, 'quiz_id': 1, 'text': 'Is it you?? Are you a good doggy?'}, {'question_id': 4, 'quiz_id': 1, 'text': 'Oh I think you are!! I think you aree~!'}, {'question_id': 5, 'quiz_id': 1, 'text': "Y'wanna play? Wanna play fetch widdle puppy?? <3"}, {'question_id': 6, 'text': 'If I add a question will it double post the results?'}]
+2020-12-09 :: 17:12:15.677 :: INFO :: Answers are: {'6': [{'is_correct': 0, 'text': 'Gosh I hope not!', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "You're doing so well Ciel", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "And I'd hate for this to go poorly :(", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]}
+2020-12-09 :: 17:12:15.677 :: INFO :: Deleted questions are: []
+2020-12-09 :: 17:12:15.680 :: INFO :: New answers for question ID: 6
+2020-12-09 :: 17:12:15.680 :: INFO :: New answer found. Adding to database. Text: Gosh I hope not!
+2020-12-09 :: 17:12:15.681 :: INFO :: New answer found. Adding to database. Text: You're doing so well Ciel
+2020-12-09 :: 17:12:15.693 :: INFO :: New answer found. Adding to database. Text: And I'd hate for this to go poorly :(
+2020-12-09 :: 17:12:15.693 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:12:15.693 :: INFO :: Ignoring padding object.
+2020-12-09 :: 17:12:15.694 :: INFO :: Updating question ID 1 with text Who's a good girl??
+2020-12-09 :: 17:12:15.695 :: INFO :: Updating question ID 3 with text Is it you?? Are you a good doggy?
+2020-12-09 :: 17:12:15.695 :: INFO :: Updating question ID 4 with text Oh I think you are!! I think you aree~!
+2020-12-09 :: 17:12:15.696 :: INFO :: Updating question ID 5 with text Y'wanna play? Wanna play fetch widdle puppy?? <3
+2020-12-09 :: 17:12:15.696 :: INFO :: New question created in frontend. Inserting into database.
+2020-12-09 :: 17:12:15.696 :: INFO :: Answers found for question:
+2020-12-09 :: 17:12:15.697 :: INFO :: [{'is_correct': 0, 'text': 'Gosh I hope not!', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "You're doing so well Ciel", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': "And I'd hate for this to go poorly :(", 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 6}]
+2020-12-09 :: 17:28:52.674 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:30:03.334 :: INFO :: Current highest question_id is 6
+2020-12-09 :: 17:31:24.589 :: INFO :: Beginning migration...
+2020-12-09 :: 17:31:24.590 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.590 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:31:24.595 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:31:24.596 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:31:24.596 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.597 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:31:24.597 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:31:24.597 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:31:24.598 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.598 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:31:24.598 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:31:24.598 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:31:24.599 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.599 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:31:24.599 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:31:24.599 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:31:24.599 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.600 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:31:24.600 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:31:24.600 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:31:24.600 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.601 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:31:24.601 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:31:24.601 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:31:24.601 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:24.601 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:31:24.602 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:31:24.602 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:31:24.602 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:31:46.517 :: INFO :: Beginning migration...
+2020-12-09 :: 17:31:46.518 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.519 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:31:46.519 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:31:46.519 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:31:46.520 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.520 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:31:46.520 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:31:46.520 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:31:46.520 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.521 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:31:46.521 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:31:46.521 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:31:46.521 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.522 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:31:46.522 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:31:46.522 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:31:46.522 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.523 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:31:46.523 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:31:46.523 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:31:46.523 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.523 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:31:46.524 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:31:46.524 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:31:46.524 :: INFO :: ---------------------------
+2020-12-09 :: 17:31:46.524 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:31:46.525 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:31:46.525 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:31:46.525 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:32:17.878 :: INFO :: Beginning migration...
+2020-12-09 :: 17:32:17.879 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.884 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:32:17.884 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:32:17.885 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:32:17.885 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.886 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:32:17.886 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:32:17.886 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:32:17.886 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.886 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:32:17.887 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:32:17.887 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:32:17.887 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.887 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:32:17.888 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:32:17.888 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:32:17.888 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.888 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:32:17.889 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:32:17.889 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:32:17.889 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.890 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:32:17.890 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:32:17.890 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:32:17.890 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:17.891 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:32:17.891 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:32:17.891 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:32:17.891 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:32:20.837 :: INFO :: New quiz ID: 3
+2020-12-09 :: 17:32:20.837 :: INFO :: New quiz created.
+2020-12-09 :: 17:32:30.325 :: INFO :: Beginning migration...
+2020-12-09 :: 17:32:30.326 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.326 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:32:30.326 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:32:30.327 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:32:30.327 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.332 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:32:30.332 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:32:30.333 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:32:30.333 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.333 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:32:30.334 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:32:30.334 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:32:30.334 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.334 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:32:30.335 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:32:30.335 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:32:30.335 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.335 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:32:30.336 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:32:30.336 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:32:30.336 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.336 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:32:30.337 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:32:30.337 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:32:30.337 :: INFO :: ---------------------------
+2020-12-09 :: 17:32:30.337 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:32:30.338 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:32:30.338 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:32:30.338 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:32:33.457 :: INFO :: New quiz ID: 3
+2020-12-09 :: 17:32:33.463 :: INFO :: New quiz created.
+2020-12-09 :: 17:33:08.017 :: INFO :: Beginning migration...
+2020-12-09 :: 17:33:08.019 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.019 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:33:08.019 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:33:08.019 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-09 :: 17:33:08.020 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.020 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:33:08.020 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:33:08.021 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-09 :: 17:33:08.021 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.021 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:33:08.021 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:33:08.021 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-09 :: 17:33:08.022 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.022 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:33:08.022 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:33:08.022 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-09 :: 17:33:08.023 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.023 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:33:08.023 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:33:08.023 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-09 :: 17:33:08.024 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.024 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:33:08.024 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:33:08.024 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-09 :: 17:33:08.025 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:08.025 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:33:08.025 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:33:08.025 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-09 :: 17:33:08.025 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:33:14.996 :: INFO :: Beginning migration...
+2020-12-09 :: 17:33:15.003 :: INFO :: Migration table created.
+2020-12-09 :: 17:33:15.166 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:15.167 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-09 :: 17:33:15.167 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-09 :: 17:33:15.167 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:15.167 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:15.374 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:15.375 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-09 :: 17:33:15.375 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-09 :: 17:33:15.375 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:15.375 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:15.783 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:15.783 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-09 :: 17:33:15.783 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-09 :: 17:33:15.783 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:15.784 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:16.007 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:16.008 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-09 :: 17:33:16.008 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-09 :: 17:33:16.008 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:16.008 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:16.116 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:16.117 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-09 :: 17:33:16.117 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-09 :: 17:33:16.117 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:16.117 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:16.274 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:16.274 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-09 :: 17:33:16.275 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-09 :: 17:33:16.275 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:16.275 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:16.457 :: INFO :: ---------------------------
+2020-12-09 :: 17:33:16.458 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-09 :: 17:33:16.458 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-09 :: 17:33:16.458 :: INFO :: Hash in database: None
+2020-12-09 :: 17:33:16.458 :: INFO :: Hash not found in database. Executing script and saving it to migration table.
+2020-12-09 :: 17:33:16.633 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
+2020-12-09 :: 17:33:31.515 :: INFO :: Current highest question_id is 5
+2020-12-09 :: 17:33:51.954 :: INFO :: New quiz ID: 3
+2020-12-09 :: 17:33:51.954 :: INFO :: New quiz created.

@@ -22,11 +22,26 @@ LOGGER.setLevel(logging.INFO)
 
 db.migrate()
 
-@app.route("/api/quizzes")
+@app.route("/api/quizzes", methods = ['GET'])
 @cross_origin()
 def home():
     response = flask.jsonify(db.get_all_quizzes())
     return response
+
+
+@app.route("/api/quizzes/", methods = ['POST'])
+@cross_origin()
+def new_quiz():
+    json = request.get_json(force=True)
+    name = json.get('name')
+    description = json.get('description')
+    questions = json.get('questions')
+    answers = json.get('answers')
+
+    db.add_quiz(name, description, questions, answers)
+
+    return "Quiz added", 200
+
 
 @app.route("/api/questions/<quiz_id>", methods = ['GET'])
 @cross_origin()
@@ -78,12 +93,24 @@ def update_quiz(quiz_id):
     description = json.get('description')
     questions = json.get('questions')
     answers = json.get('answers')
+    deleted_questions = json.get('deleted_questions')
 
     LOGGER.info(f"Quiz name is: {name}")
     LOGGER.info(f"Description is: {description}")
     LOGGER.info(f"Questions are: {questions}")
     LOGGER.info(f"Answers are: {answers}")
+    LOGGER.info(f"Deleted questions are: {deleted_questions}")
 
-    db.update_quiz_information(quiz_id, name, description, questions, answers)
+    db.update_quiz_information(quiz_id, name, description, questions, answers, deleted_questions)
 
     return "LGTM!", 200
+
+@app.route("/api/questions/highest")
+@cross_origin()
+def get_highest_question_id():
+
+    highest_id = db.get_highest_question_id()
+
+    LOGGER.info(f"Current highest question_id is {highest_id.get('question_id')}")
+
+    return str(highest_id.get('question_id')), 200

@@ -36,8 +36,6 @@ class QuizPage extends React.Component{
         var selected_answers = this.state.selected_answers
         selected_answers[question_id] = is_correct
         this.setState({selected_answers: selected_answers})
-        console.log("Current answers:")
-        console.log(this.state.selected_answers)
     }
 
     componentDidMount(){

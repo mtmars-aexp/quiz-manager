@@ -11,9 +11,11 @@ class QuizEditBox extends React.Component{
 
         this.handleAnswerBoxChange = this.handleAnswerBoxChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
+        this.handleQuestionDelete = this.handleQuestionDelete.bind(this)
     }
 
     componentDidMount(){
+        console.log("Fetching answers for " + this.props.question_id)
         fetch("http://127.0.0.1:5000/api/answers/" + this.props.question_id)
         .then(result => result.json())
         .then(result => {
@@ -24,7 +26,7 @@ class QuizEditBox extends React.Component{
                         is_correct: 0,
                         text: "",
                         answer_id: 0,
-                        question_id: 0
+                        question_id: this.props.question_id
                     }
                 }
             }
@@ -34,12 +36,9 @@ class QuizEditBox extends React.Component{
     }
 
     handleAnswerBoxChange(event){
-        console.log("Changing text in box: " + event.target + ": " + event.target.value)
         var answers = this.state.answers
         answers[event.target.name].text = event.target.value
         this.setState({answers: answers})
-        console.log("About to send answer change to parent.")
-        console.log(this.state.answers)
         this.props.handleAnswerChange(this.props.question_id, this.state.answers)
     }
 
@@ -51,11 +50,16 @@ class QuizEditBox extends React.Component{
         this.props.handleQuestionChange(event, this.props.question_id)
     }
 
+    handleQuestionDelete(event){
+        this.props.handleQuestionDelete(this.props.question_id)
+    }
+
     render(){
         return(
             <div className="quiz-box">
                 Question: <input name={this.props.question_id} value={this.props.text} onChange={this.handleQuestionChange}/>
                 {this.state.answers.map((element, index) => <div> <input name={index} onChange={this.handleAnswerBoxChange} value={element.text}/><br/></div>)}
+                <a href = '#' onClick={this.handleQuestionDelete} className="quiz-edit">Delete</a>
             </div>
         )
     }

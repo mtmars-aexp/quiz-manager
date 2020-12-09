@@ -25,7 +25,6 @@ class Login extends React.Component{
 
     handleFormSubmit(event){
         event.preventDefault();
-        console.log("Form submitted!")
         this.props.handleLogin(this.state.username, this.state.password);
     }
 

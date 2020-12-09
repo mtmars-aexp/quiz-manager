@@ -1563,3 +1563,86 @@ handleQuestionChange(event, question_id){
 I cannot say I'm proud of this code. But I'm running on limited time and even more limited brain power. Things are a bit shakey overall, but I'm getting there. I'm parsing stuff out in the backend bit by bit and making good progress.
 
 ![An IDE showing backend database code and a log where JSON is being parsed into readable log lines](img/jsonsoup.png)
+
+Hello again. Time isn't well communicated in a document like this, but it's been at least an hour since we last talked. Hello. Look at all this code.
+
+```py
+    if len(questions) == 0:
+        LOGGER.info("NO QUESTIONS ATTACHED TO QUIZ. DELETING QUIZ!")
+
+    for deleted_question_id in deleted_questions:
+        LOGGER.info(f"Deleting question {deleted_question_id} from database.")
+
+    for question_id, answerset in answers.items():
+        LOGGER.info(f"New answers for question ID: {question_id}")
+        for answer in answerset:
+            if answer.get("answer_id") == 0 and answer.get("text") == "":
+                LOGGER.info("Ignoring padding object.")
+            elif answer.get("answer_id") == 0 and answer.get("text") != "":
+                LOGGER.info(f"New answer found. Adding to database. Text: {answer.get('text')}")
+                cursor.execute("INSERT INTO Answers(question_id, text) VALUES(:question_id, :text);", {'question_id': question_id, 'text': answer.get('text')})
+            elif answer.get("answer_id") != 0 and answer.get("text") == "":
+                LOGGER.info(f"Answer deleted in frontend. Deleting in backend. ID: {answer.get('answer_id')}")
+                cursor.execute("DELETE FROM Answers WHERE answer_id = :answer_id", {'answer_id': answer.get('answer_id')})
+            elif answer.get("answer_id") != 0 and answer.get("text") != "":
+                LOGGER.info(f"Valid answer provided. Updating in backend. Text: {answer.get('text')}")
+                cursor.execute("UPDATE Answers SET text = :text WHERE answer_id = :answer_id", {'text': answer.get("text"), 'answer_id': answer.get('answer_id')})
+
+    for question in questions:
+        if question.get('text') != "":
+            cursor.execute("UPDATE Questions SET text = :text WHERE question_id = :question_id", {'text': question.get('text'), 'question_id': question.get('question_id')})
+        else:
+            cursor.execute("DELETE FROM Questions WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+            cursor.execute("DELETE FROM Answers WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+```
+
+My brain is soup. But I'm getting there. I can add and delete answers. I can even delete questions. If a quiz has no questions, it will be deleted (eventually. I haven't implemented that feature yet).
+
+Much like how when I was rendering things and doing a sort of similar process for each step, updating the database follows similar steps.
+
+No text and no ID: padding data, ignore it.
+Text, but no ID: A newly added question/answer/quiz. Update the database.
+No text, but an ID: A question or answer has been deleted in the front end. Delete it from the database.
+Text and an ID: That's a regular quiz/question/answer. Do an `UPDATE` in the database to make sure it's up to date.
+
+With this framework I can kindaaa visualize how things are meant to be done, and I can just kind of hope that nothing weird completely breaks everything.
+
+### It's 6 minutes until clock out time! What have I been doing?
+
+A lot!!! I made it so you can add your own quizzes and edit pre-existing ones! Oh my god! Would you like to know how I did it? I carefully glued everything together and prayed to God there won't be a strong breeze anytime soon.
+
+A huge chunk of my time was dedicated to this:
+
+```js
+        if(this.state.highest_known_question_id === 0){
+            console.log("Getting highest known ID.")
+            fetch("http://127.0.0.1:5000/api/questions/highest")
+            .then(result => result.text())
+            .then(result => {
+                this.setState({highest_known_question_id: parseInt(result) + 1})
+                new_question.question_id = this.state.highest_known_question_id
+                var questions = this.state.questions
+                questions.push(new_question)
+                this.setState({questions: questions})
+                console.log("New question added from within async fetch, printing questions:")
+                console.log(this.state.questions)
+            })
+            .catch(err => console.log(err))
+        } else {
+            this.setState({highest_known_question_id: this.state.highest_known_question_id + 1})
+            new_question.question_id = this.state.highest_known_question_id;
+            var questions = this.state.questions
+            questions.push(new_question)
+            this.setState({questions: questions})
+            console.log("New question added. Printing questions:")
+            console.log(this.state.questions)
+        }
+```
+
+-piece of code meant to get the highest known question ID from the database, because leaving it as 0 for default creates a lot of problems if you add multiple new questions (each with an ID of 0) to a quiz. I was all like "argh why isn't this async function working? I fetch the result, I do a .then and put it in the state, why does it keep setting the highest known ID to 0?" And then I remembered code that's written after an async function isn't guarenteed to be ran after the async function, which is Entirely The Whole Point, and was like "Oh." And then I refactored it so that the assignment actually happens in the `.then()` like it should.
+
+I was supposed to have started testing today! And I'm sad that I didn't. The ground is slipping from beneath my feet and I'm afraid I might die, but there's nothing more I can do today. My time is up.
+
+Users can create and edit quizzes. That's the main thing I needed to accomplish. I can't think of anything more I need to add, so I'll get started on testing as soon as I start tomorrow, unless I think of anything important.
+
+OH YEAH I FORGOT I STILL NEED TO MARK ANSWERS AS CORRECT, KIND OF THE WHOLE POINT OF A QUIZ REALLY GOSH DARN IT OKAY, I'LL NEED to do that tomorrow. God. Christ. Ugh. Ugh!!!!!!!!!!!!! Goodbye and I will see you tomorrow for day 4.
