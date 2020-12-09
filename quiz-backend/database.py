@@ -85,3 +85,10 @@ def get_all_question_answers(question_id: int):
     cursor = connection.cursor()
     cursor.execute("SELECT text, is_correct FROM Answers WHERE question_id = :question_id", {'question_id': question_id})
     return cursor.fetchall()
+
+def authenticate_user(username, password_hash):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+    cursor.execute("SELECT privilege_level FROM Users WHERE username = :username AND password = :password_hash", {'username': username, 'password_hash': password_hash})
+    return cursor.fetchone()

@@ -24,29 +24,32 @@ class App extends React.Component{
 
   handleLogin(username, password){
     console.log("Logging in!");
-    fetch("http://127.0.0.1:5000/api/auth/", {method: 'POST', body: JSON.stringify({username: username, password: password})})
-    .then(response => {
-      if(!response.ok){
-        console.log("Authentication failed.")
+    fetch("http://127.0.0.1:5000/api/auth/", {method: 'POST', body: JSON.stringify({username: username, password: password}), headers: {'content-type': 'application/json'}})
+    .then(result => {
+      if(result.ok){
+        localStorage.setItem('authenticated', true)
+        localStorage.setItem('username', username)
       } else {
-        localStorage.setItem("authenticated", true)
-        localStorage.setItem("username", username)
-        this.forceUpdate();
+        console.log("Logging in failed.")
       }
+      return result;
     })
+    .then(result => result.text())
+    .then(result => {localStorage.setItem('privilege', result); this.forceUpdate()})
     .catch(err => console.log(err))
   }
 
   handleLogout(){
     console.log("Logging out! Byebye!");
     localStorage.setItem("authenticated", false)
+    localStorage.setItem("username", "");
+    localStorage.setItem("privilege", "");
     this.forceUpdate();
   }
 
   render(){
 
-    console.log(this.state);
-    console.log(localStorage.getItem("authenticated"))
+    console.log(localStorage)
 
     return (
       <Router>

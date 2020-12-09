@@ -1,9 +1,11 @@
 import sqlite3
 import database as db
 import flask
+from flask import request
 from flask_cors import cross_origin, CORS
 import logging
 import json
+from hashlib import sha256
 
 app = flask.Flask(__name__)
 CORS(app)
@@ -42,4 +44,20 @@ def answers(question_id):
 @app.route("/api/auth/", methods = ['POST'])
 @cross_origin()
 def auth():
-    return "Good!", 200
+
+    json = request.get_json()
+
+    username = json.get('username')
+    password = json.get('password')
+
+    if username is None or password is None:
+        return "Login form incomplete", 400
+
+    password_hash = sha256(password.encode()).hexdigest().upper()
+
+    result = db.authenticate_user(username, password_hash)
+
+    if result is None:
+        return "Incorrect credentials", 401
+
+    return str(result.get('privilege_level')), 200

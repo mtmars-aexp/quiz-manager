@@ -1069,3 +1069,211 @@ Roight. That's me done for the day. See you all tomorrow for day 3, where I shou
 Oh, and have a picture of the login page:
 
 ![A picture of a login page. It has a username field, password field, and a form submit button.](img/login-page.png)
+
+# Day 3
+
+Hello and welcome once again. We're more than half way done. Today I aim to have finished development and to have started writing some tests for my application. Let's-a-go.
+
+## Development
+
+When we left off yesterday my authentication system was left in a state where it would return `200 OK` regardless of what credentials you actually gave it. Let's change that.
+
+### Adding Users To The Database
+
+I'm going to add 3 users to the database: John, Dave, and Lucy.
+
+Ciel will have the highest privilege, and can edit questions. Their password will be "0216"
+Josie will have middling privilege, and can view answers to the questions. Their password will be "0828"
+Chloe will have the least privilege, and can only take quizzes like normal. Their password will be "7442"
+
+First, I will need to hash their passwords. Storing plain text passwords in the database is a big nono. I will be using the sha256 algorithm, the same algorithm I used for hashing migration files in the database. It's fast, widely used, and secure. I will use an online hash generator (https://passwordsgenerator.net/sha256-hash-generator/) to generate the hashes before I insert them into my database. Normally I would hash the passwords during the signup phase, but the design document for this project specified that implementing a user account creation system is unnecessary.
+
+0216: 3B2CBC8BE13F3BAD7D9049CAF98FD558B191BC3FF2107638CF773EEFBC4DF512
+0828: 352F9CA4AF0253F9876527F4CE322C71729DC63539870E6D4A7A39990448B554
+7442: 7F8F0CD1BCE29D51A35BC5FF762C807BF17AA41A3C67DBB2560536025CAE65D3
+
+Now, let's do some more migration.
+
+```sql
+CREATE TABLE Users (
+	user_id integer PRIMARY KEY AUTOINCREMENT,
+	username text NOT NULL,
+	password NOT NULL,
+	privilege_level integer
+);
+
+INSERT INTO Users(username,password,privilege_level) VALUES
+("ciel","3B2CBC8BE13F3BAD7D9049CAF98FD558B191BC3FF2107638CF773EEFBC4DF512",3),
+("josie","352F9CA4AF0253F9876527F4CE322C71729DC63539870E6D4A7A39990448B554",2),
+("chloe","7F8F0CD1BCE29D51A35BC5FF762C807BF17AA41A3C67DBB2560536025CAE65D3",1);
+```
+
+It worked like a charm.
+
+![Picture of a database browser, the users have been correctly inserted into the database](img/users-in-db.png)
+
+Next step, making Flask check the database to see if the creds its given are something it knows:
+
+# Making Flask Check The Database To See If The Creds Its Given Are Something It Knows
+
+```py
+@app.route("/api/auth/", methods = ['POST'])
+@cross_origin()
+def auth():
+
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    if username is None or password is None:
+        return "Login form incomplete", 400
+
+    password_hash = sha256(password.encode()).hexdigest()
+
+    result = db.authenticate_user(username, password_hash)
+
+    if result is None:
+        return "Incorrect credentials", 401
+
+    return result.get('privilege_level'), 200
+```
+
+Wrote a thing! Let's give it a whirl.
+
+It didn't work! Due to the vague complexities of getting data from a request body. I'm just gonna send it as JSON instead of trying to use a form.
+
+Okay, I reworked it and it started returning 401s instead of 400, which means it was getting data from the json at least.
+
+Now, it's saying the hashes in the database don't match up, can you tell me why?
+Hash created by Python: `3b2cbc8be13f3bad7d9049caf98fd558b191bc3ff2107638cf773eefbc4df512`
+Hash created online: `3B2CBC8BE13F3BAD7D9049CAF98FD558B191BC3FF2107638CF773EEFBC4DF512`
+
+...Yup! One's upper case, and the other's lower case. It was easy to fix once I noticed, and now I can log in when I provide correct details!
+
+Here's the code:
+
+```py
+def auth():
+
+    json = request.get_json()
+
+    username = json.get('username')
+    password = json.get('password')
+
+    if username is None or password is None:
+        return "Login form incomplete", 400
+
+    password_hash = sha256(password.encode()).hexdigest().upper()
+
+    result = db.authenticate_user(username, password_hash)
+
+    if result is None:
+        return "Incorrect credentials", 401
+
+    return str(result.get('privilege_level')), 200
+```
+
+If the user successfully authenticates, then the backend will also return the user's privilege level so that can be saved in localStorage. Let's implement that on the front end now.
+
+It was a bit of a doozey, but I got there.
+
+```js
+  handleLogin(username, password){
+    console.log("Logging in!");
+    fetch("http://127.0.0.1:5000/api/auth/", {method: 'POST', body: JSON.stringify({username: username, password: password}), headers: {'content-type': 'application/json'}})
+    .then(result => {
+      if(result.ok){
+        localStorage.setItem('authenticated', true)
+        localStorage.setItem('username', username)
+      } else {
+        console.log("Logging in failed.")
+      }
+      return result;
+    })
+    .then(result => result.text())
+    .then(result => {localStorage.setItem('privilege', result); this.forceUpdate()})
+    .catch(err => console.log(err))
+  }
+```
+
+![A console log showing the browser's localStorage before and after a login](img/login-logout.png)
+
+The whole `.then()` thing is still pretty spooky. I was getting a lot of `result is undefined` errors. Turns out I had to make sure I was explicitly returning something so the next `.then()` could grab it. I mean it _seems_ obvious now, looking back. Anyway...
+
+### Add The Username to the Navbar
+
+Will do!
+
+```js
+{localStorage.getItem('username') != "" ? 
+<li>Welcome, {localStorage.getItem('username')}</li>
+: "" }
+```
+
+![A navbar with the words "Welcome, ciel"](img/welcome-ciel.png)
+
+Easy peasy! It disappears when there's no username in local storage.
+
+### Permission Levels Part 1
+
+Users with permission level 1 (minimum) are able to view quizzes and participate in them, so nothing about the website needs to be changed right now.
+
+Users with (at least) permission level 2 are able to view the answers to questions. So let's add that.
+
+A very easy ternary is all that's needed to get the skeleton working.
+
+```js
+{parseInt(localStorage.getItem('privilege')) >= 2 ?
+<h1>Some bonus content!</h1>
+:
+""
+}
+```
+
+![The quiz page with "Some bonus content!" written beneath the answers in the quiz box](img/bonus.png)
+
+Alright, so, this was a bit of fiddly work. But it definitely does work! Now, when each `QuizAnswerBox` is rendered, it loops through its set of answers to find the correct answer, then sets it's "correct_answer_text" accordingly. I added a button that, when clicked, toggles the visibility of the answer text.
+
+```js
+var correct_answer_text = "";
+this.state.answers.forEach(function(answer){
+    if(answer.is_correct === 1){
+        correct_answer_text = answer.text;
+    }
+})
+```
+
+```js
+toggleAnswerVisibility(event){
+    console.log("toggling answer visibility for: " + event.target.id)
+    var answer = document.getElementById("answer-" + event.target.id)
+    if (answer.style.display === "none"){
+        answer.style.display = "block";
+    } else {
+        answer.style.display = "none";
+    }
+}
+```
+
+Getting the right ID of the thing to toggle the visibility of was a bit tricky, cus it involved concatenation and I forgot to look in props to get the `question_id` at one point which made me waste time wondering why it isn't working.
+
+```js
+{parseInt(localStorage.getItem('privilege')) >= 2 ?
+<div>
+    <button onClick={this.toggleAnswerVisibility} id={this.props.question_id}>Reveal answer</button>
+    <p id={"answer-" + this.props.question_id} style={{display: 'none'}}>{"The correct answer is: " + correct_answer_text}</p>
+</div>
+: "" }
+```
+
+Anyway, privilege level 2 complete! Wow!
+
+### Permission Levels Part 2, Which Is Actually About Permission Level 3. Whoops.
+
+Permission level 3... The final frontier... I've been paralyzingly frightened of having to implement this thing on a short time budget, so let's breat this shubbang down into smaller steps:
+
+- On the home page, render an "edit quiz" button if the user has permission level 3.
+- Make it link to `/editQuiz/<id>`, similar to `/quiz/` but without the `edit`. Haha.
+- Get the questions and answers, but instead of rendering a `QuizAnswerBox`, render a `QuizEditBox` with text entry fields for the question and up to 5 answers.
+- Make sure the `QuizEditBox`es pass the values up to the `QuizEditPage` when they're edited so when the user clicks submit, all the entered data is retrieved from the `QuizEditPage` state, jsonified, and sent to the backend.
+- In the backend, empty questions or answers without text are culled.
+- I'll also need to add `new question` and `delete question` buttons but I'll focus on this meaty task for now.

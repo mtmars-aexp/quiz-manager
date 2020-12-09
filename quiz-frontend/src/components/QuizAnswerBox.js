@@ -11,6 +11,7 @@ class QuizAnswerBox extends React.Component{
         })
 
         this.onButtonClick = this.onButtonClick.bind(this);
+        this.toggleAnswerVisibility = this.toggleAnswerVisibility.bind(this);
     }
 
     componentDidMount(){
@@ -25,7 +26,25 @@ class QuizAnswerBox extends React.Component{
         this.setState({selected_answer_correct: event.target.value})
     }
 
+    toggleAnswerVisibility(event){
+        console.log("toggling answer visibility for: " + event.target.id)
+        var answer = document.getElementById("answer-" + event.target.id)
+        if (answer.style.display === "none"){
+            answer.style.display = "block";
+        } else {
+            answer.style.display = "none";
+        }
+    }
+
     render(){
+
+        var correct_answer_text = "";
+        this.state.answers.forEach(function(answer){
+            if(answer.is_correct === 1){
+                correct_answer_text = answer.text;
+            }
+        })
+
 
         return(
         <div className = {`quiz-box ${this.props.finished ? this.state.selected_answer_correct === "1" ? "correct" : "incorrect" : ""}`}>
@@ -40,6 +59,14 @@ class QuizAnswerBox extends React.Component{
                 value={element.is_correct}
                 />{element.text}</div>
                 )}
+
+
+            {parseInt(localStorage.getItem('privilege')) >= 2 ?
+            <div>
+                <button onClick={this.toggleAnswerVisibility} id={this.props.question_id}>Reveal answer</button>
+                <p id={"answer-" + this.props.question_id} style={{display: 'none'}}>{"The correct answer is: " + correct_answer_text}</p>
+            </div>
+            : "" }
 
         </div>
         );
