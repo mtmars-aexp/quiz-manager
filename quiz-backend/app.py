@@ -28,7 +28,7 @@ def home():
     response = flask.jsonify(db.get_all_quizzes())
     return response
 
-@app.route("/api/questions/<quiz_id>")
+@app.route("/api/questions/<quiz_id>", methods = ['GET'])
 @cross_origin()
 def quiz(quiz_id):
     quiz_info = db.get_quiz_info(quiz_id)
@@ -61,3 +61,29 @@ def auth():
         return "Incorrect credentials", 401
 
     return str(result.get('privilege_level')), 200
+
+@app.route("/api/quizzes/<quiz_id>", methods = ['PUT'])
+@cross_origin()
+def update_quiz(quiz_id):
+    LOGGER.info(f"Updating quiz {quiz_id}")
+
+    json = request.get_json(force=True)
+
+    LOGGER.info(json)
+
+    if json is None:
+        return "Something sucks about your request.", 400
+
+    name = json.get('name')
+    description = json.get('description')
+    questions = json.get('questions')
+    answers = json.get('answers')
+
+    LOGGER.info(f"Quiz name is: {name}")
+    LOGGER.info(f"Description is: {description}")
+    LOGGER.info(f"Questions are: {questions}")
+    LOGGER.info(f"Answers are: {answers}")
+
+    db.update_quiz_information(quiz_id, name, description, questions, answers)
+
+    return "LGTM!", 200

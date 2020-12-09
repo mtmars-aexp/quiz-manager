@@ -83,7 +83,7 @@ def get_all_question_answers(question_id: int):
     connection = sqlite3.connect(db_name)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
-    cursor.execute("SELECT text, is_correct FROM Answers WHERE question_id = :question_id", {'question_id': question_id})
+    cursor.execute("SELECT text, is_correct, answer_id, question_id FROM Answers WHERE question_id = :question_id", {'question_id': question_id})
     return cursor.fetchall()
 
 def authenticate_user(username, password_hash):
@@ -92,3 +92,30 @@ def authenticate_user(username, password_hash):
     cursor = connection.cursor()
     cursor.execute("SELECT privilege_level FROM Users WHERE username = :username AND password = :password_hash", {'username': username, 'password_hash': password_hash})
     return cursor.fetchone()
+
+def update_quiz_information(quiz_id, name, description, questions, answers):
+    connection = sqlite3.connect(db_name)
+    cursor = connection.cursor()
+    cursor.execute("UPDATE Quizzes SET name = :name, description = :description WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id, 'name': name, 'description': description})
+
+    for question in questions:
+        if question.get('text') != "":
+            cursor.execute("UPDATE Questions SET text = :text WHERE question_id = :question_id", {'text': question.get('text'), 'question_id': question.get('question_id')})
+        else:
+            cursor.execute("DELETE FROM Questions WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+            cursor.execute("DELETE FROM Answers WHERE question_id = :question_id", {'question_id': question.get('question_id')})
+
+
+    for question_id, answerset in answers.items():
+        LOGGER.info(f"New answers for question ID: {question_id}")
+        for answer in answerset:
+            if answer.get("answer_id") == 0 and answer.get("text") == "":
+                LOGGER.info("Ignoring padding object.")
+            elif answer.get("answer_id") == 0 and answer.get("text") != "":
+                LOGGER.info(f"New answer found. Adding to database. Text: {answer.get('text')}")
+            elif answer.get("answer_id") != 0 and answer.get("text") == "":
+                LOGGER.info(f"Answer deleted in frontend. Deleting in backend. ID: {answer.get('answer_id')}")
+            elif answer.get("answer_id") != 0 and answer.get("text") != "":
+                LOGGER.info(f"Valid answer provided. Updating in backend. Text: {answer.get('text')}")
+
+    connection.commit()

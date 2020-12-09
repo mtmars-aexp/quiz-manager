@@ -6,7 +6,7 @@ class Navbar extends React.Component{
         return(
             <div className = "navbar">
                 <ul>
-                    {localStorage.getItem('username') != "" ? 
+                    {localStorage.getItem('username') !== "" ? 
                     <li>Welcome, {localStorage.getItem('username')}</li>
                     : "" }
                     <li><a href = "/">Home</a></li>

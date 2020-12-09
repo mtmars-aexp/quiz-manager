@@ -1277,3 +1277,289 @@ Permission level 3... The final frontier... I've been paralyzingly frightened of
 - Make sure the `QuizEditBox`es pass the values up to the `QuizEditPage` when they're edited so when the user clicks submit, all the entered data is retrieved from the `QuizEditPage` state, jsonified, and sent to the backend.
 - In the backend, empty questions or answers without text are culled.
 - I'll also need to add `new question` and `delete question` buttons but I'll focus on this meaty task for now.
+
+Same process as usual, a funky ternary saves the day:
+
+```js
+{parseInt(localStorage.getItem('privilege')) >= 3 ? 
+<a href ={"/editQuiz/" + this.props.quiz_id} className="quiz-edit">Edit.</a>
+: ""}
+```
+
+I used similar CSS as the other quiz-box elements and stuck the edit button in the bottom left corner. It looks nice there.
+
+![A quiz selector with an "edit" button that links to /editQuiz/1](img/editbutton.png)
+
+While we're doing funky ternarys I also added a "new quiz" button to the home page for level 3 users using the same logic.
+
+```js
+<div className = "page">
+    <h1>This is the home page!</h1>
+    <h1>You have {this.state.quiz_data.length} quizzes available.</h1>
+    {this.state.quiz_data.map((element, index) => <QuizSelector key={index} name={element.name} description={element.description} quiz_id={element.quiz_id}/>)}
+    {parseInt(localStorage.getItem('privilege')) >= 3 ? 
+    <a href ={"/newQuiz/"}>New quiz!</a>
+    : ""}
+</div>
+```
+
+Now, let's make an edit quiz page.
+
+Before I even think about rending editable questions, I created some labels for editing the name and description of a quiz.
+
+```js
+handleQuizDetailsChange(event){
+    console.log(event.target.name + ": " + event.target.value)
+    var quiz_info = this.state.quiz_information
+    quiz_info[event.target.name] = event.target.value;
+    this.setState({quiz_information: quiz_info})
+}
+
+handleSubmit(event){
+    console.log("Handling change submit!");
+}
+
+render(){
+    return(
+        <div className="page">
+            <h1>Quiz edit page!</h1>
+            Quiz Title:<input name = "name" value={this.state.quiz_information.name} onChange={this.handleQuizDetailsChange}></input><br></br>
+            Description:<input name = "description" value={this.state.quiz_information.description} onChange={this.handleQuizDetailsChange}></input><br></br>
+            <button onClick={this.handleSubmit}>Save changes.</button>
+        </div>
+    );
+}
+```
+
+I think this is the first time I've managed to make a state-controlled component in the Proper React Way(tm). I truly am growing more powerful.
+
+So! Let's see if we can get these changes submitted to the database.
+
+I've set up a new endpoint in Flask. I originally set it up as POST, until I realized that PUT is actually the more correct option (I'm updating a specific resource rather than creating a new one).
+
+![An IDE with endpoint code on it. The console log shows data was receieved correctly](img/backendput.png)
+
+The data is being correctly recieved. All I need to do now is update it in the database and we'll be well on our way to victory.
+
+```py
+def update_quiz_information(quiz_id, name, description, questions):
+    connection = sqlite3.connect(db_name)
+    cursor = connection.cursor()
+    cursor.execute("UPDATE Quizzes SET name = :name, description = :description WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id, 'name': name, 'description': description})
+    connection.commit()
+```
+
+A brief `UPDATE` later, and it's done! Using the frontend, I was able to send a request to the backend to update the quiz name and description.
+
+![A picture of a quiz for dogs](img/doggyquiz.png)
+
+### Rendering Editable Quiz Boxes
+
+Okay! Okay okay okay. Okay. I got this!
+
+The skeleton has been constructed. I added some code to pad out the array recieved from the backend until there are 5 entry boxes. This means users can add more answers if they want to.
+
+```js
+for(var i = 0; i < 5; i++){
+    if(result[i] == undefined){
+        result[i] = {
+            is_correct: 0,
+            text: ""
+        }
+    }
+}
+```
+
+Now I just need to hand these initially obtained answers up to the `QuizEditPage` so it can keep track of them in preparation for the submit event.
+
+### A Long While Later
+
+After much fiddling, tinkering, and brain hurtery, I think I've finally got it set up so that editing questions is possible. Look at all this tasty json:
+
+```json
+{
+  "name": "The doggy quiz!",
+  "description": "This is a good quiz for really good pups, prove your doggedness in this fierce world!",
+  "questions": [
+    {
+      "question_id": 1,
+      "quiz_id": 1,
+      "text": "Who's a good girl??"
+    },
+    {
+      "question_id": 3,
+      "quiz_id": 1,
+      "text": "Is it you?? Are you a good doggy?"
+    },
+    {
+      "question_id": 4,
+      "quiz_id": 1,
+      "text": "Oh I think you are!! I think you aree~!"
+    },
+    {
+      "question_id": 5,
+      "quiz_id": 1,
+      "text": "Y'wanna play? Wanna play fetch widdle puppy?? <3"
+    }
+  ],
+  "answers": {
+    "1": [
+      {
+        "answer_id": 1,
+        "is_correct": 1,
+        "question_id": 1,
+        "text": "WOOF"
+      },
+      {
+        "answer_id": 2,
+        "is_correct": 0,
+        "question_id": 1,
+        "text": ""
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      }
+    ],
+    "3": [
+      {
+        "answer_id": 5,
+        "is_correct": 1,
+        "question_id": 3,
+        "text": "MEOW"
+      },
+      {
+        "answer_id": 6,
+        "is_correct": 0,
+        "question_id": 3,
+        "text": ""
+      },
+      {
+        "answer_id": 7,
+        "is_correct": 0,
+        "question_id": 3,
+        "text": ""
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      }
+    ],
+    "4": [
+      {
+        "answer_id": 8,
+        "is_correct": 1,
+        "question_id": 4,
+        "text": "BEEP"
+      },
+      {
+        "answer_id": 9,
+        "is_correct": 0,
+        "question_id": 4,
+        "text": ""
+      },
+      {
+        "answer_id": 10,
+        "is_correct": 0,
+        "question_id": 4,
+        "text": ""
+      },
+      {
+        "answer_id": 11,
+        "is_correct": 0,
+        "question_id": 4,
+        "text": ""
+      },
+      {
+        "is_correct": 0,
+        "text": "",
+        "answer_id": 0,
+        "question_id": 0
+      }
+    ],
+    "5": [
+      {
+        "answer_id": 12,
+        "is_correct": 1,
+        "question_id": 5,
+        "text": "BOOP"
+      },
+      {
+        "answer_id": 13,
+        "is_correct": 0,
+        "question_id": 5,
+        "text": ""
+      },
+      {
+        "answer_id": 14,
+        "is_correct": 0,
+        "question_id": 5,
+        "text": ""
+      },
+      {
+        "answer_id": 15,
+        "is_correct": 0,
+        "question_id": 5,
+        "text": ""
+      },
+      {
+        "answer_id": 16,
+        "is_correct": 0,
+        "question_id": 5,
+        "text": ""
+      }
+    ]
+  }
+}
+```
+
+All the questions are stored in there, as the quiz page has access to them by default. However, the answers page is an object where the property name is the question ID and the value is an array of answers containing the answer text, its ID, whether or not it is correct, and the question ID it's associated with.
+
+So, to keep my brain from exploding, let's map out the plan:
+
+- Answers will only be sent if they've been modified in any way.
+- In the backend, parse the json.
+- For every question in the `questions` array, go ahead and update the question text no matter what. If the question text is empty, drop the question (and associated answers) instead.
+- For every answerset in the answers array, loop through each answer and remove them from the answerset array if text = "".
+- If `answer_id` is 0, but text is not empty, that means it's a new answer that has been added, I need to insert it with the `answer_id` to the value of the highest autoincrement + 1 from the `sqlite_sequence` table.
+- For every other answer with a pre-existing `answer_id`, I can `SET` the new text like normal.
+
+- ALSO I forgot to add an onChange handler for editing the question text and had to write some really hacky code to accomodate for it!
+
+```js
+handleQuestionChange(event, question_id){
+    console.log(event.target.name + " new question: " + event.target.value)
+    this.state.questions.forEach(question => {
+        if(question.question_id === question_id){
+            question.text = event.target.value
+            this.setState(this.state)
+        }
+    })
+}
+```
+
+I cannot say I'm proud of this code. But I'm running on limited time and even more limited brain power. Things are a bit shakey overall, but I'm getting there. I'm parsing stuff out in the backend bit by bit and making good progress.
+
+![An IDE showing backend database code and a log where JSON is being parsed into readable log lines](img/jsonsoup.png)

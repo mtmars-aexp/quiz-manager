@@ -34,6 +34,12 @@ body {
   bottom: 15px;
 }
 
+.quiz-box .quiz-edit{
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
 .correct{
   background-color: lightgreen !important;
 }

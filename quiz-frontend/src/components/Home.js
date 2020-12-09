@@ -21,6 +21,9 @@ class Home extends Component{
                 <h1>This is the home page!</h1>
                 <h1>You have {this.state.quiz_data.length} quizzes available.</h1>
                 {this.state.quiz_data.map((element, index) => <QuizSelector key={index} name={element.name} description={element.description} quiz_id={element.quiz_id}/>)}
+                {parseInt(localStorage.getItem('privilege')) >= 3 ? 
+                <a href ={"/newQuiz/"}>New quiz!</a>
+                : ""}
             </div>
         )
     }

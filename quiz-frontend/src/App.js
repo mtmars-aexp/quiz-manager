@@ -6,6 +6,7 @@ import Error from './components/Error'
 import QuizPage from './components/QuizPage'
 import Navbar from './components/Navbar'
 import Login from './components/Login'
+import QuizEditPage from './components/QuizEditPage'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends React.Component{
@@ -60,6 +61,7 @@ class App extends React.Component{
               <Route path="/" exact component={Home} onEnter={this.requireAuth}/>
               <Route path="/secret" component={Secret} onEnter={this.requireAuth}/>
               <Route path="/quiz/:id" component={QuizPage}/>
+              <Route path="/editQuiz/:id" component={QuizEditPage}/>
               <Route component={Error}/>
             </Switch>
             : <Login handleLogin={this.handleLogin}/>}
