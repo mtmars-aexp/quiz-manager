@@ -1835,3 +1835,27 @@ Dope.
 Cripes, I think that's everything then? The only thing missing is an easy way to delete quizzes. You can actually delete quizzes if there's no questions attached to them, but a nice easy "delete" button would be a nicety I can try adding tomorrow.
 
 Alright, well, dang. Coffee break, and then I'll write some tests unless I remember anything vital.
+
+## Testing
+
+Wow! Testing time. Time to watch some tutorials and see how to write some tests for my front end.
+
+Double wow! I followed a tutorial and wrote a test. It's not very interesting but I did it! Look.
+
+![Screenshot of a successful unit test. true is tested to be truthy in this example](img/firsttest.png)
+
+I've gone and installed Enzyme, which I have used before, although I wasn't very good at it.
+
+![Screenshot of another unit test. It renders a react component and logs its text](img/enzyme.png)
+
+I had to install an unofficial adapter for React 17, as an official one does not yet exist. Right now the second test doesn't actually test anything, it just logs the text to the console. I'll do something with it in a second.
+
+Aaaand after shaking the cobwebs off my brain and doing a whole lot of Googling and watching a few tutorials, I think I've got it!
+
+![A proper unit test. It checks to see if 2 quiz selectors are rendered on the home page. The test is passing.](img/properunittest.png)
+
+My first successful unit test! It passes, and it checks something actually useful! Wowie.
+
+Wrote another Home test, then wrote some navbar tests. Doing good so far!
+
+![A screenshot of the unit tests for the navbar. All tests are passing.](img/navbar-tests.png)

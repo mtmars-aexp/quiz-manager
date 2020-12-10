@@ -5,7 +5,7 @@ class Home extends Component{
 
     constructor(props){
         super(props)
-        this.state = {quiz_data: [], quizzes: []}
+        this.state = {quiz_data: []}
     }
 
     componentDidMount() {
