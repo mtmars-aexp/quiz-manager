@@ -121,13 +121,13 @@ def update_quiz_information(quiz_id, name, description, questions, answers, dele
                 LOGGER.info("Ignoring padding object.")
             elif answer.get("answer_id") == 0 and answer.get("text") != "":
                 LOGGER.info(f"New answer found. Adding to database. Text: {answer.get('text')}")
-                cursor.execute("INSERT INTO Answers(question_id, text) VALUES(:question_id, :text);", {'question_id': question_id, 'text': answer.get('text')})
+                cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, :is_correct);", {'question_id': question_id, 'text': answer.get('text'), 'is_correct': answer.get('is_correct')})
             elif answer.get("answer_id") != 0 and answer.get("text") == "":
                 LOGGER.info(f"Answer deleted in frontend. Deleting in backend. ID: {answer.get('answer_id')}")
                 cursor.execute("DELETE FROM Answers WHERE answer_id = :answer_id", {'answer_id': answer.get('answer_id')})
             elif answer.get("answer_id") != 0 and answer.get("text") != "":
                 LOGGER.info(f"Valid answer provided. Updating in backend. Text: {answer.get('text')}")
-                cursor.execute("UPDATE Answers SET text = :text WHERE answer_id = :answer_id", {'text': answer.get("text"), 'answer_id': answer.get('answer_id')})
+                cursor.execute("UPDATE Answers SET text = :text, is_correct = :is_correct WHERE answer_id = :answer_id", {'text': answer.get("text"), 'answer_id': answer.get('answer_id'), 'is_correct': answer.get('is_correct')})
 
     for question in questions:
         if not question_already_exists(question.get('question_id')) and question.get("text") != "":
@@ -174,11 +174,15 @@ def add_quiz(name, description, questions, answers):
     LOGGER.info(f"New quiz ID: {new_quiz_id}")
 
     for question in questions:
+        LOGGER.info(f"Inserting question {question.get('question_id')}: {question.get('text')}")
         cursor.execute("INSERT INTO Questions(quiz_id, text) VALUES(:quiz_id, :text)", {'quiz_id': new_quiz_id, 'text': question.get('text')})
         for question_id, answerset in answers.items():
+            #LOGGER.info(f"Iterating over answersets. Current answerset: {answerset}")
             for answer in answerset:
                 if answer.get('text') == "": continue
-                cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, 0)", {'question_id': question_id, 'text': answer.get('text')})
+                if answer.get('question_id') != question.get('question_id'): continue
+                LOGGER.info(f"Inserting answer for question {question.get('question_id')}: {answer.get('text')}")
+                cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, :is_correct)", {'question_id': question.get('question_id'), 'text': answer.get('text'), 'is_correct': answer.get('is_correct')})
 
     LOGGER.info("New quiz created.")
 

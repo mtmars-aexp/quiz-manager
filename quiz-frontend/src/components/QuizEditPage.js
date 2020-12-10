@@ -21,6 +21,7 @@ class QuizEditPage extends React.Component{
         this.handleQuestionChange = this.handleQuestionChange.bind(this);
         this.handleQuestionDelete = this.handleQuestionDelete.bind(this);
         this.handleNewQuestion = this.handleNewQuestion.bind(this);
+        this.handleCorrectAnswerChange = this.handleCorrectAnswerChange.bind(this);
     }
 
     componentDidMount(){
@@ -32,6 +33,8 @@ class QuizEditPage extends React.Component{
                 }
                 )
             .catch(err => console.log(err))
+        } else {
+            this.setState({name: "New quiz."})
         }
     }
 
@@ -63,6 +66,11 @@ class QuizEditPage extends React.Component{
         })
     }
 
+    handleCorrectAnswerChange(updated_question_id, new_correct_answer_text){
+        this.state.answers[updated_question_id].forEach(answer => {answer.is_correct = 0; if(answer.text === new_correct_answer_text){ answer.is_correct = 1;}})
+        console.log(this.state.answers[updated_question_id])
+    }
+
     handleSubmit(event){
         console.log("Submitting state to database.")
         console.log(this.state)
@@ -85,22 +93,32 @@ class QuizEditPage extends React.Component{
             fetch("http://127.0.0.1:5000/api/questions/highest")
             .then(result => result.text())
             .then(result => {
-                this.setState({highest_known_question_id: parseInt(result) + 1})
+                var highest_known_question_id = parseInt(result) + 1
+                this.setState({highest_known_question_id: highest_known_question_id})
                 new_question.question_id = this.state.highest_known_question_id
                 var questions = this.state.questions
                 questions.push(new_question)
                 this.setState({questions: questions})
-                console.log("New question added from within async fetch, printing questions:")
+                console.log("New question added from within async fetch. ID is " + new_question.question_id + ". Printing questions:")
                 console.log(this.state.questions)
             })
             .catch(err => console.log(err))
         } else {
-            this.setState({highest_known_question_id: this.state.highest_known_question_id + 1})
-            new_question.question_id = this.state.highest_known_question_id;
+            console.log("Highest known ID already known.")
+            console.log(this.state.highest_known_question_id)
+            console.log("Incrementing by one.")
+            console.log("Before:")
+            console.log(this.state.highest_known_question_id)
+            console.log("After:")
+            console.log(this.state.highest_known_question_id + 1)
+            var highest_known_question_id = this.state.highest_known_question_id + 1
+            console.log(highest_known_question_id)
+            new_question.question_id = highest_known_question_id;
             var questions = this.state.questions
             questions.push(new_question)
             this.setState({questions: questions})
-            console.log("New question added. Printing questions:")
+            this.setState({highest_known_question_id: new_question.question_id})
+            console.log("New question added. New ID is " + new_question.question_id + ". Printing questions:")
             console.log(this.state.questions)
         }
 
@@ -114,7 +132,7 @@ class QuizEditPage extends React.Component{
                 Description:<input name = "description" value={this.state.description} onChange={this.handleQuizDetailsChange}></input><br></br>
                 <button onClick={this.handleSubmit}>Save changes.</button>
 
-                {this.state.questions.map((element, index) => <QuizEditBox handleQuestionDelete = {this.handleQuestionDelete} handleQuestionChange={this.handleQuestionChange} handleAnswerChange={this.handleAnswerChange} key={index} question_id={element.question_id} text={element.text}/>)}
+                {this.state.questions.map((element, index) => <QuizEditBox handleCorrectAnswerChange = {this.handleCorrectAnswerChange} handleQuestionDelete = {this.handleQuestionDelete} handleQuestionChange={this.handleQuestionChange} handleAnswerChange={this.handleAnswerChange} key={index} question_id={element.question_id} text={element.text}/>)}
 
                 <button onClick={this.handleNewQuestion}>New question.</button>
 

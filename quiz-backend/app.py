@@ -38,6 +38,12 @@ def new_quiz():
     questions = json.get('questions')
     answers = json.get('answers')
 
+    LOGGER.info("New quiz recieved")
+    LOGGER.info(f"Name: {name}")
+    LOGGER.info(f"Description: {description}")
+    LOGGER.info(f"Questions: {questions}")
+    LOGGER.info(f"Answers: {answers}")
+
     db.add_quiz(name, description, questions, answers)
 
     return "Quiz added", 200

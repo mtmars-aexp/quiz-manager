@@ -54,7 +54,7 @@ class App extends React.Component{
               <Route path="/" exact component={Home}/>
               <Route path="/secret" component={Secret}/>
               <Route path="/quiz/:id" component={QuizPage}/>
-              <Route path="/editQuiz/:id" component={() => <QuizEditPage mode={"edit"}/>}/>
+              <Route path="/editQuiz/:id" component={(matchProps) => <QuizEditPage {...matchProps} mode={"edit"}/>}/>
               <Route path="/newQuiz" component={() => <QuizEditPage mode={"new"}/>}/>
               <Route component={Error}/>
             </Switch>

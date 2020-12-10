@@ -1646,3 +1646,192 @@ I was supposed to have started testing today! And I'm sad that I didn't. The gro
 Users can create and edit quizzes. That's the main thing I needed to accomplish. I can't think of anything more I need to add, so I'll get started on testing as soon as I start tomorrow, unless I think of anything important.
 
 OH YEAH I FORGOT I STILL NEED TO MARK ANSWERS AS CORRECT, KIND OF THE WHOLE POINT OF A QUIZ REALLY GOSH DARN IT OKAY, I'LL NEED to do that tomorrow. God. Christ. Ugh. Ugh!!!!!!!!!!!!! Goodbye and I will see you tomorrow for day 4.
+
+# Day 4.
+
+Ugh.
+
+## Development.
+
+Uggggggggggggggghhhh I'm tired.
+
+Plan for the day:
+
+- Add a dropdown box to the question answer box. Its values are equal to every non empty string in the 5 answer boxes of a given question. When the value is updated, it sends the event value to the quiz page component, and the quiz page component looks through all the answers to find the one with matching text, then marks that answer as the correct one.
+- Then I do some testing and get an early night in the evening. Maybe have a little cry.
+
+### Setting the correct answer.
+
+Honestly wasn't too hard. Good start to the day. I just added a dropdown box that only contains non-empty strings and when the value is changed, the answer text is sent to the parent component where it'll loop through the answers it has and set is_correct to 0 if the text doesn't match and 1 if it does. Now to make sure this gets updated in the backend when it's saved.
+
+Backends updated. I tried making a new quiz but noticed more silliness. The quiz IDs aren't matching up properly. In the DB it got set as question 8 but the answers were linked to question 7. It's getting confused when I try to add a new question to the quiz and it's getting out of sync, so I should just have to fix that and things should be ok.
+
+Do you remember my "if highest known question ID === 0, fetch the value from the backend, otherwise increment it by one" code that I wasn't proud of? It was playing up again. I think it was something about getting the data from the state and assigning it to a variable that was causing it to fail to be incremented. Not really sure, but I rearranged some things and now it seems to be creating questions with unique IDs correctly. The console logs are to be removed, obviously.
+
+```js
+console.log("Highest known ID already known.")
+console.log(this.state.highest_known_question_id)
+console.log("Incrementing by one.")
+console.log("Before:")
+console.log(this.state.highest_known_question_id)
+console.log("After:")
+console.log(this.state.highest_known_question_id + 1)
+var highest_known_question_id = this.state.highest_known_question_id + 1
+console.log(highest_known_question_id)
+new_question.question_id = highest_known_question_id;
+var questions = this.state.questions
+questions.push(new_question)
+this.setState({questions: questions})
+this.setState({highest_known_question_id: new_question.question_id})
+console.log("New question added. New ID is " + new_question.question_id + ". Printing questions:")
+console.log(this.state.questions)
+```
+
+It technically Works but there's another error now, to the surprise of no one. It's happened a few times before and basically appeared on and off. So I didn't really want to talk about it without much to say but anyways:
+
+![A quiz with a duplicated set of answers](img/double-insertion.png)
+
+The answers are being double inserted into the database and I honestly don't know why.
+
+```py
+def add_quiz(name, description, questions, answers):
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
+
+    cursor.execute("INSERT INTO Quizzes(name, description) VALUES(:name, :description)", {'name': name, 'description': description})
+
+    new_quiz_id = cursor.execute("SELECT quiz_id from Quizzes ORDER BY quiz_id DESC LIMIT 1;").fetchone()["quiz_id"]
+
+    LOGGER.info(f"New quiz ID: {new_quiz_id}")
+
+    for question in questions:
+        cursor.execute("INSERT INTO Questions(quiz_id, text) VALUES(:quiz_id, :text)", {'quiz_id': new_quiz_id, 'text': question.get('text')})
+        for question_id, answerset in answers.items():
+            for answer in answerset:
+                if answer.get('text') == "": continue
+                cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, :is_correct)", {'question_id': question_id, 'text': answer.get('text'), 'is_correct': answer.get('is_correct')})
+
+    LOGGER.info("New quiz created.")
+
+    connection.commit()
+```
+
+My database code doesn't really look like it'd double-insert for any reason, so let's take a closer look.
+
+It looks like the duplication is equal to the amount of questions that there are, so this is probably a for loop gone awry.
+
+![A question with a normal amount of answers](img/scales-with-questions.png)
+
+That's a picture of a quiz with one question. It only has one set of answers, as it should. I'm going to throw down some log lines in the `add_quiz` code and see if it doubles down anywhere.
+
+```
+2020-12-10 :: 11:29:18.092 :: INFO :: New quiz ID: 4
+2020-12-10 :: 11:29:18.092 :: INFO :: Iterating over questions. Current question: {'question_id': 7, 'text': 'question one'}
+2020-12-10 :: 11:29:18.092 :: INFO :: Iterating over answersets. Current answerset: [{'is_correct': 0, 'text': 'answer one', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]
+2020-12-10 :: 11:29:18.093 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': 'answer one', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.093 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.093 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.094 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.094 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.094 :: INFO :: Iterating over answersets. Current answerset: [{'is_correct': 0, 'text': 'answer two', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}]
+2020-12-10 :: 11:29:18.094 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': 'answer two', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.095 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.095 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.095 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.095 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.096 :: INFO :: Iterating over questions. Current question: {'question_id': 8, 'text': 'question two'}
+2020-12-10 :: 11:29:18.096 :: INFO :: Iterating over answersets. Current answerset: [{'is_correct': 0, 'text': 'answer one', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}]
+2020-12-10 :: 11:29:18.096 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': 'answer one', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.096 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.097 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.097 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.097 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 7}
+2020-12-10 :: 11:29:18.097 :: INFO :: Iterating over answersets. Current answerset: [{'is_correct': 0, 'text': 'answer two', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}]
+2020-12-10 :: 11:29:18.098 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': 'answer two', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.098 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.098 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.099 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.099 :: INFO :: Iterating over answers. Current answer: {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 8}
+2020-12-10 :: 11:29:18.099 :: INFO :: New quiz created.
+```
+
+Oh, I see now. Duh. It's iterating over the entire answerset for every question that gets added, when it should only iterate over the answerset and act upon answersets with the correct corresponding question ID. Obviously.
+
+```
+2020-12-10 :: 11:32:30.886 :: INFO :: New quiz ID: 4
+2020-12-10 :: 11:32:30.886 :: INFO :: Inserting question: question one
+2020-12-10 :: 11:32:30.886 :: INFO :: Inserting answer: answer one
+2020-12-10 :: 11:32:30.887 :: INFO :: Inserting question: question two
+2020-12-10 :: 11:32:30.887 :: INFO :: Inserting answer: answer two
+2020-12-10 :: 11:32:30.887 :: INFO :: Inserting answer: answer three fo today
+2020-12-10 :: 11:32:30.887 :: INFO :: New quiz created.
+```
+
+Much better. Now it'll skip over answers in answersets that do not match the id of the question currently being iterated.
+
+Now, let's check the quiz and- oh god damnit.
+
+![A quiz. The answers for the questions are out of sync with eachother](img/outofsync.png)
+
+The answers are out of sync. Ughhhhhhhhhhhhhhhhhh.
+
+Looks to be like I was using the wrong `question_id` in my database transaction. Too scared to think about why I have two fields and one of them is off by one so I will simply use the correct one and try to forget this nightmare.
+
+![A quiz. Answers look normal.](img/better.png)
+
+There we go. I can now save newly created quizzes properly. Since I hate myself and love to suffer, I will now try and edit a few quizzes too to see if anything breaks.
+
+![A completed quiz. One question is wrong. There are more answers and questions than before](img/praisedalawd.png)
+
+I added some questions, changed some answers, and nothing broke. Holy hell. My heart was clenched in panic the whole time.
+
+Okay, okay okay okay. This is the 10th time I've said this now, no doubt, but. It looks like, finally, we can edit quizzes and create new ones. HOWEVER. The last thing we need to do: When you create a new question, the first answer must be chosen as the default "correct" answer. Currently, no answers are chosen as correct by default, which would make some questions impossible to guess correctly. Also, for preexisting questions, the value in the dropdown box must be set to the actual correct answer if one is present. Right now it's set to the first answer, which is incorrect 4/5ths of the time, statistically speaking.
+
+I diiiid iiiit~
+
+I added some code to set the first answer to a new question to be a non-empty string.
+
+```js
+for(var i = 0; i < 5; i++){
+    if(result[i] == undefined){
+        result[i] = {
+            is_correct: 0,
+            text: "",
+            answer_id: 0,
+            question_id: this.props.question_id
+        }
+
+    if(i == 0 && result[0].text == ""){
+        result[0].text = "Answer."
+    }
+```
+
+And I also made it so that if no "is_correct" is found (like when a new question is created), then the first answer will be marked as correct. Yay!
+
+```js
+// Now make sure the first answer is the correct one if there isn't an is_correct yet present
+var is_correct_found = false
+
+result.forEach(result => {if(result.is_correct === 1){
+    is_correct_found = true
+}})
+
+if(!is_correct_found){
+    result[0].is_correct = 1
+}
+```
+
+I've played around with editing and creating new quizzes. Nothing appears to be very noticably broken. Gold star for me! Oh, except for if you don't give the quiz a name then you can't click it on the home page. Let's add a default quiz name.
+
+```js
+} else {
+    this.setState({name: "New quiz."})
+}
+```
+
+Dope.
+
+Cripes, I think that's everything then? The only thing missing is an easy way to delete quizzes. You can actually delete quizzes if there's no questions attached to them, but a nice easy "delete" button would be a nicety I can try adding tomorrow.
+
+Alright, well, dang. Coffee break, and then I'll write some tests unless I remember anything vital.
