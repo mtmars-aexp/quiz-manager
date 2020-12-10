@@ -1859,3 +1859,10 @@ My first successful unit test! It passes, and it checks something actually usefu
 Wrote another Home test, then wrote some navbar tests. Doing good so far!
 
 ![A screenshot of the unit tests for the navbar. All tests are passing.](img/navbar-tests.png)
+
+I've written some more tests, and I've done the basics to know how to write a majority of tests.
+
+- Make sure things are rendered based on state data.
+- Make sure functions are called when things are clicked or changed.
+
+It'll be a doozey to write tests for the edit page, but nothing too complex hopefully.
