@@ -1866,3 +1866,9 @@ I've written some more tests, and I've done the basics to know how to write a ma
 - Make sure functions are called when things are clicked or changed.
 
 It'll be a doozey to write tests for the edit page, but nothing too complex hopefully.
+
+### I haven't been using subheadings like these today or writing much at all 'cus I was superrrr of out of it.
+
+It's almost clock-out time for me, so this is my "end of day 4 review." I'm super burned out!!! Three days of hard development mulched my brain. Luckily I'm on easy street now. I haven't finished writing all the front end tests nor started on my back end tests, but I'm positive I'll be able to get them done quick tomorrow. Writing the user guide should be easy. "Install npm and python, install the requirements, run the back end and front end, if you delete all questions on a quiz the quiz will also be deleted, here are the logins" etc etc.
+
+Righto, see you tomorrow then. Take care.
