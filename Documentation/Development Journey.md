@@ -1977,3 +1977,34 @@ My brain feels like sludge right now. Like when mince is made through a grinder 
 I'm writing a nice comfy ending word here as the remainder of my writing will be found exclusively in the user guide, AKA the README.md of this project.
 
 If you read all of the nearly 14k words of this dev journal, then I applaud you, but suggest your intense focus may be put to better use elsewhere.
+
+### One last thing (It's actually a few things)
+
+I decided to clean up npm compiler warnings and noticed "correct_answer_text" in the `QuizEditBox` wasn't actually being used, which means the dropdowns didn't have the correct default values when loaded in. Whoops! Fixed that, though, with a simple ternary.
+
+`<option selected={element.text === correct_answer_text}`
+
+Next, I wanted to add a logo (that could be changed for easy rebranding) that gets rendered onto every page. Let's see if I can do that.
+
+I did it!
+
+![A screenshot of the Quiz Manager app. There is a generic logo on the top right of the page](img/logo.png)
+
+I decided to render it on the app level so it exists on every page, like the navbar, and gave it absolute positioning with CSS so it stays where I say it should be.
+
+```css
+.logo {
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  z-index: -1;
+}
+```
+
+The logo file is called "logo.png" and is on the top level of the `src` folder. I did that specifically so it could be easily changed later (rebranding purposes, as mentioned in the original design doc).
+
+Well, that's everything then! I'm gonna test it a little more because I'd hate to submit something accidentally broken, maybe write some better tests. But besides that, time to get this bad boy submitted and dusted.
+
+Thank you for reading, and I hope you've enjoyed my quiz manager.
+
+Oh! I should change the page title and favicon too.

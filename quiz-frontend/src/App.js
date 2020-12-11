@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import QuizEditPage from './components/QuizEditPage'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Logo from './logo.png'
 
 class App extends React.Component{
 
@@ -49,6 +50,7 @@ class App extends React.Component{
       <Router>
           <div className="App">
             <Navbar handleLogout={this.handleLogout}/>
+            <img className = "logo" src={Logo} alt={"Company logo."}></img>
             {localStorage.getItem("authenticated") === "true" ?
             <Switch>
               <Route path="/" exact component={Home}/>

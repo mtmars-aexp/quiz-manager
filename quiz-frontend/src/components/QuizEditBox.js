@@ -21,7 +21,7 @@ class QuizEditBox extends React.Component{
         .then(result => {
 
             for(var i = 0; i < 5; i++){
-                if(result[i] == undefined){
+                if(result[i] === undefined){
                     result[i] = {
                         is_correct: 0,
                         text: "",
@@ -29,7 +29,7 @@ class QuizEditBox extends React.Component{
                         question_id: this.props.question_id
                     }
 
-                if(i == 0 && result[0].text == ""){
+                if(i === 0 && result[0].text === ""){
                     result[0].text = "Answer."
                 }
                 
@@ -82,8 +82,8 @@ class QuizEditBox extends React.Component{
                 Question: <input name={this.props.question_id} value={this.props.text} onChange={this.handleQuestionChange}/>
                 {this.state.answers.map((element, index) => <div> <input name={index} onChange={this.handleAnswerBoxChange} value={element.text}/><br/></div>)}
                 <a href = '#' onClick={this.handleQuestionDelete} className="quiz-edit">Delete</a>
-                Correct answer: <select onChange={this.handleCorrectAnswerChange} id={this.props.question_id}>
-                    {this.state.answers.filter(answer => answer.text !== "").map((element, index) => <option value={element.text}>{element.text}</option>)}
+                Correct answer: <select onChange={this.handleCorrectAnswerChange} id={this.props.question_id} >
+                    {this.state.answers.filter(answer => answer.text !== "").map((element, index) => <option selected={element.text === correct_answer_text} value={element.text}>{element.text}</option>)}
                 </select>
             </div>
         )
