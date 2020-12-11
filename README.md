@@ -81,7 +81,20 @@ Password: "7442"
 Permission level: Can take quizzes. Cannot view answers. Cannot edit or create new quizzes.
 ```
 
-Please login with a desired permission level and you will be taken to the home page. The home page lists all available quizzes. You can start a quiz by clicking on its name on the top left corner of the box.
+Please login with a desired permission level and you will be taken to the home page. The home page lists all available quizzes. You can start a quiz by clicking on its name on the top left corner of the grey box.
 
 ### Taking A Quiz
 
+The quiz will consist of several boxes each with one to five answers in them. Please click on the button you'd like to choose as your answer.
+
+If you have a permission level of 2 or greater, you may click the "Reveal answer" button to show the correct answer to any question. You can click the button again to hide the answer.
+
+Once you have answered every question, click the `"Count score!"` button at the bottom of the page. You may have to scroll down to see it. Your quiz will then be marked, and the boxes will turn either green or red depending on if you answered correctly or not. A total score will be displayed to the right of the `"Count score!"` button. After your score has been displayed, you can safely return to the home page via your browsers back button or the navigation bar at the top of the page.
+
+### Editing A Quiz
+
+If you have the highest permission level, quizzes on the home page will have an `"edit"` button on the bottom left of the grey selection box. You may click this button to be taken to a quiz editing page. Enter text into the relevant boxes at the top of the page to edit the quizzes name and description. You may edit the question, answers, and correct answer of any question by editing the fields on the page. You may delete questions by clicking the `"delete"` button.
+
+### Saving Your Changes
+
+Your changes when editing or creating a quiz are not saved automatically. You must click the `"Save changes"` button to save your changes to the system.
