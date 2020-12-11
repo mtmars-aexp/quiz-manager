@@ -90,7 +90,9 @@ def authenticate_user(username, password_hash):
     return cursor.fetchone()
 
 def update_quiz_information(quiz_id, name, description, questions, answers, deleted_questions):
-    cursor = get_cursor()
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
     cursor.execute("UPDATE Quizzes SET name = :name, description = :description WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id, 'name': name, 'description': description})
 
     if len(questions) == 0:
@@ -154,7 +156,9 @@ def get_highest_question_id():
     return cursor.fetchone()
 
 def add_quiz(name, description, questions, answers):
-    cursor = get_cursor()
+    connection = sqlite3.connect(db_name)
+    connection.row_factory = dict_factory
+    cursor = connection.cursor()
 
     cursor.execute("INSERT INTO Quizzes(name, description) VALUES(:name, :description)", {'name': name, 'description': description})
 
@@ -166,7 +170,6 @@ def add_quiz(name, description, questions, answers):
         LOGGER.info(f"Inserting question {question.get('question_id')}: {question.get('text')}")
         cursor.execute("INSERT INTO Questions(quiz_id, text) VALUES(:quiz_id, :text)", {'quiz_id': new_quiz_id, 'text': question.get('text')})
         for question_id, answerset in answers.items():
-            #LOGGER.info(f"Iterating over answersets. Current answerset: {answerset}")
             for answer in answerset:
                 if answer.get('text') == "": continue
                 if answer.get('question_id') != question.get('question_id'): continue
@@ -174,5 +177,4 @@ def add_quiz(name, description, questions, answers):
                 cursor.execute("INSERT INTO Answers(question_id, text, is_correct) VALUES(:question_id, :text, :is_correct)", {'question_id': question.get('question_id'), 'text': answer.get('text'), 'is_correct': answer.get('is_correct')})
 
     LOGGER.info("New quiz created.")
-
     connection.commit()

@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock, patch, MagicMock
 import database
 
 class TestDatabase(unittest.TestCase):
@@ -75,7 +75,22 @@ class TestDatabase(unittest.TestCase):
 
     #     self.assertEqual(database.(), expected)
 
+    @patch("database.sqlite3")
+    def test_add_quiz(self, sqlite3):
+        mockCursor = MagicMock()
+        mockCursor.fetchone.return_value = {"quiz_id": 216}
+        mockConnection = Mock()
+        mockConnection.cursor.return_value = mockCursor()
+        sqlite3.connect.return_value = mockConnection
+        database.add_quiz("test quiz", "description", [{'text': "beep"}, {'text': "boop"}], {})
 
+        mockConnection.commit.assert_called_once()
 
-
-        
+    @patch("database.sqlite3")
+    def test_add_quiz(self, sqlite3):
+        mockCursor = MagicMock()
+        mockConnection = Mock()
+        mockConnection.cursor.return_value = mockCursor()
+        sqlite3.connect.return_value = mockConnection
+        database.update_quiz_information(1, "updated quiz", "new description", [], {}, [])
+        mockConnection.commit.assert_called_once()         
