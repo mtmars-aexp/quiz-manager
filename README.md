@@ -2,6 +2,12 @@
  
 Hello, and welcome to the WebbiSkools Quiz Management Application. This tool was created to ease the creation and distribution of quizzes. Try it today!
 
+If you are viewing this README from an offline archive, consider looking at the online version: https://github.com/mtmars-aexp/quiz-manager
+
+Online, this markdown file has been automatically converted into user-friendly HTML, and my code repository contains a full list of commits (code changes) I have made during this project.
+
+Whether reading this online or offline, please read my development journey at `Documentation/Development Journey.md` for an extensive list of details following the development of this synoptic project.
+
 ## Requirements
 
 To run this application you will need the following programs installed on your local machine:
@@ -78,7 +84,7 @@ Permission level: Can take quizzes. Can reveal answers to quiz questions.
 
 Username: "chloe"
 Password: "7442"
-Permission level: Can take quizzes. Cannot view answers. Cannot edit or create new quizzes.
+Permission level: Can take quizzes. Cannot reveal answers. Cannot edit or create new quizzes.
 ```
 
 Please login with a desired permission level and you will be taken to the home page. The home page lists all available quizzes. You can start a quiz by clicking on its name on the top left corner of the grey box.
@@ -93,8 +99,16 @@ Once you have answered every question, click the `"Count score!"` button at the 
 
 ### Editing A Quiz
 
-If you have the highest permission level, quizzes on the home page will have an `"edit"` button on the bottom left of the grey selection box. You may click this button to be taken to a quiz editing page. Enter text into the relevant boxes at the top of the page to edit the quizzes name and description. You may edit the question, answers, and correct answer of any question by editing the fields on the page. You may delete questions by clicking the `"delete"` button.
+If you have the highest permission level, quizzes on the home page will have an `"edit"` button on the bottom left of the grey selection box. You may click this button to be taken to a quiz editing page. Enter text into the relevant boxes at the top of the page to edit the quizzes name and description. You may edit the question, answers, and correct answer of any question by editing the fields on the page. You may delete questions by clicking the `"delete"` button. Click the `"new question"` button to create another question. It will be automatically added to the end of the quiz.
+
+### Creating A New Quiz
+
+New quizzes can be created by clicking the `"New quiz"` button at the bottom of the home page if you have the highest permission level. A new quiz is identical in function to editing a quiz, though this time without prexisiting data. Enter text into the input fields just like editing a quiz in order to make a new one. You can create new questions, just like in edit mode, by clicking the `"new question"` button.
 
 ### Saving Your Changes
 
-Your changes when editing or creating a quiz are not saved automatically. You must click the `"Save changes"` button to save your changes to the system.
+Your changes when editing or creating a quiz are not saved automatically. You must click the `"Save changes"` button to save your changes to the system. After you have clicked that button, it will be safe to navigate away from the page.
+
+### Deleting A Quiz
+
+To delete a quiz entirely, please go into edit mode and delete all questions attached to the quiz, then save your changes.
