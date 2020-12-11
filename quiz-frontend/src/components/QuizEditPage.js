@@ -68,12 +68,9 @@ class QuizEditPage extends React.Component{
 
     handleCorrectAnswerChange(updated_question_id, new_correct_answer_text){
         this.state.answers[updated_question_id].forEach(answer => {answer.is_correct = 0; if(answer.text === new_correct_answer_text){ answer.is_correct = 1;}})
-        console.log(this.state.answers[updated_question_id])
     }
 
     handleSubmit(event){
-        console.log("Submitting state to database.")
-        console.log(this.state)
         if(this.props.mode === "edit"){
         fetch("http://127.0.0.1:5000/api/quizzes/" + this.props.match.params.id, {method: 'PUT', body: JSON.stringify(this.state), header:{'content-type': 'application/json'}})
         .catch(err => console.log(err))
@@ -99,27 +96,15 @@ class QuizEditPage extends React.Component{
                 var questions = this.state.questions
                 questions.push(new_question)
                 this.setState({questions: questions})
-                console.log("New question added from within async fetch. ID is " + new_question.question_id + ". Printing questions:")
-                console.log(this.state.questions)
             })
             .catch(err => console.log(err))
         } else {
-            console.log("Highest known ID already known.")
-            console.log(this.state.highest_known_question_id)
-            console.log("Incrementing by one.")
-            console.log("Before:")
-            console.log(this.state.highest_known_question_id)
-            console.log("After:")
-            console.log(this.state.highest_known_question_id + 1)
             var highest_known_question_id = this.state.highest_known_question_id + 1
-            console.log(highest_known_question_id)
             new_question.question_id = highest_known_question_id;
             var questions = this.state.questions
             questions.push(new_question)
             this.setState({questions: questions})
             this.setState({highest_known_question_id: new_question.question_id})
-            console.log("New question added. New ID is " + new_question.question_id + ". Printing questions:")
-            console.log(this.state.questions)
         }
 
     }

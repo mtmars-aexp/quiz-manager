@@ -16,7 +16,6 @@ class QuizEditBox extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Fetching answers for " + this.props.question_id)
         fetch("http://127.0.0.1:5000/api/answers/" + this.props.question_id)
         .then(result => result.json())
         .then(result => {
@@ -62,7 +61,6 @@ class QuizEditBox extends React.Component{
     }
 
     handleCorrectAnswerChange(event){
-        console.log("ITS HAPPENING")
         this.props.handleCorrectAnswerChange(event.target.id, event.target.value)
     }
 

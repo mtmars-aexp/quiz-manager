@@ -519,3 +519,33 @@
 2020-12-10 :: 12:07:09.722 :: INFO :: Answers are: {'9': [{'answer_id': 25, 'is_correct': 1, 'question_id': 9, 'text': 'Answer.'}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 9}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 9}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 9}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 9}], '10': [{'answer_id': 26, 'is_correct': 0, 'question_id': 10, 'text': 'Answer.'}, {'answer_id': 27, 'is_correct': 1, 'question_id': 10, 'text': "That's ok"}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 10}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 10}, {'is_correct': 0, 'text': '', 'answer_id': 0, 'question_id': 10}]}
 2020-12-10 :: 12:07:09.722 :: INFO :: Deleted questions are: [9, 10]
 2020-12-10 :: 12:07:09.725 :: INFO :: NO QUESTIONS ATTACHED TO QUIZ. DELETING QUIZ AND RETURNING EARLY.
+2020-12-11 :: 11:07:44.131 :: INFO :: Beginning migration...
+2020-12-11 :: 11:07:44.151 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.151 :: INFO :: Read file: res\M_0001_CREATE_SCHEMA.sql
+2020-12-11 :: 11:07:44.152 :: INFO :: Current hash: 54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5
+2020-12-11 :: 11:07:44.152 :: INFO :: Hash in database: {'hash': '54aeef4025da245263557fd508297ae711abe90e11c76d6eb1d03c7ea53b22c5'}
+2020-12-11 :: 11:07:44.159 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.170 :: INFO :: Read file: res\M_0002_ADD_AUTO_INCREMENT.sql
+2020-12-11 :: 11:07:44.170 :: INFO :: Current hash: a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a
+2020-12-11 :: 11:07:44.170 :: INFO :: Hash in database: {'hash': 'a82a74cb218ae150e6701420db5e779c0a7b297f02dbe23237ed45d6c3db224a'}
+2020-12-11 :: 11:07:44.176 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.177 :: INFO :: Read file: res\M_0003_ADD_TEST_DATA.sql
+2020-12-11 :: 11:07:44.177 :: INFO :: Current hash: a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b
+2020-12-11 :: 11:07:44.177 :: INFO :: Hash in database: {'hash': 'a582c1fea9383eeec6c5458578c52f2307cf0a8a1219db68576e779818ea4d5b'}
+2020-12-11 :: 11:07:44.185 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.195 :: INFO :: Read file: res\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql
+2020-12-11 :: 11:07:44.195 :: INFO :: Current hash: 54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0
+2020-12-11 :: 11:07:44.195 :: INFO :: Hash in database: {'hash': '54d64549f9d0b61b8f85dffe10a38e82669b00205d889bd5808a1679cbc89ed0'}
+2020-12-11 :: 11:07:44.202 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.211 :: INFO :: Read file: res\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql
+2020-12-11 :: 11:07:44.212 :: INFO :: Current hash: 2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b
+2020-12-11 :: 11:07:44.212 :: INFO :: Hash in database: {'hash': '2d0dc4f892d38cf0a737f158d00d8e148d4e8024143b477c1b4155137159691b'}
+2020-12-11 :: 11:07:44.219 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.228 :: INFO :: Read file: res\M_0006_ADD_MORE_TEST_DATA.sql
+2020-12-11 :: 11:07:44.229 :: INFO :: Current hash: 28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656
+2020-12-11 :: 11:07:44.229 :: INFO :: Hash in database: {'hash': '28ea0874d4fe0a093029607f2dcd73c716b42c7644e330d38dad86c601349656'}
+2020-12-11 :: 11:07:44.235 :: INFO :: ---------------------------
+2020-12-11 :: 11:07:44.245 :: INFO :: Read file: res\M_0007_ADD_USER_TABLE_AND_USERS.sql
+2020-12-11 :: 11:07:44.245 :: INFO :: Current hash: 0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96
+2020-12-11 :: 11:07:44.245 :: INFO :: Hash in database: {'hash': '0cfbdcd38bbd722f827fa78f48ddd821230bde2b83b2c7e61909fd77d188ad96'}
+2020-12-11 :: 11:07:44.246 :: INFO :: Migration complete. Migration files: ['res\\M_0001_CREATE_SCHEMA.sql', 'res\\M_0002_ADD_AUTO_INCREMENT.sql', 'res\\M_0003_ADD_TEST_DATA.sql', 'res\\M_0004_ADD_IS_CORRECT_COLUMN_TO_ANSWERS.sql', 'res\\M_0005_SET_IS_CORRECT_FOR_TEST_DATA.sql', 'res\\M_0006_ADD_MORE_TEST_DATA.sql', 'res\\M_0007_ADD_USER_TABLE_AND_USERS.sql']
