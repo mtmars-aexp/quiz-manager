@@ -2007,4 +2007,8 @@ Well, that's everything then! I'm gonna test it a little more because I'd hate t
 
 Thank you for reading, and I hope you've enjoyed my quiz manager.
 
-Oh! I should change the page title and favicon too.
+Oh! I should change the page title and favicon too. That's an easy change in the `index.html`.
+
+```js
+<title>WebbiSkools Quiz Manager</title>
+```
