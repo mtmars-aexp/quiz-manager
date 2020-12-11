@@ -1963,3 +1963,17 @@ class TestDatabase(unittest.TestCase):
 ```
 
 I am having somewhat of an existential crisis over writing a test that says "return this thing, then assert you returned this thing" but hey, if that test _does_ ever fail then I'll know something has gone horribly wrong.
+
+### All done!
+
+Wow. 7 tests written! My database access was much more liberal the amount of frontend code I wrote.
+
+And... Yeah! Sigh of relief. I have about 1 and a half hours to write the user guide, get it bundled up, and sent off. Wow. I made it.
+
+Y'know, there were a few times where I really thought I wouldn't. Especially since it took me half way through day 4 to _finish_ development, and bugs kept popping up and up right when I thought I'd fixed everything. It was scary! But now day 4 seems so long ago, despite it being yesterday...
+
+My brain feels like sludge right now. Like when mince is made through a grinder thing with the holes, or those videos of a pneumatic press squishing play dough. It feels this way when I've been doing a lot of thinking. It sucks to think my brain will start to deteriorate literally if I think too hard, but on the other hand my suffering is a sign of a job hopefully well done.
+
+I'm writing a nice comfy ending word here as the remainder of my writing will be found exclusively in the user guide, AKA the README.md of this project.
+
+If you read all of the nearly 14k words of this dev journal, then I applaud you, but suggest your intense focus may be put to better use elsewhere.
