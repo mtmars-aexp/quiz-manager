@@ -30,4 +30,10 @@ describe("The navbar", () => {
         const wrapper = shallow(<Navbar/>)
         expect(wrapper.text().includes('Welcome, 10121F')).toBe(true);
     });
+    it("Should call handleLogout when the logout button is clicked", () => {
+        const handleLogoutSpy = jest.fn();
+        const wrapper = shallow(<Navbar handleLogout={handleLogoutSpy}/>)
+        wrapper.find("a").last().simulate("click");
+        expect(handleLogoutSpy).toBeCalled();
+    });
 });

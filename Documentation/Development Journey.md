@@ -1872,3 +1872,61 @@ It'll be a doozey to write tests for the edit page, but nothing too complex hope
 It's almost clock-out time for me, so this is my "end of day 4 review." I'm super burned out!!! Three days of hard development mulched my brain. Luckily I'm on easy street now. I haven't finished writing all the front end tests nor started on my back end tests, but I'm positive I'll be able to get them done quick tomorrow. Writing the user guide should be easy. "Install npm and python, install the requirements, run the back end and front end, if you delete all questions on a quiz the quiz will also be deleted, here are the logins" etc etc.
 
 Righto, see you tomorrow then. Take care.
+
+# Day 5
+
+Welcome back to the last day! Testing and documentation awaits you if you read on.
+
+## Testing
+
+Let's get all these frontend tests finished up, then I can move to the backend.
+
+### QuizPage Tests: Complete
+
+I sure did complete 'em! There's not much to say. Here's a look at some of my QuizPage test code if you don't believe me.
+
+```js
+it('should call countScore when the count score button is clicked.', () => {
+
+    //Setup wrapper
+    const wrapper = shallow(<QuizPage match={{params: {id: 1}, isExact: true, path: "", url: ""}}/>);
+    wrapper.setState({'selected_answers': {"1": "1", "2": "1", "3": "1"}});
+
+    //Setup spy
+    const instance = wrapper.instance();
+    const countScoreSpy = jest.spyOn(instance, 'countScore')
+    wrapper.instance().forceUpdate();
+
+    //Assert
+    wrapper.find('button').first().simulate('click')
+    expect(countScoreSpy).toHaveBeenCalled();
+    expect(wrapper.state('score')).toBe(3);
+});
+```
+
+I am absolutely in love with Jest. Possibly my favourite test runner of all time. Just _look_ at it.
+
+![A screenshot of Jest's console output. It is colourful and has several informative unicode symbols.](img/jest.png)
+
+It's stylish, informative, verbose, and you can tell at a glance exactly what's being tested in plain English.
+
+Next test suite!
+
+### Login tests: Complete
+
+(Also, I added a new navbar test to ensure the "handleLogout" function is being called).
+
+Not much to say! I made sure the input fields were rendered and that they were calling the appropriate functions on change.
+
+```js
+it('should call handlePasswordChange when password input is changed', () => {
+    //Setup wrapper
+    const wrapper = mount(<Login/>)
+
+    //Change
+    wrapper.find("input").last().simulate('change', { target: { value: '5890' } })
+
+    //Assert
+    expect(wrapper.state('password')).toBe("5890");
+});
+```

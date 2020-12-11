@@ -6,7 +6,7 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 Enzyme.configure({adapter: new Adapter()});
 
-describe('The quiz page page', () => {
+describe('The quiz page', () => {
     it('should display the correct number of questions.', () => {
 
         //Setup test data
@@ -47,5 +47,30 @@ describe('The quiz page page', () => {
         wrapper.find('button').first().simulate('click')
         expect(countScoreSpy).toHaveBeenCalled();
         expect(wrapper.state('score')).toBe(3);
+    });
+    it('should display the quiz name.', () => {
+
+        //Setup test data
+        const quiz_information = {
+            name: "Test quiz!",
+            description: "This is a test quiz!",
+            questions: [
+                {
+                    text: "Question one.",
+                    question_id: 1
+                },
+                {
+                    text: "Question two.",
+                    question_id: 2
+                },
+            ]
+        }
+
+        //Setup wrapper and state
+        const wrapper = shallow(<QuizPage match={{params: {id: 1}, isExact: true, path: "", url: ""}}/>);
+        wrapper.setState({quiz_information: quiz_information})
+
+        //Assert
+        expect(wrapper.text().includes("Quiz name: Test quiz!")).toBe(true);
     });
 });
