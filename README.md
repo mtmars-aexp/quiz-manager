@@ -6,7 +6,7 @@ If you are viewing this README from an offline archive, consider looking at the 
 
 Online, this markdown file has been automatically converted into user-friendly HTML, and my code repository contains a full list of commits (code changes) I have made during this project.
 
-Whether reading this online or offline, please read my development journey at `Documentation/Development Journey.md` for an extensive list of details following the development of this synoptic project.
+Whether reading this online or offline, please read my development journey located at `Documentation/Development Journey.md` or online [here](https://github.com/mtmars-aexp/quiz-manager/blob/main/Documentation/Development%20Journey.md) for an extensive list of details following the development of this synoptic project.
 
 ## Requirements
 
