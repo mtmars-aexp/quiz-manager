@@ -58,44 +58,39 @@ def migrate():
     LOGGER.info(f"Migration complete. Migration files: {migration_files}")
     connection.close()
 
-def get_all_quizzes():
+def get_cursor():
     connection = sqlite3.connect(db_name)
     connection.row_factory = dict_factory
     cursor = connection.cursor()
+    return cursor
+
+def get_all_quizzes():
+    cursor = get_cursor()
     cursor.execute("SELECT * FROM Quizzes ORDER BY quiz_id ASC;")
     return cursor.fetchall()
 
 def get_all_quiz_questions(quiz_id: int):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT * FROM Questions WHERE quiz_id = :quiz_id ORDER BY quiz_id ASC", {'quiz_id': quiz_id})
     return cursor.fetchall()
 
 def get_quiz_info(quiz_id: int):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT name, description FROM Quizzes WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id})
     return cursor.fetchone()
 
 def get_all_question_answers(question_id: int):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT text, is_correct, answer_id, question_id FROM Answers WHERE question_id = :question_id ORDER BY answer_id ASC", {'question_id': question_id})
     return cursor.fetchall()
 
 def authenticate_user(username, password_hash):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT privilege_level FROM Users WHERE username = :username AND password = :password_hash", {'username': username, 'password_hash': password_hash})
     return cursor.fetchone()
 
 def update_quiz_information(quiz_id, name, description, questions, answers, deleted_questions):
-    connection = sqlite3.connect(db_name)
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("UPDATE Quizzes SET name = :name, description = :description WHERE quiz_id = :quiz_id", {'quiz_id': quiz_id, 'name': name, 'description': description})
 
     if len(questions) == 0:
@@ -149,23 +144,17 @@ def update_quiz_information(quiz_id, name, description, questions, answers, dele
     connection.commit()
 
 def question_already_exists(question_id):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT question_id FROM Questions WHERE question_id = :question_id;", {'question_id': question_id})
     return cursor.fetchone() is not None
 
 def get_highest_question_id():
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
     cursor.execute("SELECT question_id FROM Questions ORDER BY question_id DESC LIMIT 1;")
     return cursor.fetchone()
 
 def add_quiz(name, description, questions, answers):
-    connection = sqlite3.connect(db_name)
-    connection.row_factory = dict_factory
-    cursor = connection.cursor()
+    cursor = get_cursor()
 
     cursor.execute("INSERT INTO Quizzes(name, description) VALUES(:name, :description)", {'name': name, 'description': description})
 

@@ -1930,3 +1930,36 @@ it('should call handlePasswordChange when password input is changed', () => {
     expect(wrapper.state('password')).toBe("5890");
 });
 ```
+
+### All front end tests: Complete!
+
+It was mind numbing work, but I got it done.
+
+![A screenshot showing 32 passing React tests](img/frontendtests.png)
+
+Now onto the backend for some more tests. Then we can begin the user documentation.
+
+### Backend Tests
+
+Luckily, I'm familiar with these. A hobby project I'm involved in has a CI that demands 60% test coverage (and all unit tests to be passing). It's far more competent and well made than anything I've ever seen at my real job.
+
+```py
+import unittest
+from unittest.mock import Mock, patch
+import database
+
+class TestDatabase(unittest.TestCase):
+
+    @patch("database.get_cursor")
+    def test_get_all_quizzes(self, get_cursor):
+
+        expected = {"quiz_id": 1, "name": "Test quiz!", "description": "Beep boop!"}
+
+        mockedCursor = Mock()
+        mockedCursor.fetchall.return_value = expected
+        get_cursor.return_value = mockedCursor
+
+        self.assertEqual(database.get_all_quizzes(), expected)
+```
+
+I am having somewhat of an existential crisis over writing a test that says "return this thing, then assert you returned this thing" but hey, if that test _does_ ever fail then I'll know something has gone horribly wrong.
